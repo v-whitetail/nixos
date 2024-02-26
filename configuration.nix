@@ -63,6 +63,7 @@
       mako
       clang
       emacs
+      gitui
       bemenu
       nushell
       wayland
