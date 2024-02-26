@@ -65,6 +65,7 @@
       emacs
       gitui
       bemenu
+      zellij
       nushell
       wayland
       swaylock
