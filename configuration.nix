@@ -52,6 +52,10 @@
     config = { allowUnfree = true; };
   };
 
+  hardware = {
+    opengl = { enable = true; };
+  };
+
   environment = {
     systemPackages = with pkgs; [
       gcc
@@ -90,6 +94,9 @@
         enableSSHSupport = true;
       };
     };
+    thunar = { enable = true; };
+    thefuck = { enable = true; };
+    xwayland = { enable = true; };
   };
 
   services = {
