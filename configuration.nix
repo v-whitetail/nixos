@@ -28,12 +28,6 @@
     };
   };
 
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
-
   users = {
     defaultUserShell = pkgs.nushell;
     users.v = {
@@ -110,6 +104,10 @@
       alsa = { enable = true; };
       pulse = { enable = true; };
     };
+    xserver = {
+      layout = "us";
+      xkbVariant = "";
+    };
   };
 
   xdg = {
@@ -120,6 +118,6 @@
     };
   };
 
-  system.stateVersion = "23.11";
+  system = { stateVersion = "23.11"; };
 
 }
