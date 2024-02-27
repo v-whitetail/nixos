@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ./home-manager.nix ];
 
   time = { timeZone = "America/Eastern"; };
 
@@ -52,6 +52,10 @@
     config = { allowUnfree = true; };
   };
 
+  hardware = {
+    opengl = { enable = true; };
+  };
+
   environment = {
     systemPackages = with pkgs; [
       gcc
@@ -63,7 +67,9 @@
       mako
       clang
       emacs
+      gitui
       bemenu
+      zellij
       nushell
       wayland
       swaylock
@@ -88,6 +94,9 @@
         enableSSHSupport = true;
       };
     };
+    thunar = { enable = true; };
+    thefuck = { enable = true; };
+    xwayland = { enable = true; };
   };
 
   services = {
