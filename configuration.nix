@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./home-manager.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   time = { timeZone = "America/Eastern"; };
 
@@ -30,15 +30,17 @@
 
   users = {
     defaultUserShell = pkgs.nushell;
-    users.v = {
-      isNormalUser = true;
-      description = "v";
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
-        cargo
-        neovim
-        rustup
-      ];
+    users = {
+      v = {
+        isNormalUser = true;
+        description = "v";
+        extraGroups = [ "networkmanager" "wheel" ];
+        packages = with pkgs; [
+          cargo
+          neovim
+          rustup
+        ];
+      };
     };
   };
 
@@ -74,6 +76,10 @@
       wl-clipboard
       dracula-theme
     ];
+  };
+
+  security = {
+    polkit = { enable = true; };
   };
 
   programs = {
