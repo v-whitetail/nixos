@@ -25,12 +25,15 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.v = { pkgs, ... }: {
-                username = "v";
-                homeDirectory = /home/v;
-                packages = with pkgs; [
-                  alacritty
-		];
-                stateVersion = "23.11";
+                programs.home-manager.enable = true;
+                home = {
+                  username = "v";
+                  homeDirectory = "/home/v";
+                  packages = with pkgs; [
+                    alacritty
+		  ];
+                  stateVersion = "23.11";
+		};
 	      };
 	    };
 	  }
