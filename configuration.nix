@@ -85,7 +85,6 @@
         enableSSHSupport = true;
       };
     };
-    thunar = { enable = true; };
     xwayland = { enable = true; };
   };
 
@@ -119,7 +118,7 @@
 	      --user-menu \
 	      --asterisks \
 	      --cmd sway
-	      '';
+	    '';
 	};
       };
     };

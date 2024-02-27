@@ -34,6 +34,7 @@
 		  };
 		};
                 programs = {
+                  fzf = { enable = true; };
                   waybar = { enable = true; };
                   thefuck = { enable = true; };
                   home-manager = { enable = true; };
@@ -53,10 +54,12 @@
                     sway	# wayland & sway
                     mako
                     bemenu
+                    fuzzel
                     wayland
                     i3status
                     swaylock
                     swayidle
+                    libnotify
                     wdisplays
                     xdg-utils
                     wl-clipboard
