@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ./home-manager.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   time = { timeZone = "America/Eastern"; };
 
@@ -11,6 +11,33 @@
     loader = {
       systemd-boot = { enable = true; };
       efi = { canTouchEfiVariables = true; };
+    };
+    plymouth = { enable = true; };
+  };
+
+  hardware = {
+    opengl = { enable = true; };
+  };
+
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
+
+  nixpkgs = {
+    config = { allowUnfree = true; };
+  };
+
+  users = {
+    defaultUserShell = pkgs.nushell;
+    users = {
+      v = {
+        isNormalUser = true;
+        description = "v";
+        extraGroups = [ "networkmanager" "wheel" ];
+        packages = with pkgs; [ ];
+      };
     };
   };
 
@@ -28,34 +55,6 @@
     };
   };
 
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
-
-  users = {
-    defaultUserShell = pkgs.nushell;
-    users.v = {
-      isNormalUser = true;
-      description = "v";
-      extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
-        cargo
-        neovim
-        rustup
-      ];
-    };
-  };
-
-  nixpkgs = {
-    config = { allowUnfree = true; };
-  };
-
-  hardware = {
-    opengl = { enable = true; };
-  };
-
   environment = {
     systemPackages = with pkgs; [
       gcc
@@ -65,8 +64,6 @@
       sway
       wget
       mako
-      clang
-      emacs
       gitui
       bemenu
       zellij
@@ -74,12 +71,14 @@
       wayland
       swaylock
       swayidle
-      alacritty
       wdisplays
       xdg-utils
       wl-clipboard
-      dracula-theme
     ];
+  };
+
+  security = {
+    polkit = { enable = true; };
   };
 
   programs = {
@@ -99,6 +98,14 @@
     xwayland = { enable = true; };
   };
 
+  xdg = {
+    portal = {
+      enable = true;
+      wlr = { enable = true; };
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    };
+  };
+
   services = {
     dbus = { enable = true; };
     gnome = {
@@ -110,16 +117,17 @@
       alsa = { enable = true; };
       pulse = { enable = true; };
     };
-  };
-
-  xdg = {
-    portal = {
+    greetd = {
       enable = true;
-      wlr = { enable = true; };
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+      settings = {
+        default_session = {
+          user = "greeter";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --user-menu --asterisks --cmd sway";
+	};
+      };
     };
   };
 
-  system.stateVersion = "23.11";
+  system = { stateVersion = "23.11"; };
 
 }
