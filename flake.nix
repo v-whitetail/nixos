@@ -33,6 +33,19 @@
                     neovim
                     rustup
                     alacritty
+                    git
+                    sway
+                    mako
+                    gitui
+                    bemenu
+                    zellij
+                    nushell
+                    wayland
+                    swaylock
+                    swayidle
+                    wdisplays
+                    xdg-utils
+                    wl-clipboard
 		  ];
                   stateVersion = "23.11";
 		};
