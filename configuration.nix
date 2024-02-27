@@ -86,7 +86,6 @@
       };
     };
     thunar = { enable = true; };
-    thefuck = { enable = true; };
     xwayland = { enable = true; };
   };
 

@@ -34,8 +34,9 @@
 		  };
 		};
                 programs = {
-                  home-manager = { enable = true; };
                   waybar = { enable = true; };
+                  thefuck = { enable = true; };
+                  home-manager = { enable = true; };
                 };
                 home = {
                   username = "v";
@@ -59,9 +60,12 @@
                     wdisplays
                     xdg-utils
                     wl-clipboard
-                    dolphin	# flavor
+                    discord	# flavor
+                    dolphin
+                    firefox
                     shotman
                     variety
+                    discordo
 		  ];
                   stateVersion = "23.11";
 		};
