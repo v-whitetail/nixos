@@ -20,21 +20,20 @@
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.v = { pkgs, ... }: {
-              programs.home-manager = { enable = true; };
-              home = {
+	  {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.v = { pkgs, ... }: {
                 username = "v";
-                homeDirectory = "/home/v";
+                homeDirectory = /home/v;
                 packages = with pkgs; [
                   alacritty
 		];
                 stateVersion = "23.11";
 	      };
 	    };
-          }
+	  }
         ];
       };
     };

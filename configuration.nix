@@ -67,8 +67,6 @@
       sway
       wget
       mako
-      clang
-      emacs
       gitui
       bemenu
       zellij
@@ -76,7 +74,6 @@
       wayland
       swaylock
       swayidle
-      alacritty
       wdisplays
       xdg-utils
       wl-clipboard
