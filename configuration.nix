@@ -80,7 +80,6 @@
       wdisplays
       xdg-utils
       wl-clipboard
-      dracula-theme
     ];
   };
 
