@@ -102,6 +102,15 @@
     gnome = {
       gnome-keyring = { enable = true; };
     };
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          user = "greeter";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigrett --time --cmd sway";
+	};
+      };
+    };
     openssh = { enable = true; };
     pipewire = {
       enable = true;

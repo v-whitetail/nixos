@@ -25,7 +25,9 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.v = { pkgs, ... }: {
-                programs.home-manager.enable = true;
+                programs = {
+                  home-manager = { enable = true; };
+                };
                 home = {
                   username = "v";
                   homeDirectory = "/home/v";
@@ -40,6 +42,7 @@
                     bemenu
                     zellij
                     nushell
+                    variety
                     wayland
                     swaylock
                     swayidle
