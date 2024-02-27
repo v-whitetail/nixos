@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ./home-manager.nix ];
 
   time = { timeZone = "America/Eastern"; };
 
