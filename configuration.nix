@@ -116,10 +116,6 @@
       alsa = { enable = true; };
       pulse = { enable = true; };
     };
-    xserver = {
-      layout = "us";
-      xkbVariant = "";
-    };
   };
 
   xdg = {
