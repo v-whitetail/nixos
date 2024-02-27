@@ -63,17 +63,9 @@
       dbus
       sway
       wget
-      mako
       gitui
-      bemenu
-      zellij
       nushell
       wayland
-      swaylock
-      swayidle
-      wdisplays
-      xdg-utils
-      wl-clipboard
     ];
   };
 
@@ -122,7 +114,13 @@
       settings = {
         default_session = {
           user = "greeter";
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --user-menu --asterisks --cmd sway";
+          command = ''
+            ${pkgs.greetd.tuigreet}/bin/tuigreet \
+	      --time \
+	      --user-menu \
+	      --asterisks \
+	      --cmd sway
+	      '';
 	};
       };
     };

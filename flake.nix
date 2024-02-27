@@ -25,30 +25,43 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.v = { pkgs, ... }: {
+                wayland = {
+                  windowManager.sway = {
+                    enable = true;
+                    config = rec {
+                      modifier = "Mod4";
+		    };
+		  };
+		};
                 programs = {
                   home-manager = { enable = true; };
+                  waybar = { enable = true; };
                 };
                 home = {
                   username = "v";
                   homeDirectory = "/home/v";
                   packages = with pkgs; [
+                    gh		# terminal & tools
+                    git
+                    gitui
                     neovim
                     rustup
-                    alacritty
-                    git
-                    sway
-                    mako
-                    gitui
-                    bemenu
                     zellij
                     nushell
-                    variety
+                    alacritty
+                    sway	# wayland & sway
+                    mako
+                    bemenu
                     wayland
+                    i3status
                     swaylock
                     swayidle
                     wdisplays
                     xdg-utils
                     wl-clipboard
+                    dolphin	# flavor
+                    shotman
+                    variety
 		  ];
                   stateVersion = "23.11";
 		};
