@@ -12,6 +12,7 @@
       systemd-boot = { enable = true; };
       efi = { canTouchEfiVariables = true; };
     };
+    plymouth = { enable = true; };
   };
 
   hardware = {
@@ -97,19 +98,18 @@
     xwayland = { enable = true; };
   };
 
+  xdg = {
+    portal = {
+      enable = true;
+      wlr = { enable = true; };
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    };
+  };
+
   services = {
     dbus = { enable = true; };
     gnome = {
       gnome-keyring = { enable = true; };
-    };
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          user = "greeter";
-          command = "${pkgs.greetd.tuigreet}/bin/tuigrett --time --cmd sway";
-	};
-      };
     };
     openssh = { enable = true; };
     pipewire = {
@@ -117,13 +117,14 @@
       alsa = { enable = true; };
       pulse = { enable = true; };
     };
-  };
-
-  xdg = {
-    portal = {
+    greetd = {
       enable = true;
-      wlr = { enable = true; };
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+      settings = {
+        default_session = {
+          user = "greeter";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --user-menu --asterisks --cmd sway";
+	};
+      };
     };
   };
 
