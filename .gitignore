@@ -1,1 +1,5 @@
-.configuration.nix.swp
+*.swp
+**.swp
+*/*.swp
+**/*.swp
+**/**.swp
