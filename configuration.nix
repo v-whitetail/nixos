@@ -14,6 +14,32 @@
     };
   };
 
+  hardware = {
+    opengl = { enable = true; };
+  };
+
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
+
+  nixpkgs = {
+    config = { allowUnfree = true; };
+  };
+
+  users = {
+    defaultUserShell = pkgs.nushell;
+    users = {
+      v = {
+        isNormalUser = true;
+        description = "v";
+        extraGroups = [ "networkmanager" "wheel" ];
+        packages = with pkgs; [ ];
+      };
+    };
+  };
+
   networking = {
     hostName = "fogCanyon";
     networkmanager = { enable = true; };
@@ -26,36 +52,6 @@
       allowedTCPPorts = [ ];
       allowedUDPPorts = [ ];
     };
-  };
-
-  users = {
-    defaultUserShell = pkgs.nushell;
-    users = {
-      v = {
-        isNormalUser = true;
-        description = "v";
-        extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [
-          cargo
-          neovim
-          rustup
-        ];
-      };
-    };
-  };
-
-  nixpkgs = {
-    config = { allowUnfree = true; };
-  };
-
-  nix = {
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-    };
-  };
-
-  hardware = {
-    opengl = { enable = true; };
   };
 
   environment = {

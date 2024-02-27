@@ -30,6 +30,8 @@
                   username = "v";
                   homeDirectory = "/home/v";
                   packages = with pkgs; [
+                    neovim
+                    rustup
                     alacritty
 		  ];
                   stateVersion = "23.11";
