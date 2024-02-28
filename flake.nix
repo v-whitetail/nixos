@@ -53,6 +53,7 @@
                     alacritty
                     sway	# wayland & sway
                     mako
+                    swayr
                     bemenu
                     fuzzel
                     wayland
