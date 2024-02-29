@@ -64,12 +64,13 @@
                     wdisplays
                     xdg-utils
                     wl-clipboard
-                    discord	# flavor
+                    swaybg	# flavor
+                    discord
                     dolphin
                     firefox
                     shotman
-                    variety
                     discordo
+                    sunpaper
 		  ];
                   stateVersion = "23.11";
 		};
