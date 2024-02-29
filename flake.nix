@@ -20,7 +20,7 @@
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
-	  {
+          {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -30,20 +30,28 @@
                     enable = true;
                     config = rec {
                       modifier = "Mod4";
-		    };
-		  };
-		};
+                    };
+                  };
+                };
                 programs = {
-                  fzf = { enable = true; };
-                  waybar = { enable = true; };
-                  thefuck = { enable = true; };
-                  home-manager = { enable = true; };
+                  fzf.enable= true;
+                  waybar.enable= true;
+                  thefuck.enable= true;
+                  home-manager.enable= true;
+                  nushell = { 
+                    enable = true;
+                    shellAliases = {
+                      vim = "nvim ./";
+                      root = "cd /etc/nixos && sudo su";
+                    };
+                  };
                 };
                 home = {
                   username = "v";
                   homeDirectory = "/home/v";
                   packages = with pkgs; [
-                    gh		# terminal & tools
+                    # terminal & tools
+                    gh
                     git
                     gitui
                     neovim
@@ -51,7 +59,8 @@
                     zellij
                     nushell
                     alacritty
-                    sway	# wayland & sway
+                    # wayland & sway
+                    sway
                     mako
                     swayr
                     bemenu
@@ -64,19 +73,20 @@
                     wdisplays
                     xdg-utils
                     wl-clipboard
-                    swaybg	# flavor
+                    # flavor
+                    swaybg
                     discord
                     dolphin
                     firefox
                     shotman
                     discordo
                     sunpaper
-		  ];
+                    ];
                   stateVersion = "23.11";
-		};
-	      };
-	    };
-	  }
+                };
+              };
+            };
+          }
         ];
       };
     };

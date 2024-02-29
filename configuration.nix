@@ -17,6 +17,7 @@
 
   hardware = {
     opengl = { enable = true; };
+    trackpoint = { enable = true; };
   };
 
   nix = {
@@ -57,6 +58,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      fzf
       gcc
       git
       vim
