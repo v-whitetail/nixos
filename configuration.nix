@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -112,7 +112,7 @@
 	      --time \
 	      --user-menu \
 	      --asterisks \
-	      --cmd /etc/nixos/${home-manager.users.v.username}/startup.nu
+	      --cmd source $USER_HOME_DIR startup.nu
 	    '';
 	};
       };
