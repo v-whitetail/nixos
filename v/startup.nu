@@ -1,2 +1,2 @@
-#!/user/bin/env nu
-sway &
+#!/usr/bin/env nu
+exec sway &

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -112,7 +112,7 @@
 	      --time \
 	      --user-menu \
 	      --asterisks \
-	      --cmd sway
+	      --cmd /etc/nixos/${home-manager.users.v.username}/startup.nu
 	    '';
 	};
       };
