@@ -25,7 +25,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.v = { pkgs, ... }: {
-		imports = [ ./import-test.nix ];
+		imports = [ ./v.nix ];
               };
             };
           }
