@@ -18,6 +18,7 @@
       v-whitetail = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+	  ./test-flake
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -42,7 +43,7 @@
                     enable = true;
                     shellAliases = {
                       vim = "nvim ./";
-                      root = "cd /etc/nixos && sudo su";
+                      nixrc = "sudo nvim/etc/nixos";
                     };
                   };
                 };

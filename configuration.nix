@@ -3,31 +3,26 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  time = { timeZone = "America/Eastern"; };
-
-  i18n = { defaultLocale = "en_US.UTF-8"; };
+  time.timeZone = "America/Eastern";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   boot = {
-    loader = {
-      systemd-boot = { enable = true; };
-      efi = { canTouchEfiVariables = true; };
-    };
-    plymouth = { enable = true; };
+    plymouth.enable = true;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
   };
 
   hardware = {
-    opengl = { enable = true; };
-    trackpoint = { enable = true; };
+    opengl.enable = true;
+    trackpoint.enable = true;
   };
 
   nix = {
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-    };
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
   nixpkgs = {
-    config = { allowUnfree = true; };
+    config.allowUnfree = true;
   };
 
   users = {
@@ -44,7 +39,6 @@
 
   networking = {
     hostName = "fogCanyon";
-    networkmanager = { enable = true; };
     useDHCP = false;
     interfaces = {
       enp2s0 = { useDHCP = true; };
@@ -54,6 +48,7 @@
       allowedTCPPorts = [ ];
       allowedUDPPorts = [ ];
     };
+    networkmanager.enable = true;
   };
 
   environment = {
@@ -72,11 +67,11 @@
   };
 
   security = {
-    polkit = { enable = true; };
+    polkit.enable = true;
   };
 
   programs = {
-    mtr = { enable = true; };
+    mtr.enable = true;
     sway = {
       enable = true;
       wrapperFeatures = { gtk = true; };
@@ -87,27 +82,25 @@
         enableSSHSupport = true;
       };
     };
-    xwayland = { enable = true; };
+    xwayland.enable = true;
   };
 
   xdg = {
     portal = {
       enable = true;
-      wlr = { enable = true; };
+      wlr.enable = true;
       extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
     };
   };
 
   services = {
-    dbus = { enable = true; };
-    gnome = {
-      gnome-keyring = { enable = true; };
-    };
-    openssh = { enable = true; };
+    dbus.enable = true;
+    gnome.gnome-keyring.enable = true;
+    openssh.enable = true;
     pipewire = {
       enable = true;
-      alsa = { enable = true; };
-      pulse = { enable = true; };
+      alsa.enable = true;
+      pulse.enable = true;
     };
     greetd = {
       enable = true;
