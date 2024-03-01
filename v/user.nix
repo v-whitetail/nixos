@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   wayland = {
@@ -25,6 +25,7 @@
   home = {
     username = "v";
     homeDirectory = "/home/v";
+    activationScript = ./;
     packages = with pkgs; [
       # terminal & tools
       gh
