@@ -108,11 +108,7 @@
         default_session = {
           user = "greeter";
           command = ''
-            ${pkgs.greetd.tuigreet}/bin/tuigreet \
-	      --time \
-	      --user-menu \
-	      --asterisks \
-	      --cmd source $USER_HOME_DIR startup.nu
+            ${pkgs.greetd.gtkgrett}/bin/gtkgreet -l; swaymsg exit
 	    '';
 	};
       };
