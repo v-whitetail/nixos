@@ -108,7 +108,7 @@
         default_session = {
           user = "greeter";
           command = ''
-            ${pkgs.greetd.gtkgrett}/bin/gtkgreet -l; swaymsg exit
+            ${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit
 	    '';
 	};
       };
