@@ -18,7 +18,6 @@
       v-whitetail = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-	  ./test-flake
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -26,6 +25,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.v = { pkgs, ... }: {
+		imports = [ ./import-test.nix ];
                 wayland = {
                   windowManager.sway = {
                     enable = true;
