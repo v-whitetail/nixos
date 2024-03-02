@@ -63,7 +63,7 @@
       wget
       gitui
       nushell
-      wayland
+      catppuccin-sddm-corners
     ];
   };
 
@@ -114,7 +114,7 @@
 	enable = true;
 	autoNumlock = true;
 	wayland.enable = true;
-	theme = "tokyo-night-sddm";
+	theme = "catppuccin-sddm-corners";
       };
     };
   };
