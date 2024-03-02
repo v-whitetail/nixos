@@ -103,19 +103,18 @@
       alsa.enable = true;
       pulse.enable = true;
     };
-    greetd = {
+    xserver = {
       enable = true;
-      settings = {
-        default_session = {
-          user = "greeter";
-          command = ''
-            ${pkgs.greetd.tuigreet}/bin/tuigreet /
-              --time \ 
-              --user-menu \ 
-              --asterisks \ 
-              --cmd sway
-	    '';
-	};
+      libinput.enable = true;
+      xkb = {
+	variant = "";
+	layout = "us";
+      };
+      displayManager.sddm = {
+	enable = true;
+	autoNumlock = true;
+	wayland.enable = true;
+	theme = "tokyo-night-sddm";
       };
     };
   };

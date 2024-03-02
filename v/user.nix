@@ -10,9 +10,9 @@
     };
   };
   programs = {
-    fzf.enable= true;
-    waybar.enable= true;
-    thefuck.enable= true;
+    fzf.enable = true;
+    waybar.enable = true;
+    thefuck.enable = true;
     home-manager.enable= true;
     nushell = { 
       enable = true;
