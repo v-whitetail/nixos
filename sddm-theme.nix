@@ -3,10 +3,10 @@
 pkgs.stdenv.mkDerivation {
   name = "sddm-theme";
   src = pkgs.fetchFromGitHub {
-    owner = "aczw";
-    repo = "sddm-theme-corners";
-    rev = "6ff0ff455261badcae36cd7d151a34479f157a3c";
-    sha256 = "0iiasrbl7ciyhq3z02la636as915zk9ph063ac7vm5iwny8vgwh8";
+    owner = "MarianArlt";
+    repo = "sddm-sugar-dark";
+    rev = "ceb2c455663429be03ba62d9f898c571650ef7fe";
+    sha256 = "0153z1kylbhc9d12nxy9vpn0spxgrhgy36wy37pk6ysq7akaqlvy";
   };
   installPhase = ''
     mkdir -p $out

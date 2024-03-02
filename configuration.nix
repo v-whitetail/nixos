@@ -116,7 +116,7 @@
 	enable = true;
 	autoNumlock = true;
 	wayland.enable = true;
-	theme = "${import ./sddm-theme.nix {inherit pkgs; }}";
+	theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
       };
     };
   };
