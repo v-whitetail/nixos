@@ -20,41 +20,15 @@
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
-	  {
+          {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               users.v = { pkgs, ... }: {
-                programs = {
-                  home-manager = { enable = true; };
-                };
-                home = {
-                  username = "v";
-                  homeDirectory = "/home/v";
-                  packages = with pkgs; [
-                    neovim
-                    rustup
-                    alacritty
-                    git
-                    sway
-                    mako
-                    gitui
-                    bemenu
-                    zellij
-                    nushell
-                    variety
-                    wayland
-                    swaylock
-                    swayidle
-                    wdisplays
-                    xdg-utils
-                    wl-clipboard
-		  ];
-                  stateVersion = "23.11";
-		};
-	      };
-	    };
-	  }
+		imports = [ ./v/user.nix ];
+              };
+            };
+          }
         ];
       };
     };
