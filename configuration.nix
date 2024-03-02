@@ -3,7 +3,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  time.timeZone = "America/Eastern";
+  time.timeZone = "America/New-York";
   i18n.defaultLocale = "en_US.UTF-8";
 
   boot = {
@@ -108,7 +108,11 @@
         default_session = {
           user = "greeter";
           command = ''
-            ${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit
+            ${pkgs.greetd.tuigreet}/bin/tuigreet /
+              --time
+              --user-menu
+              --asterisks
+              --cmd sway
 	    '';
 	};
       };
