@@ -63,7 +63,9 @@
       wget
       gitui
       nushell
-      catppuccin-sddm-corners
+      libsForQt5.qt5.qtsvg
+      libsForQt5.qt5.graphicaleffects
+      libsForQt5.qt5.qtquickcontrols2
     ];
   };
 
@@ -75,7 +77,7 @@
     mtr.enable = true;
     sway = {
       enable = true;
-      wrapperFeatures = { gtk = true; };
+      wrapperFeatures.gtk = true;
     };
     gnupg = {
       agent = {
@@ -114,7 +116,7 @@
 	enable = true;
 	autoNumlock = true;
 	wayland.enable = true;
-	theme = "catppuccin-sddm-corners";
+	theme = "${import ./sddm-theme.nix {inherit pkgs; }}";
       };
     };
   };
