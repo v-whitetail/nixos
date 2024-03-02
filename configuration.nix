@@ -3,7 +3,8 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  time.timeZone = "America/New-York";
+  time.timeZone = "America/Eastern";
+  time.hardwareClockInLocalTime = true;
   i18n.defaultLocale = "en_US.UTF-8";
 
   boot = {
@@ -109,9 +110,9 @@
           user = "greeter";
           command = ''
             ${pkgs.greetd.tuigreet}/bin/tuigreet /
-              --time
-              --user-menu
-              --asterisks
+              --time \ 
+              --user-menu \ 
+              --asterisks \ 
               --cmd sway
 	    '';
 	};
