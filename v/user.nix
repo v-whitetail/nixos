@@ -36,7 +36,7 @@ in
 	  "${mod}+Return" = "exec ${term}";
 	  "${mod}+d" = "exec ${dmenu}";
 	  "${mod}+q" = "kill";
-	  "${mod}+h" = "splith";
+	  "${mod}+b" = "splith";
 	  "${mod}+v" = "splitv";
 	  "${mod}+f" = "fullscreen";
 	  "${mod}+s" = "layout toggle split";
