@@ -2,6 +2,7 @@
 
 let
   mod = "Mod4";
+  term = "alacritty";
 in
 {
   wayland = {
@@ -9,6 +10,8 @@ in
       enable = true;
       config = rec {
         modifier = mod;
+        terminal = term;
+        defaultWorkspace = "workspace number 0";
         gaps = {
 	  top = 8;
 	  left = 8;
@@ -21,7 +24,7 @@ in
 	  smartGaps = true;
 	};
 	keybindings = with pkgs; {
-	  "${mod}+Return" = "exec ${alacritty}/bin/alacritty";
+	  "${mod}+Return" = "${term}";
 	  "${mod}+q" = "kill";
 	};
       };
