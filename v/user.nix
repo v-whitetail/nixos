@@ -2,12 +2,12 @@
 
 let
   mod = "Mod4";
+  term = "rio";
   u_key = "k";
   d_key = "j";
   l_key = "h";
   r_key = "l";
-  term = "rio";
-  dmenu = "fuzzel";
+  d_menu = "fuzzel";
 in
 {
   wayland = {
@@ -19,7 +19,7 @@ in
         down = d_key;
         left = l_key;
         right = r_key;
-        menu = dmenu;
+        menu = d_menu;
         terminal = term;
         defaultWorkspace = "workspace number 1";
         gaps = {
@@ -32,9 +32,10 @@ in
 	  vertical = 8;
 	  horizontal = 8;
 	};
+	window.titlebar = false;
 	keybindings = with pkgs; {
 	  "${mod}+Return" = "exec ${term}";
-	  "${mod}+d" = "exec ${dmenu}";
+	  "${mod}+d" = "exec ${d_menu}";
 	  "${mod}+q" = "kill";
 	  "${mod}+b" = "splith";
 	  "${mod}+v" = "splitv";
@@ -84,8 +85,9 @@ in
     nushell = { 
       enable = true;
       shellAliases = {
-	vim = "nvim ./";
-	nixrc = "sudo nvim/etc/nixos";
+	":q" = "exit";
+	"vim" = "nvim ./";
+	"nixrc" = "sudo nvim/etc/nixos";
       };
     };
   };
