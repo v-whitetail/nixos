@@ -36,10 +36,10 @@ in
 	  "${mod}+Return" = "exec ${term}";
 	  "${mod}+d" = "exec ${dmenu}";
 	  "${mod}+q" = "kill";
-	  "${mod}+Shift+h" = "splith";
-	  "${mod}+Shift+v" = "splitv";
-	  "${mod}+Shift+f" = "fullscreen";
-	  "${mod}+Shift+s" = "layout toggle split";
+	  "${mod}+h" = "splith";
+	  "${mod}+v" = "splitv";
+	  "${mod}+f" = "fullscreen";
+	  "${mod}+s" = "layout toggle split";
 	  "${mod}+Shift+space" = "floating toggle";
 	  "${mod}+${u_key}" = "focus up";
 	  "${mod}+${d_key}" = "focus down";
