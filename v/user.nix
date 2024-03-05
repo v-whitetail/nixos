@@ -6,7 +6,7 @@ let
   d_key = "j";
   l_key = "h";
   r_key = "l";
-  term = "alacritty";
+  term = "rio";
   dmenu = "fuzzel";
 in
 {
@@ -74,10 +74,13 @@ in
     };
   };
   programs = {
+    rio.enable = true;
     fzf.enable = true;
+    gitui.enable = true;
     waybar.enable = true;
     thefuck.enable = true;
-    home-manager.enable= true;
+    alacritty.enable = true;
+    home-manager.enable = true;
     nushell = { 
       enable = true;
       shellAliases = {
@@ -97,7 +100,6 @@ in
       neovim
       rustup
       zellij
-      nushell
       alacritty
       # wayland & sway
       sway
