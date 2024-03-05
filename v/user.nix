@@ -1,11 +1,25 @@
 { config, pkgs, home-manager, ... }:
 
+let
+  mod = "Mod4";
+in
 {
   wayland = {
     windowManager.sway = {
       enable = true;
       config = rec {
-	modifier = "Mod4";
+        modifier = mod;
+        gaps = {
+	  top = 8;
+	  left = 8;
+	  inner = 8;
+	  outer = 8;
+	  right = 8;
+	  bottom = 8;
+	  vertical = 8;
+	  horizontal = 8;
+	  smartGaps = true;
+	};
       };
     };
   };
