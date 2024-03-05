@@ -20,6 +20,10 @@ in
 	  horizontal = 8;
 	  smartGaps = true;
 	};
+	keybindings = with pkgs; {
+	  "${mod}+Return" = "exec ${alacritty}/bin/alacritty";
+	  "${mod}+q" = "kill";
+	};
       };
     };
   };
