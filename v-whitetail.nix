@@ -2,7 +2,7 @@
 
 let
   mod = "Mod4";
-  term = "rio";
+  term = "alacritty";
   u_key = "k";
   d_key = "j";
   l_key = "h";

@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    nix-colors = {
+      url = "github:misterio77/nix-colors";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs = {
@@ -13,10 +16,11 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ...  }: {
+  outputs = inputs@{ self, nixpkgs, nix-colors, home-manager, ...  }: {
     nixosConfigurations = {
       v-whitetail = nixpkgs.lib.nixosSystem {
 	system = "x86_64-linux";
+	specialArgs = { inherit nix-colors; };
 	modules = [
 	  ./configuration.nix
 	  home-manager.nixosModules.home-manager
