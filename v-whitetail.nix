@@ -114,18 +114,22 @@ in
 	"fbuild" = "sudo nixos-rebuild --flake .#v-whitetail switch";
       };
       extraConfig = ''
+        $env.EDITOR = nvim
+        $env.PROMPT_INDICATOR_VI_INSERT = " 'i> "
+        $env.PROMPT_INDICATOR_VI_NORMAL = " 'n> "
+        $env.config = { show_banner: false, edit_mode: vi }
 	def "nu-wifi" [] {
 	  let wifi_scan = nmcli d wifi list
-	    let header_end = $wifi_scan | str index-of "\n"
-	    let header_row = $wifi_scan | str substring 0..$header_end
-	    let ssid_head = $header_row | str index-of " SSID"
-	    let ssid_tail = $header_row | str index-of " MODE"
-	    let scan_data = $wifi_scan  | str substring $header_end..
-	    let input_row = $scan_data  | fzf
-	    let wifi_name = $input_row  | str substring $ssid_head..$ssid_tail | str trim
-	    print "\t Input Password:"
-	    let pass_word = input -s
-	    nmcli d wifi connect $wifi_name password $pass_word
+	  let header_end = $wifi_scan | str index-of "\n"
+	  let header_row = $wifi_scan | str substring 0..$header_end
+	  let ssid_head = $header_row | str index-of " SSID"
+	  let ssid_tail = $header_row | str index-of " MODE"
+	  let scan_data = $wifi_scan  | str substring $header_end..
+	  let input_row = $scan_data  | fzf
+	  let wifi_name = $input_row  | str substring $ssid_head..$ssid_tail | str trim
+	  print "\t Input Password:"
+	  let pass_word = input -s
+	  nmcli d wifi connect $wifi_name password $pass_word
 	}
       '';
     };
