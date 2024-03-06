@@ -74,14 +74,25 @@ in
       };
     };
   };
+  services = {
+    mako.enable = true;
+    swayidle.enable = true;
+  };
   programs = {
     gh.enable = true;
     rio.enable = true;
     fzf.enable = true;
     gitui.enable = true;
+    swayr.enable = true;
+    fuzzel.enable = true;
+    neovim.enable = true;
     waybar.enable = true;
+    zellij.enable = true;
+    firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
+    i3status.enable = true;
+    swaylock.enable = true;
     alacritty.enable = true;
     home-manager.enable = true;
     git = {
@@ -123,36 +134,15 @@ in
     username = "v";
     homeDirectory = "/home/v";
     packages = with pkgs; [
-      # terminal & tools
-      gh
-      git
-      gitui
-      neovim
       rustup
-      zellij
-      alacritty
-      # wayland & sway
-      sway
-      mako
-      swayr
-      bemenu
-      fuzzel
-      wayland
-      i3status
-      swaylock
-      swayidle
+      swaybg
+      discord
+      dolphin
+      shotman
       libnotify
       wdisplays
       xdg-utils
       wl-clipboard
-      # flavor
-      swaybg
-      discord
-      dolphin
-      firefox
-      shotman
-      discordo
-      sunpaper
     ];
     stateVersion = "23.11";
   };
