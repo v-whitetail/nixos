@@ -75,6 +75,7 @@ in
     };
   };
   programs = {
+    gh.enable = true;
     rio.enable = true;
     fzf.enable = true;
     gitui.enable = true;
@@ -82,12 +83,23 @@ in
     thefuck.enable = true;
     alacritty.enable = true;
     home-manager.enable = true;
+    git = {
+      enable = true;
+      ignores = [ "*.swp", "*.swo" ];
+      userName = "v-whitetail";
+      userEmail = "white.tail.millwork@gmail.com";
+    };
     nushell = { 
       enable = true;
       shellAliases = {
 	":q" = "exit";
 	"vim" = "nvim ./";
-	"nixrc" = "sudo nvim/etc/nixos";
+	"cdnix" = "cd /home/v/crystalPeak/nixos";
+	"manix" = "man configuration.nix";
+	"honix" = "man home-configuration.nix";
+	"nixrc" = "nvim /home/v/crystalPeak/nixos";
+	"ftest" = "sudo nixos-rebuild --flake .#v-whitetail test";
+	"fbuild" = "sudo nixos-rebuild --flake .#v-whitetail switch";
       };
     };
   };
