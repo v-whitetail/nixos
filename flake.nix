@@ -25,7 +25,7 @@
 	      useGlobalPkgs = true;
 	      useUserPackages = true;
 	      users.v = { pkgs, ... }: {
-	        imports = [ ./v-whitetail.nix ./RustPackages/exa.nix ];
+	        imports = [ ./v-whitetail.nix ];
 	      };
 	    };
 	  }
