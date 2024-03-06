@@ -25,7 +25,7 @@
 	      useGlobalPkgs = true;
 	      useUserPackages = true;
 	      users.v = { pkgs, ... }: {
-	        imports = [ ./v/user.nix ];
+	        imports = [ ./v-whitetail.nix ];
 	      };
 	    };
 	  }
