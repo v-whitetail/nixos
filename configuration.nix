@@ -62,6 +62,8 @@
       sway
       wget
       gitui
+      rustc
+      cargo
       nushell
       libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtquickcontrols2
