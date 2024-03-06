@@ -3,7 +3,8 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  time.timeZone = "America/New-York";
+  time.timeZone = "America/Eastern";
+  time.hardwareClockInLocalTime = true;
   i18n.defaultLocale = "en_US.UTF-8";
 
   boot = {
@@ -30,7 +31,7 @@
     users = {
       v = {
         isNormalUser = true;
-        description = "v";
+        description = "v-whitetail";
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [ ];
       };
@@ -62,7 +63,9 @@
       wget
       gitui
       nushell
-      wayland
+      libsForQt5.qt5.qtsvg
+      libsForQt5.qt5.qtquickcontrols2
+      libsForQt5.qt5.qtgraphicaleffects
     ];
   };
 
@@ -74,7 +77,7 @@
     mtr.enable = true;
     sway = {
       enable = true;
-      wrapperFeatures = { gtk = true; };
+      wrapperFeatures.gtk = true;
     };
     gnupg = {
       agent = {
@@ -102,19 +105,18 @@
       alsa.enable = true;
       pulse.enable = true;
     };
-    greetd = {
+    xserver = {
       enable = true;
-      settings = {
-        default_session = {
-          user = "greeter";
-          command = ''
-            ${pkgs.greetd.tuigreet}/bin/tuigreet /
-              --time
-              --user-menu
-              --asterisks
-              --cmd sway
-	    '';
-	};
+      libinput.enable = true;
+      xkb = {
+	variant = "";
+	layout = "us";
+      };
+      displayManager.sddm = {
+	enable = true;
+	autoNumlock = true;
+	wayland.enable = true;
+	theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
       };
     };
   };

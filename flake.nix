@@ -13,23 +13,23 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ...  }: {
     nixosConfigurations = {
       v-whitetail = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.v = { pkgs, ... }: {
-		imports = [ ./v/user.nix ];
-              };
-            };
-          }
-        ];
+	system = "x86_64-linux";
+	modules = [
+	  ./configuration.nix
+	  home-manager.nixosModules.home-manager
+	  {
+	    home-manager = {
+	      useGlobalPkgs = true;
+	      useUserPackages = true;
+	      users.v = { pkgs, ... }: {
+	        imports = [ ./v-whitetail.nix ];
+	      };
+	    };
+	  }
+	];
       };
     };
   };

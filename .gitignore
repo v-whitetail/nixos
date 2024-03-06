@@ -4,7 +4,11 @@
 **/*.swp
 **/**.swp
 *.swo
-**.sw
-*/*.sw
-**/*.sw
-**/**.sw
+**.swo
+*/*.swo
+**/*.swo
+**/**.swo
+./zaneyos/
+./whiteFlake/
+zaneyos/
+result
