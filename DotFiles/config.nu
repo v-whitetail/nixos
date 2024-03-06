@@ -1,7 +1,3 @@
-$env.EDITOR = nvim
-$env.PROMPT_INDICATOR_VI_INSERT = " 'i> "
-$env.PROMPT_INDICATOR_VI_NORMAL = " 'n> "
-$env.config = { show_banner: false, edit_mode: vi }
 def "nu-wifi" [] {
   let wifi_scan = nmcli d wifi list
     let header_end = $wifi_scan | str index-of "\n"
@@ -17,15 +13,16 @@ def "nu-wifi" [] {
 }
 
 alias :q = exit
-alias cat = bat
-alias cdnix = cd /home/v/crystalPeak/nixos
-alias eza = eza 
-alias fbuild = sudo nixos-rebuild --flake .#v-whitetail switch
-alias ftest = sudo nixos-rebuild --flake .#v-whitetail test
-alias honix = man home-configuration.nix
 alias ls = eza
 alias lsa = eza -a
+alias cat = bat
+alias vim = nvim ./
+
+alias cdnix = cd /home/v/crystalPeak/nixos
+alias honix = man home-configuration.nix
 alias manix = man configuration.nix
 alias nixrc = nvim /home/v/crystalPeak/nixos
-alias vim = nvim ./
+
+alias ftest = sudo nixos-rebuild --flake .#v-whitetail test
+alias fbuild = sudo nixos-rebuild --flake .#v-whitetail switch
 

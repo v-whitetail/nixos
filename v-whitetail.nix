@@ -10,6 +10,60 @@ let
   d_menu = "fuzzel";
 in
 {
+  services = {
+    mako = {
+      enable = true;
+      defaultTimeout = 8000;
+    };
+    swayidle.enable = true;
+  };
+  home = {
+    username = "v";
+    homeDirectory = "/home/v";
+    packages = with pkgs; [
+      rustup
+      swaybg
+      discord
+      dolphin
+      shotman
+      libnotify
+      wdisplays
+      xdg-utils
+      wl-clipboard
+    ];
+    stateVersion = "23.11";
+  };
+  programs = {
+    gh.enable = true;
+    bat.enable = true;
+    eza.enable = true;
+    fzf.enable = true;
+    rio.enable = true;
+    gitui.enable = true;
+    swayr.enable = true;
+    fuzzel.enable = true;
+    neovim.enable = true;
+    waybar.enable = true;
+    zellij.enable = true;
+    firefox.enable = true;
+    ripgrep.enable = true;
+    thefuck.enable = true;
+    i3status.enable = true;
+    swaylock.enable = true;
+    alacritty.enable = true;
+    home-manager.enable = true;
+    nushell = { 
+      enable = true;
+      envFile.source = ./DotFiles/env.nu;
+      configFile.source = ./DotFiles/config.nu;
+    };
+    git = {
+      enable = true;
+      ignores = [ "*.swp" "*.swo" ];
+      userName = "v-whitetail";
+      userEmail = "white.tail.millwork@gmail.com";
+    };
+  };
   wayland = {
     windowManager.sway = {
       enable = true;
@@ -73,58 +127,5 @@ in
 	};
       };
     };
-  };
-  services = {
-    mako = {
-      enable = true;
-      defaultTimeout = 8000;
-    };
-    swayidle.enable = true;
-  };
-  programs = {
-    gh.enable = true;
-    bat.enable = true;
-    eza.enable = true;
-    fzf.enable = true;
-    rio.enable = true;
-    gitui.enable = true;
-    swayr.enable = true;
-    fuzzel.enable = true;
-    neovim.enable = true;
-    waybar.enable = true;
-    zellij.enable = true;
-    firefox.enable = true;
-    ripgrep.enable = true;
-    thefuck.enable = true;
-    i3status.enable = true;
-    swaylock.enable = true;
-    alacritty.enable = true;
-    home-manager.enable = true;
-    git = {
-      enable = true;
-      ignores = [ "*.swp" "*.swo" ];
-      userName = "v-whitetail";
-      userEmail = "white.tail.millwork@gmail.com";
-    };
-    nushell = { 
-      enable = true;
-      configFile.source = ./DotFiles/.nurc;
-    };
-  };
-  home = {
-    username = "v";
-    homeDirectory = "/home/v";
-    packages = with pkgs; [
-      rustup
-      swaybg
-      discord
-      dolphin
-      shotman
-      libnotify
-      wdisplays
-      xdg-utils
-      wl-clipboard
-    ];
-    stateVersion = "23.11";
   };
 }
