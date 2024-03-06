@@ -75,13 +75,17 @@ in
     };
   };
   services = {
-    mako.enable = true;
+    mako = {
+      enable = true;
+      defaultTimeout = 8000;
+    };
     swayidle.enable = true;
   };
   programs = {
     gh.enable = true;
-    rio.enable = true;
+    bat.enable = true;
     fzf.enable = true;
+    rio.enable = true;
     gitui.enable = true;
     swayr.enable = true;
     fuzzel.enable = true;
@@ -105,6 +109,7 @@ in
       enable = true;
       shellAliases = {
 	":q" = "exit";
+	"cat" = "bat";
 	"vim" = "nvim ./";
 	"cdnix" = "cd /home/v/crystalPeak/nixos";
 	"manix" = "man configuration.nix";
