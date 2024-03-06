@@ -31,7 +31,7 @@
     users = {
       v = {
         isNormalUser = true;
-        description = "v";
+        description = "v-whitetail";
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [ ];
       };

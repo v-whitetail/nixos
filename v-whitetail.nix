@@ -80,12 +80,13 @@ in
     fzf.enable = true;
     gitui.enable = true;
     waybar.enable = true;
+    ripgrep.enable = true;
     thefuck.enable = true;
     alacritty.enable = true;
     home-manager.enable = true;
     git = {
       enable = true;
-      ignores = [ "*.swp", "*.swo" ];
+      ignores = [ "*.swp" "*.swo" ];
       userName = "v-whitetail";
       userEmail = "white.tail.millwork@gmail.com";
     };
