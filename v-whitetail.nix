@@ -43,7 +43,6 @@ in
     rio.enable = true;
     gitui.enable = true;
     swayr.enable = true;
-    fuzzel.enable = true;
     neovim.enable = true;
     waybar.enable = true;
     firefox.enable = true;
@@ -52,6 +51,22 @@ in
     i3status.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
+    fuzzel = {
+      enable = true;
+      settings = {
+	main.prompt = "<&'i str>" ;
+	border.radius = 2;
+	colors = {
+	  text = "${palette.base06}AA";
+	  match = "${palette.base0D}FF";
+	  border = "${palette.base0E}FF";
+	  selection = "${palette.base06}44";
+	  background = "${palette.base00}AA";
+	  selection-text = "${palette.base0C}FF";
+	  selection-match = "${palette.base0D}FF";
+	};
+      };
+    };
     zellij = {
       enable = true;
       settings = {
