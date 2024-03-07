@@ -60,56 +60,56 @@ in
     swaylock.enable = true;
     home-manager.enable = true;
 #    nixvim.enable = true;
-#    neovim = {
-#      enable = true;
-#      viAlias = true;
-#      vimAlias = true;
-#      vimdiffAlias = true;
-#      defaultEditor = true;
-#      plugins = with pkgs.vimPlugins; [
-#        everforest
-#      ];
-#      extraLuaConfig = ''
-#        vim.cmd([[colorscheme everforest]])
-#	    vim.opt.nu = true
-#	    vim.opt.wrap = true
-#	    vim.opt.backup = false
-#	    vim.opt.tabstop = 4
-#	    vim.g.mapleader = " "
-#	    vim.opt.undodir = os.getenv("HOME").."/.vim/undodir"
-#	    vim.opt.undofile = true
-#	    vim.opt.swapfile = false
-#	    vim.opt.hlsearch = false
-#	    vim.opt.scrolloff = 8
-#	    vim.opt.expandtab = true
-#	    vim.opt.incsearch = true
-#	    vim.opt.shiftwidth = 4
-#	    vim.opt.updatetime = 50
-#	    vim.opt.softtabstop = 4
-#	    vim.opt.colorcolumn = "80"
-#	    vim.opt.smartindent = true
-#	    vim.opt.termguicolors = true
-#	    vim.opt.relativenumber = true
-#	    vim.keymap.set("i", "jf", "<Esc>")
-#	    vim.keymap.set("n", "fu", "<C-R>")
-#	    vim.keymap.set("n", "<leader>fl", "<C-w>l")
-#	    vim.keymap.set("n", "<leader>fh", "<C-w>h")
-#	    vim.keymap.set("n", "<leader>fk", "<C-w>k")
-#	    vim.keymap.set("n", "<leader>fj", "<C-w>j")
-#	    vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
-#	    vim.keymap.set("n", "<leader>term", vim.cmd.terminal)
-#	    vim.keymap.set("n", "<leader>split", vim.cmd.split)
-#	    vim.keymap.set("n", "<leader>vsplit", vim.cmd.vsplit)
-#	    vim.keymap.set("t", "jf", "<C-\\><C-n>", {noremap = true})
-#	    vim.keymap.set("n", "J", "mzJ`z")
-#	    vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-#	    vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-#	    vim.keymap.set("n", "<C-d>", "<C-d>zz")
-#	    vim.keymap.set("n", "<C-u>", "<C-u>zz")
-#	    vim.keymap.set("n", "<leader>com", "0t,2li<Enter><Esc>V=<Esc>")
-#	    vim.keymap.set("n", "<leader>per", "0t.a<Enter><Esc>V=q002t.a<Enter><Esc>V=q8@0")
-#      '';
-#    };
+    neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+      defaultEditor = true;
+      plugins = with pkgs.vimPlugins; [
+        everforest
+      ];
+      extraLuaConfig = ''
+        vim.cmd([[colorscheme everforest]])
+	    vim.opt.nu = true
+	    vim.opt.wrap = true
+	    vim.opt.backup = false
+	    vim.opt.tabstop = 4
+	    vim.g.mapleader = " "
+	    vim.opt.undodir = os.getenv("HOME").."/.vim/undodir"
+	    vim.opt.undofile = true
+	    vim.opt.swapfile = false
+	    vim.opt.hlsearch = false
+	    vim.opt.scrolloff = 8
+	    vim.opt.expandtab = true
+	    vim.opt.incsearch = true
+	    vim.opt.shiftwidth = 4
+	    vim.opt.updatetime = 50
+	    vim.opt.softtabstop = 4
+	    vim.opt.colorcolumn = "80"
+	    vim.opt.smartindent = true
+	    vim.opt.termguicolors = true
+	    vim.opt.relativenumber = true
+	    vim.keymap.set("i", "jf", "<Esc>")
+	    vim.keymap.set("n", "fu", "<C-R>")
+	    vim.keymap.set("n", "<leader>fl", "<C-w>l")
+	    vim.keymap.set("n", "<leader>fh", "<C-w>h")
+	    vim.keymap.set("n", "<leader>fk", "<C-w>k")
+	    vim.keymap.set("n", "<leader>fj", "<C-w>j")
+	    vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
+	    vim.keymap.set("n", "<leader>term", vim.cmd.terminal)
+	    vim.keymap.set("n", "<leader>split", vim.cmd.split)
+	    vim.keymap.set("n", "<leader>vsplit", vim.cmd.vsplit)
+	    vim.keymap.set("t", "jf", "<C-\\><C-n>", {noremap = true})
+	    vim.keymap.set("n", "J", "mzJ`z")
+	    vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+	    vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+	    vim.keymap.set("n", "<C-d>", "<C-d>zz")
+	    vim.keymap.set("n", "<C-u>", "<C-u>zz")
+	    vim.keymap.set("n", "<leader>com", "0t,2li<Enter><Esc>V=<Esc>")
+	    vim.keymap.set("n", "<leader>per", "0t.a<Enter><Esc>V=q002t.a<Enter><Esc>V=q8@0")
+      '';
+    };
     fuzzel = {
       enable = true;
       settings = {
