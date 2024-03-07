@@ -2,8 +2,6 @@
   pkgs,
   config,
   inputs,
-  nixvim,
-  nix-colors,
   home-manager,
   ...
 }:
@@ -18,8 +16,11 @@ let
   d_term = "alacritty";
 in
 {
-  imports = [ nix-colors.homeManagerModules.default ];
-  colorScheme = nix-colors.colorSchemes.everforest;
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
+  ];
+  colorScheme = inputs.nix-colors.colorSchemes.everforest;
   services = {
     mako = {
       enable = true;

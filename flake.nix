@@ -15,7 +15,6 @@
 
   outputs = inputs@{
     self,
-    nixvim,
     nixpkgs,
     nix-colors,
     home-manager,
@@ -31,7 +30,6 @@
             home-manager = {
               extraSpecialArgs = {
                 inherit inputs;
-                inherit nixvim;
                 inherit nix-colors;
               };
               useGlobalPkgs = true;
