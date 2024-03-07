@@ -103,17 +103,17 @@ in
     fuzzel = {
       enable = true;
       settings = {
-	main.prompt = "<&'i str>" ;
-	border.radius = 2;
-	colors = {
-	  background      = "${palette.base00}AA";
-	  border          = "${palette.base0F}FF";
-	  text            = "${palette.base06}AA";
-	  match           = "${palette.base0D}FF";
-	  selection       = "${palette.base06}44";
-	  selection-text  = "${palette.base0D}FF";
-	  selection-match = "${palette.base0A}FF";
-	};
+    	main.prompt = "<&'i str>" ;
+    	border.radius = 2;
+    	colors = {
+    	  background      = "${palette.base00}AA";
+    	  border          = "${palette.base0F}FF";
+    	  text            = "${palette.base06}AA";
+    	  match           = "${palette.base0D}FF";
+    	  selection       = "${palette.base06}44";
+    	  selection-text  = "${palette.base0D}FF";
+    	  selection-match = "${palette.base0A}FF";
+    	};
       };
     };
     zellij = {
