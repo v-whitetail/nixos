@@ -11,7 +11,7 @@ let
 in
 {
   imports = [ nix-colors.homeManagerModules.default ];
-  colorScheme = nix-colors.colorSchemes.oxocarbon-dark;
+  colorScheme = nix-colors.colorSchemes.lime;
   services = {
     mako = {
       enable = true;
@@ -35,7 +35,7 @@ in
     ];
     stateVersion = "23.11";
   };
-  programs = {
+  programs = let palette = config.colorScheme.palette; in {
     gh.enable = true;
     bat.enable = true;
     eza.enable = true;
@@ -52,8 +52,46 @@ in
     thefuck.enable = true;
     i3status.enable = true;
     swaylock.enable = true;
-    alacritty.enable = true;
     home-manager.enable = true;
+    alacritty = {
+      enable = true;
+      settings = {
+	font.size = 10;
+	window.opacity = 0.6;
+	live_config_reload = true;
+	colors = {
+	  bright = {
+	    red = "#${palette.base08}";
+	    blue = "#${palette.base0D}";
+	    cyan = "#${palette.base0C}";
+	    green = "#${palette.base0B}";
+	    white = "#${palette.base06}";
+	    black = "#${palette.base00}";
+	    yellow = "#${palette.base09}";
+	    magenta = "#${palette.base0E}";
+	  };
+	  cursor = {
+	    text = "#${palette.base06}";
+	    cursor = "#${palette.base06}";
+	  };
+	  normal = {
+	    red = "#${palette.base08}";
+	    blue = "#${palette.base0D}";
+	    cyan = "#${palette.base0C}";
+	    black = "#${palette.base00}";
+	    green = "#${palette.base0B}";
+	    white = "#${palette.base06}";
+	    yellow = "#${palette.base0A}";
+	    magenta = "#${palette.base0E}";
+	  };
+	  primary = {
+	    background = "#${palette.base00}";
+	    foreground = "#${palette.base06}";
+	  };
+	  draw_bold_text_with_bright_colors = true;
+	};
+      };
+    };
     nushell = { 
       enable = true;
       envFile.source = ./DotFiles/env.nu;
@@ -66,7 +104,7 @@ in
       userEmail = "white.tail.millwork@gmail.com";
     };
   };
-  wayland = {
+  wayland = let palette = config.colorScheme.palette; in {
     windowManager.sway = {
       enable = true;
       config = rec {
@@ -89,6 +127,44 @@ in
 	  horizontal = 8;
 	};
 	window.titlebar = false;
+	colors = {
+	  background = "#${palette.base00}";
+	  focused = {
+	    text = "#${palette.base06}";
+	    border = "#${palette.base0C}";
+	    indicator = "#${palette.base0B}";
+	    background = "#${palette.base0D}";
+	    childBorder = "#${palette.base0C}";
+	  };
+	  focusedInactive = {
+	    text = "#${palette.base06}";
+	    border = "#${palette.base00}";
+	    indicator = "#${palette.base00}";
+	    background = "#${palette.base00}";
+	    childBorder = "#${palette.base00}";
+	  };
+	  placeholder = {
+	    text = "#${palette.base06}";
+	    border = "#${palette.base06}";
+	    indicator = "#${palette.base06}";
+	    background = "#${palette.base06}";
+	    childBorder = "#${palette.base06}";
+	  };
+	  unfocused = {
+	    text = "#${palette.base06}";
+	    border = "#${palette.base00}";
+	    indicator = "#${palette.base00}";
+	    background = "#${palette.base00}";
+	    childBorder = "#${palette.base00}";
+	  };
+	  urgent = {
+	    text = "#${palette.base08}";
+	    border = "#${palette.base08}";
+	    indicator = "#${palette.base0E}";
+	    background = "#${palette.base0E}";
+	    childBorder = "#${palette.base0E}";
+	  };
+	};
 	keybindings = with pkgs; {
 	  "${mod}+Return" = "exec ${term}";
 	  "${mod}+d" = "exec ${d_menu}";
