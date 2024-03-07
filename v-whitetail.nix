@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, inputs, nix-colors, home-manager, ... }:
 
 let
   mod = "Mod4";
@@ -10,6 +10,8 @@ let
   d_menu = "fuzzel";
 in
 {
+  imports = [ nix-colors.homeManagerModules.default ];
+  colorScheme = nix-colors.colorSchemes.oxocarbon-dark;
   services = {
     mako = {
       enable = true;

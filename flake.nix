@@ -16,20 +16,25 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nix-colors, home-manager, ...  }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-colors, ...  }: {
     nixosConfigurations = {
       v-whitetail = nixpkgs.lib.nixosSystem {
 	system = "x86_64-linux";
-	specialArgs = { inherit nix-colors; };
 	modules = [
 	  ./configuration.nix
 	  home-manager.nixosModules.home-manager
 	  {
 	    home-manager = {
+	      extraSpecialArgs = {
+	        inherit inputs;
+		inherit nix-colors;
+	      };
 	      useGlobalPkgs = true;
 	      useUserPackages = true;
-	      users.v = { pkgs, ... }: {
-	        imports = [ ./v-whitetail.nix ];
+	      users.v = { pkgs, inputs, nix-colors, ... }: {
+	        imports = [
+		  ./v-whitetail.nix
+	        ];
 	      };
 	    };
 	  }
