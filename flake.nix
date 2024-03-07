@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
+    nix-colors = {
+      url = "github:misterio77/nix-colors";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs = {
@@ -13,7 +16,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ...  }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-colors, ...  }: {
     nixosConfigurations = {
       v-whitetail = nixpkgs.lib.nixosSystem {
 	system = "x86_64-linux";
@@ -22,11 +25,13 @@
 	  home-manager.nixosModules.home-manager
 	  {
 	    home-manager = {
+	      extraSpecialArgs = {
+	        inherit inputs;
+		inherit nix-colors;
+	      };
 	      useGlobalPkgs = true;
 	      useUserPackages = true;
-	      users.v = { pkgs, ... }: {
-	        imports = [ ./v-whitetail.nix ];
-	      };
+	      users.v = import ./v-whitetail.nix;
 	    };
 	  }
 	];

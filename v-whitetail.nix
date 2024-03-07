@@ -1,8 +1,8 @@
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, inputs, nix-colors, home-manager, ... }:
 
 let
   mod = "Mod4";
-  term = "rio";
+  term = "alacritty";
   u_key = "k";
   d_key = "j";
   l_key = "h";
@@ -10,7 +10,164 @@ let
   d_menu = "fuzzel";
 in
 {
-  wayland = {
+  imports = [ nix-colors.homeManagerModules.default ];
+  colorScheme = nix-colors.colorSchemes.lime;
+  services = {
+    mako = {
+      enable = true;
+      defaultTimeout = 8000;
+    };
+    swayidle.enable = true;
+  };
+  home = {
+    username = "v";
+    homeDirectory = "/home/v";
+    packages = with pkgs; [
+      rustup
+      swaybg
+      discord
+      dolphin
+      shotman
+      libnotify
+      wdisplays
+      xdg-utils
+      wl-clipboard
+    ];
+    stateVersion = "23.11";
+  };
+  programs = let palette = config.colorScheme.palette; in {
+    gh.enable = true;
+    bat.enable = true;
+    eza.enable = true;
+    fzf.enable = true;
+    rio.enable = true;
+    gitui.enable = true;
+    swayr.enable = true;
+    neovim.enable = true;
+    waybar.enable = true;
+    firefox.enable = true;
+    ripgrep.enable = true;
+    thefuck.enable = true;
+    i3status.enable = true;
+    swaylock.enable = true;
+    home-manager.enable = true;
+    fuzzel = {
+      enable = true;
+      settings = {
+	main.prompt = "<&'i str>" ;
+	border.radius = 2;
+	colors = {
+	  text = "${palette.base06}AA";
+	  match = "${palette.base0D}FF";
+	  border = "${palette.base0E}FF";
+	  selection = "${palette.base06}44";
+	  background = "${palette.base00}AA";
+	  selection-text = "${palette.base0C}FF";
+	  selection-match = "${palette.base0D}FF";
+	};
+      };
+    };
+    zellij = {
+      enable = true;
+      settings = {
+	theme = "nix-colors";
+	copy_command = "wl-copy";
+	default_shell = "nu";
+	themes.nix-colors.fg = "#${palette.base06}";
+	themes.nix-colors.bg = "#${palette.base00}";
+	themes.nix-colors.red = "#${palette.base08}";
+	themes.nix-colors.blue = "#${palette.base0D}";
+	themes.nix-colors.cyan = "#${palette.base0C}";
+	themes.nix-colors.black = "#${palette.base00}";
+	themes.nix-colors.green = "#${palette.base0B}";
+	themes.nix-colors.white = "#${palette.base06}";
+	themes.nix-colors.orange = "#${palette.base09}";
+	themes.nix-colors.yellow = "#${palette.base09}";
+	themes.nix-colors.magenta = "#${palette.base0E}";
+	ui.pane_frames.rounded_corners = true;
+	keybinds = {
+	  shared = {
+	    "unbind \"Ctrl g\"" = [];
+	    "unbind \"Ctrl p\"" = [];
+	    "unbind \"Ctrl t\"" = [];
+	    "unbind \"Ctrl n\"" = [];
+	    "unbind \"Ctrl h\"" = [];
+	    "unbind \"Ctrl s\"" = [];
+	    "unbind \"Ctrl o\"" = [];
+	    "unbind \"Ctrl q\"" = [];
+	  };
+	  normal = {
+	    "bind \"Alt t\"" = { SwitchToMode = "tab"; };
+	    "bind \"Alt p\"" = { SwitchToMode = "pane"; };
+	    "bind \"Alt h\"" = { SwitchToMode = "move"; };
+	    "bind \"Alt g\"" = { SwitchToMode = "locked"; };
+	    "bind \"Alt n\"" = { SwitchToMode = "resize"; };
+	    "bind \"Alt s\"" = { SwitchToMode = "search"; };
+	    "bind \"Alt o\"" = { SwitchToMode = "session"; };
+	    "bind \"Alt q\"" = { Quit = []; };
+	  };
+	  tab = { "bind \"Alt t\"" = { SwitchToMode = "normal"; }; };
+	  move = { "bind \"Alt h\"" = { SwitchToMode = "normal"; }; };
+	  pane = { "bind \"Alt p\"" = { SwitchToMode = "normal"; }; };
+	  locked = { "bind \"Alt g\"" = { SwitchToMode = "normal"; }; };
+	  resize = { "bind \"Alt n\"" = { SwitchToMode = "normal"; }; };
+	  search = { "bind \"Alt s\"" = { SwitchToMode = "normal"; }; };
+	  session = { "bind \"Alt o\"" = { SwitchToMode = "normal"; }; };
+	};
+      };
+    };
+    alacritty = {
+      enable = true;
+      settings = {
+	font.size = 10;
+	window.opacity = 0.6;
+	live_config_reload = true;
+	colors = {
+	  bright = {
+	    red = "#${palette.base08}";
+	    blue = "#${palette.base0D}";
+	    cyan = "#${palette.base0C}";
+	    black = "#${palette.base00}";
+	    green = "#${palette.base0B}";
+	    white = "#${palette.base06}";
+	    yellow = "#${palette.base09}";
+	    magenta = "#${palette.base0E}";
+	  };
+	  cursor = {
+	    text = "#${palette.base06}";
+	    cursor = "#${palette.base06}";
+	  };
+	  normal = {
+	    red = "#${palette.base08}";
+	    blue = "#${palette.base0D}";
+	    cyan = "#${palette.base0C}";
+	    black = "#${palette.base00}";
+	    green = "#${palette.base0B}";
+	    white = "#${palette.base06}";
+	    yellow = "#${palette.base0A}";
+	    magenta = "#${palette.base0E}";
+	  };
+	  primary = {
+	    background = "#${palette.base00}";
+	    foreground = "#${palette.base06}";
+	  };
+	  draw_bold_text_with_bright_colors = true;
+	};
+      };
+    };
+    nushell = { 
+      enable = true;
+      envFile.source = ./DotFiles/env.nu;
+      configFile.source = ./DotFiles/config.nu;
+    };
+    git = {
+      enable = true;
+      ignores = [ "*.swp" "*.swo" ];
+      userName = "v-whitetail";
+      userEmail = "white.tail.millwork@gmail.com";
+    };
+  };
+  wayland = let palette = config.colorScheme.palette; in {
     windowManager.sway = {
       enable = true;
       config = rec {
@@ -33,6 +190,44 @@ in
 	  horizontal = 8;
 	};
 	window.titlebar = false;
+	colors = {
+	  background = "#${palette.base00}";
+	  focused = {
+	    text = "#${palette.base06}";
+	    border = "#${palette.base0C}";
+	    indicator = "#${palette.base0B}";
+	    background = "#${palette.base0D}";
+	    childBorder = "#${palette.base0C}";
+	  };
+	  focusedInactive = {
+	    text = "#${palette.base06}";
+	    border = "#${palette.base00}";
+	    indicator = "#${palette.base00}";
+	    background = "#${palette.base00}";
+	    childBorder = "#${palette.base00}";
+	  };
+	  placeholder = {
+	    text = "#${palette.base06}";
+	    border = "#${palette.base06}";
+	    indicator = "#${palette.base06}";
+	    background = "#${palette.base06}";
+	    childBorder = "#${palette.base06}";
+	  };
+	  unfocused = {
+	    text = "#${palette.base06}";
+	    border = "#${palette.base00}";
+	    indicator = "#${palette.base00}";
+	    background = "#${palette.base00}";
+	    childBorder = "#${palette.base00}";
+	  };
+	  urgent = {
+	    text = "#${palette.base08}";
+	    border = "#${palette.base08}";
+	    indicator = "#${palette.base0E}";
+	    background = "#${palette.base0E}";
+	    childBorder = "#${palette.base0E}";
+	  };
+	};
 	keybindings = with pkgs; {
 	  "${mod}+Return" = "exec ${term}";
 	  "${mod}+d" = "exec ${d_menu}";
@@ -73,81 +268,5 @@ in
 	};
       };
     };
-  };
-  services = {
-    mako.enable = true;
-    swayidle.enable = true;
-  };
-  programs = {
-    gh.enable = true;
-    rio.enable = true;
-    fzf.enable = true;
-    gitui.enable = true;
-    swayr.enable = true;
-    fuzzel.enable = true;
-    neovim.enable = true;
-    waybar.enable = true;
-    zellij.enable = true;
-    firefox.enable = true;
-    ripgrep.enable = true;
-    thefuck.enable = true;
-    i3status.enable = true;
-    swaylock.enable = true;
-    alacritty.enable = true;
-    home-manager.enable = true;
-    git = {
-      enable = true;
-      ignores = [ "*.swp" "*.swo" ];
-      userName = "v-whitetail";
-      userEmail = "white.tail.millwork@gmail.com";
-    };
-    nushell = { 
-      enable = true;
-      shellAliases = {
-	":q" = "exit";
-	"vim" = "nvim ./";
-	"cdnix" = "cd /home/v/crystalPeak/nixos";
-	"manix" = "man configuration.nix";
-	"honix" = "man home-configuration.nix";
-	"nixrc" = "nvim /home/v/crystalPeak/nixos";
-	"ftest" = "sudo nixos-rebuild --flake .#v-whitetail test";
-	"fbuild" = "sudo nixos-rebuild --flake .#v-whitetail switch";
-      };
-      extraConfig = ''
-        $env.EDITOR = nvim
-        $env.PROMPT_INDICATOR_VI_INSERT = " 'i> "
-        $env.PROMPT_INDICATOR_VI_NORMAL = " 'n> "
-        $env.config = { show_banner: false, edit_mode: vi }
-	def "nu-wifi" [] {
-	  let wifi_scan = nmcli d wifi list
-	  let header_end = $wifi_scan | str index-of "\n"
-	  let header_row = $wifi_scan | str substring 0..$header_end
-	  let ssid_head = $header_row | str index-of " SSID"
-	  let ssid_tail = $header_row | str index-of " MODE"
-	  let scan_data = $wifi_scan  | str substring $header_end..
-	  let input_row = $scan_data  | fzf
-	  let wifi_name = $input_row  | str substring $ssid_head..$ssid_tail | str trim
-	  print "\t Input Password:"
-	  let pass_word = input -s
-	  nmcli d wifi connect $wifi_name password $pass_word
-	}
-      '';
-    };
-  };
-  home = {
-    username = "v";
-    homeDirectory = "/home/v";
-    packages = with pkgs; [
-      rustup
-      swaybg
-      discord
-      dolphin
-      shotman
-      libnotify
-      wdisplays
-      xdg-utils
-      wl-clipboard
-    ];
-    stateVersion = "23.11";
   };
 }

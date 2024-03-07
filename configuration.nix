@@ -3,7 +3,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  time.timeZone = "America/Eastern";
+  time.timeZone = "US/Eastern";
   time.hardwareClockInLocalTime = true;
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -62,6 +62,8 @@
       sway
       wget
       gitui
+      rustc
+      cargo
       nushell
       libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtquickcontrols2
@@ -97,6 +99,7 @@
   };
 
   services = {
+    ntp.enable = true;
     dbus.enable = true;
     gnome.gnome-keyring.enable = true;
     openssh.enable = true;
