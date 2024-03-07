@@ -11,7 +11,7 @@ let
 in
 {
   imports = [ nix-colors.homeManagerModules.default ];
-  colorScheme = nix-colors.colorSchemes.lime;
+  colorScheme = nix-colors.colorSchemes.everforest;
   services = {
     mako = {
       enable = true;
@@ -56,7 +56,11 @@ in
       vimAlias = true;
       vimdiffAlias = true;
       defaultEditor = true;
+      plugins = with pkgs.vimPlugins; [
+        everforest
+      ];
       extraLuaConfig = ''
+        vim.cmd([[colorscheme everforest]])
 	vim.opt.nu = true
 	vim.opt.wrap = true
 	vim.opt.backup = false
@@ -103,12 +107,12 @@ in
 	border.radius = 2;
 	colors = {
 	  background      = "${palette.base00}AA";
-	  border          = "${palette.base0E}FF";
+	  border          = "${palette.base0F}FF";
 	  text            = "${palette.base06}AA";
 	  match           = "${palette.base0D}FF";
 	  selection       = "${palette.base06}44";
-	  selection-text  = "${palette.base0C}FF";
-	  selection-match = "${palette.base0D}FF";
+	  selection-text  = "${palette.base0D}FF";
+	  selection-match = "${palette.base0A}FF";
 	};
       };
     };
@@ -169,32 +173,32 @@ in
 	live_config_reload = true;
 	colors = {
 	  bright = {
-	    red        = "#${palette.base08}";
-	    blue       = "#${palette.base0D}";
-	    cyan       = "#${palette.base0C}";
+	    red        = "#${palette.base0E}";
+	    blue       = "#${palette.base08}";
+	    cyan       = "#${palette.base0B}";
 	    black      = "#${palette.base00}";
-	    green      = "#${palette.base0B}";
+	    green      = "#${palette.base0D}";
 	    white      = "#${palette.base06}";
-	    yellow     = "#${palette.base09}";
-	    magenta    = "#${palette.base0E}";
+	    yellow     = "#${palette.base0A}";
+	    magenta    = "#${palette.base0F}";
 	  };
 	  cursor = {
 	    text       = "#${palette.base06}";
-	    cursor     = "#${palette.base06}";
+	    cursor     = "#${palette.base02}";
 	  };
 	  normal = {
-	    red        = "#${palette.base08}";
-	    blue       = "#${palette.base0D}";
-	    cyan       = "#${palette.base0C}";
+	    red        = "#${palette.base0E}";
+	    blue       = "#${palette.base08}";
+	    cyan       = "#${palette.base0B}";
 	    black      = "#${palette.base00}";
-	    green      = "#${palette.base0B}";
-	    white      = "#${palette.base06}";
+	    green      = "#${palette.base0D}";
+	    white      = "#${palette.base00}";
 	    yellow     = "#${palette.base0A}";
-	    magenta    = "#${palette.base0E}";
+	    magenta    = "#${palette.base0F}";
 	  };
 	  primary = {
 	    background = "#${palette.base00}";
-	    foreground = "#${palette.base06}";
+	    foreground = "#${palette.base05}";
 	  };
 	  draw_bold_text_with_bright_colors = true;
 	};
@@ -239,35 +243,35 @@ in
 	  background    = "#${palette.base00}";
 	  focused = {
 	    text        = "#${palette.base06}";
-	    border      = "#${palette.base0C}";
+	    border      = "#${palette.base0D}";
 	    indicator   = "#${palette.base0B}";
-	    background  = "#${palette.base0D}";
-	    childBorder = "#${palette.base0C}";
+	    background  = "#${palette.base00}";
+	    childBorder = "#${palette.base08}";
 	  };
 	  focusedInactive = {
-	    text        = "#${palette.base06}";
+	    text        = "#${palette.base03}";
 	    border      = "#${palette.base00}";
 	    indicator   = "#${palette.base00}";
 	    background  = "#${palette.base00}";
 	    childBorder = "#${palette.base00}";
 	  };
 	  placeholder = {
-	    text        = "#${palette.base06}";
-	    border      = "#${palette.base06}";
-	    indicator   = "#${palette.base06}";
-	    background  = "#${palette.base06}";
-	    childBorder = "#${palette.base06}";
+	    text        = "#${palette.base03}";
+	    border      = "#${palette.base00}";
+	    indicator   = "#${palette.base00}";
+	    background  = "#${palette.base00}";
+	    childBorder = "#${palette.base00}";
 	  };
 	  unfocused = {
-	    text        = "#${palette.base06}";
+	    text        = "#${palette.base03}";
 	    border      = "#${palette.base00}";
 	    indicator   = "#${palette.base00}";
 	    background  = "#${palette.base00}";
 	    childBorder = "#${palette.base00}";
 	  };
 	  urgent = {
-	    text        = "#${palette.base08}";
-	    border      = "#${palette.base08}";
+	    text        = "#${palette.base09}";
+	    border      = "#${palette.base0E}";
 	    indicator   = "#${palette.base0E}";
 	    background  = "#${palette.base0E}";
 	    childBorder = "#${palette.base0E}";
