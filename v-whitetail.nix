@@ -46,13 +46,29 @@ in
     fuzzel.enable = true;
     neovim.enable = true;
     waybar.enable = true;
-    zellij.enable = true;
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
     i3status.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
+    zellij = {
+      enable = true;
+      settings = {
+	theme = "nix-colors";
+	themes.nix-colors.fg = "#${palette.base06}";
+	themes.nix-colors.bg = "#${palette.base00}";
+	themes.nix-colors.red = "#${palette.base08}";
+	themes.nix-colors.blue = "#${palette.base0D}";
+	themes.nix-colors.cyan = "#${palette.base0C}";
+	themes.nix-colors.black = "#${palette.base00}";
+	themes.nix-colors.green = "#${palette.base0B}";
+	themes.nix-colors.white = "#${palette.base06}";
+	themes.nix-colors.orange = "#${palette.base09}";
+	themes.nix-colors.yellow = "#${palette.base09}";
+	themes.nix-colors.magenta = "#${palette.base0E}";
+      };
+    };
     alacritty = {
       enable = true;
       settings = {
@@ -64,9 +80,9 @@ in
 	    red = "#${palette.base08}";
 	    blue = "#${palette.base0D}";
 	    cyan = "#${palette.base0C}";
+	    black = "#${palette.base00}";
 	    green = "#${palette.base0B}";
 	    white = "#${palette.base06}";
-	    black = "#${palette.base00}";
 	    yellow = "#${palette.base09}";
 	    magenta = "#${palette.base0E}";
 	  };
