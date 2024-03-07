@@ -56,6 +56,8 @@ in
       enable = true;
       settings = {
 	theme = "nix-colors";
+	copy_command = "wl-copy";
+	default_shell = "nu";
 	themes.nix-colors.fg = "#${palette.base06}";
 	themes.nix-colors.bg = "#${palette.base00}";
 	themes.nix-colors.red = "#${palette.base08}";
@@ -67,6 +69,36 @@ in
 	themes.nix-colors.orange = "#${palette.base09}";
 	themes.nix-colors.yellow = "#${palette.base09}";
 	themes.nix-colors.magenta = "#${palette.base0E}";
+	ui.pane_frames.rounded_corners = true;
+	keybinds = {
+	  shared = {
+	    "unbind \"Ctrl g\"" = [];
+	    "unbind \"Ctrl p\"" = [];
+	    "unbind \"Ctrl t\"" = [];
+	    "unbind \"Ctrl n\"" = [];
+	    "unbind \"Ctrl h\"" = [];
+	    "unbind \"Ctrl s\"" = [];
+	    "unbind \"Ctrl o\"" = [];
+	    "unbind \"Ctrl q\"" = [];
+	  };
+	  normal = {
+	    "bind \"Alt t\"" = { SwitchToMode = "tab"; };
+	    "bind \"Alt p\"" = { SwitchToMode = "pane"; };
+	    "bind \"Alt h\"" = { SwitchToMode = "move"; };
+	    "bind \"Alt g\"" = { SwitchToMode = "locked"; };
+	    "bind \"Alt n\"" = { SwitchToMode = "resize"; };
+	    "bind \"Alt s\"" = { SwitchToMode = "search"; };
+	    "bind \"Alt o\"" = { SwitchToMode = "session"; };
+	    "bind \"Alt q\"" = { Quit = []; };
+	  };
+	  tab = { "bind \"Alt t\"" = { SwitchToMode = "normal"; }; };
+	  move = { "bind \"Alt h\"" = { SwitchToMode = "normal"; }; };
+	  pane = { "bind \"Alt p\"" = { SwitchToMode = "normal"; }; };
+	  locked = { "bind \"Alt g\"" = { SwitchToMode = "normal"; }; };
+	  resize = { "bind \"Alt n\"" = { SwitchToMode = "normal"; }; };
+	  search = { "bind \"Alt s\"" = { SwitchToMode = "normal"; }; };
+	  session = { "bind \"Alt o\"" = { SwitchToMode = "normal"; }; };
+	};
       };
     };
     alacritty = {
