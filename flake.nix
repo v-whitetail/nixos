@@ -31,11 +31,7 @@
 	      };
 	      useGlobalPkgs = true;
 	      useUserPackages = true;
-	      users.v = { pkgs, inputs, nix-colors, ... }: {
-	        imports = [
-		  ./v-whitetail.nix
-	        ];
-	      };
+	      users.v = import ./v-whitetail.nix;
 	    };
 	  }
 	];
