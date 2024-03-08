@@ -61,6 +61,9 @@ in
     home-manager.enable = true;
     nixvim = {
       enable = true;
+      plugins = {
+        harpoon.enable = true;
+      };
       colorschemes.base16.enable = true;
       colorschemes.base16.customColorScheme = {
         base00 = "#${palette.base00}";
@@ -132,7 +135,6 @@ in
         updatetime = 50;
         softtabstop = 4;
         colorcolumn = "80";
-        undodir = ''os.getenv("HOME").."/.vim/undodir"'';
       };
     };
     fuzzel = {
