@@ -60,6 +60,7 @@ in
     swaylock.enable = true;
     home-manager.enable = true;
     nixvim = {
+      enable = true;
       colorschemes.base16.enable = true;
       colorschemes.base16.customColorScheme = {
         base00 = "#${palette.base00}";
@@ -79,8 +80,40 @@ in
         base0E = "#${palette.base0E}";
         base0F = "#${palette.base0F}";
       };
+      globals.mapleader = " ";
+      keymaps = [
+      { mode = "i"; key = "jf"; action = "<Esc>"; }
+      { mode = "n"; key = "fu"; action = "<C-R>"; }
+      { mode = "n"; key = "<leader>fl"; action = "<C-w>l"; }
+      { mode = "n"; key = "<leader>fh"; action = "<C-w>h"; }
+      { mode = "n"; key = "<leader>fk"; action = "<C-w>k"; }
+      { mode = "n"; key = "<leader>fj"; action = "<C-w>j"; }
+      { mode = "n"; key = "<leader>fe"; action = ":Explore<CR>"; }
+      { mode = "n"; key = "<leader>term"; action = ":terminal<CR>"; }
+      { mode = "n"; key = "<leader>split"; action = ":split<CR>"; }
+      { mode = "n"; key = "<leader>vsplit"; action = ":vsplit<CR>"; }
+      { mode = "n"; key = "J"; action = "mzJ`z"; }
+      { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; }
+      { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; }
+      { mode = "n"; key = "<C-d>"; action = "<C-d>zz"; }
+      { mode = "n"; key = "<C-u>"; action = "<C-u>zz"; }
+      {
+        mode = "t";
+        key = "jf"; action = "<C-\\><C-n>";
+        options.noremap = true;
+      }
+      {
+        mode = "n";
+        key = "<leader>com";
+        action = "0t,2li<Enter><Esc>V=<Esc>";
+      }
+      {
+        mode = "n";
+        key = "<leader>per";
+        action = "0t.a<Enter><Esc>V=q002t.a<Enter><Esc>V=q8@0";
+      }
+      ];
     };
-    nixvim.enable = true;
 #    neovim = {
 #      enable = true;
 #      viAlias = true;
@@ -111,24 +144,6 @@ in
 #	    vim.opt.smartindent = true
 #	    vim.opt.termguicolors = true
 #	    vim.opt.relativenumber = true
-#	    vim.keymap.set("i", "jf", "<Esc>")
-#	    vim.keymap.set("n", "fu", "<C-R>")
-#	    vim.keymap.set("n", "<leader>fl", "<C-w>l")
-#	    vim.keymap.set("n", "<leader>fh", "<C-w>h")
-#	    vim.keymap.set("n", "<leader>fk", "<C-w>k")
-#	    vim.keymap.set("n", "<leader>fj", "<C-w>j")
-#	    vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
-#	    vim.keymap.set("n", "<leader>term", vim.cmd.terminal)
-#	    vim.keymap.set("n", "<leader>split", vim.cmd.split)
-#	    vim.keymap.set("n", "<leader>vsplit", vim.cmd.vsplit)
-#	    vim.keymap.set("t", "jf", "<C-\\><C-n>", {noremap = true})
-#	    vim.keymap.set("n", "J", "mzJ`z")
-#	    vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-#	    vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-#	    vim.keymap.set("n", "<C-d>", "<C-d>zz")
-#	    vim.keymap.set("n", "<C-u>", "<C-u>zz")
-#	    vim.keymap.set("n", "<leader>com", "0t,2li<Enter><Esc>V=<Esc>")
-#	    vim.keymap.set("n", "<leader>per", "0t.a<Enter><Esc>V=q002t.a<Enter><Esc>V=q8@0")
 #      '';
 #    };
     fuzzel = {
