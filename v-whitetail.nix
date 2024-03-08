@@ -86,8 +86,23 @@ in
         colorcolumn = "80";
       };
       plugins = {
-        harpoon.enable = true;
+        fidget.enable = true;
+        bufferline.enable = true;
+        crates-nvim.enable = true;
+        harpoon = {
+          enable = true;
+          keymaps.addFile = "<leader>had";
+          keymaps.toggleQuickMenu = "<leader>har";
+          keymaps.navFile = {
+            "1" = "<leader>1";
+            "2" = "<leader>2";
+            "3" = "<leader>3";
+            "4" = "<leader>4";
+          };
+        };
       };
+      extraPlugins = with pkgs.vimPlugins; [
+      ];
       colorschemes.base16.enable = true;
       colorschemes.base16.customColorScheme = {
         base00 = "#${palette.base00}";
