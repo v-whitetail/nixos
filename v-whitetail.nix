@@ -36,7 +36,8 @@ in
       swaybg
       discord
       dolphin
-      shotman
+      variety
+      flameshot
       libnotify
       wdisplays
       xdg-utils
@@ -209,40 +210,40 @@ in
     alacritty = {
       enable = true;
       settings = {
-	font.size = 10;
-	window.opacity = 0.8;
-	live_config_reload = true;
-	colors = {
-	  bright = {
-	    red        = "#${palette.base0E}";
-	    blue       = "#${palette.base08}";
-	    cyan       = "#${palette.base0B}";
-	    black      = "#${palette.base00}";
-	    green      = "#${palette.base0D}";
-	    white      = "#${palette.base06}";
-	    yellow     = "#${palette.base0A}";
-	    magenta    = "#${palette.base0F}";
-	  };
-	  cursor = {
-	    text       = "#${palette.base06}";
-	    cursor     = "#${palette.base02}";
-	  };
-	  normal = {
-	    red        = "#${palette.base0E}";
-	    blue       = "#${palette.base08}";
-	    cyan       = "#${palette.base0B}";
-	    black      = "#${palette.base00}";
-	    green      = "#${palette.base0D}";
-	    white      = "#${palette.base00}";
-	    yellow     = "#${palette.base0A}";
-	    magenta    = "#${palette.base0F}";
-	  };
-	  primary = {
-	    background = "#${palette.base00}";
-	    foreground = "#${palette.base05}";
-	  };
-	  draw_bold_text_with_bright_colors = true;
-	};
+	    font.size = 10;
+	    window.opacity = 0.85;
+	    live_config_reload = true;
+	    colors = {
+	      bright = {
+	        red        = "#${palette.base08}";
+	        blue       = "#${palette.base0D}";
+	        cyan       = "#${palette.base0C}";
+	        black      = "#${palette.base00}";
+	        green      = "#${palette.base0B}";
+	        white      = "#${palette.base07}";
+	        yellow     = "#${palette.base0A}";
+	        magenta    = "#${palette.base0F}";
+	      };
+	      cursor = {
+	        text       = "#${palette.base06}";
+	        cursor     = "#${palette.base04}";
+	      };
+	      normal = {
+	        red        = "#${palette.base08}";
+	        blue       = "#${palette.base0D}";
+	        cyan       = "#${palette.base0C}";
+	        black      = "#${palette.base00}";
+	        green      = "#${palette.base0B}";
+	        white      = "#${palette.base07}";
+	        yellow     = "#${palette.base0A}";
+	        magenta    = "#${palette.base0F}";
+	      };
+	      primary = {
+	        background = "#${palette.base02}";
+	        foreground = "#${palette.base07}";
+	      };
+	      draw_bold_text_with_bright_colors = true;
+	    };
       };
     };
     nushell = { 
