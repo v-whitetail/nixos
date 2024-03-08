@@ -1,4 +1,4 @@
-def "nu-wifi" [] {
+def nu-wifi [] {
   let wifi_scan = nmcli d wifi list
     let header_end = $wifi_scan | str index-of "\n"
     let header_row = $wifi_scan | str substring 0..$header_end
@@ -10,6 +10,41 @@ def "nu-wifi" [] {
     print "\t Input Password:"
     let pass_word = input -s
     nmcli d wifi connect $wifi_name password $pass_word
+}
+
+def nu-gc [upper_bound: int] {
+
+  let range = seq 2 $upper_bound
+  let links = ls | $in
+                 | split row -r "\n"
+                 | split column -r " "
+                 | get column1
+
+  $links | each { |link_name|
+    $range | each { |link_index|
+      if ($link_name | str contains $"system-($link_index)-") {
+        print $link_name
+        break
+      }
+    }
+  } | ignore
+
+  print "Comfirm Delete? [yes/no]"
+  let confirm = (input)
+
+  match $confirm {
+    "yes" => {
+      $links | each { |link_name|
+        $range | each { |link_index|
+          if ($link_name | str contains $"system-($link_index)-") {
+            sudo rm $link_name
+          }
+        }
+      } | ignore
+    }
+    _ => { print "aborting garbage collector" }
+
+  }
 }
 
 alias :q = exit
