@@ -32,12 +32,9 @@ in
     username = "v";
     homeDirectory = "/home/v";
     packages = with pkgs; [
-      feh
       rustup
-      swaybg
       discord
       dolphin
-      (variety.override{fehSupport = true;})
       flameshot
       libnotify
       wdisplays
@@ -61,6 +58,10 @@ in
     i3status.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
+    wpaperd = {
+      enable = true;
+      settings.default.path = "/home/v/Pictures/Wallpapers";
+    };
     nixvim = {
       enable = true;
       options = {
