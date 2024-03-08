@@ -20,7 +20,7 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.lime;
+  colorScheme = inputs.nix-colors.colorSchemes.icy;
   services = {
     mako = {
       enable = true;
@@ -210,7 +210,7 @@ in
       enable = true;
       settings = {
 	font.size = 10;
-	window.opacity = 0.6;
+	window.opacity = 0.8;
 	live_config_reload = true;
 	colors = {
 	  bright = {
