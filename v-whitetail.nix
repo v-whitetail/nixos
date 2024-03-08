@@ -32,11 +32,12 @@ in
     username = "v";
     homeDirectory = "/home/v";
     packages = with pkgs; [
+      feh
       rustup
       swaybg
       discord
       dolphin
-      variety
+      (variety.override{fehSupport = true;})
       flameshot
       libnotify
       wdisplays
