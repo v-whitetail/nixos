@@ -20,7 +20,7 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.everforest;
+  colorScheme = inputs.nix-colors.colorSchemes.lime;
   services = {
     mako = {
       enable = true;
