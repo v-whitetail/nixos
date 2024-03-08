@@ -20,7 +20,7 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.lime;
+  colorScheme = inputs.nix-colors.colorSchemes.icy;
   services = {
     mako = {
       enable = true;
@@ -36,7 +36,8 @@ in
       swaybg
       discord
       dolphin
-      shotman
+      variety
+      flameshot
       libnotify
       wdisplays
       xdg-utils
@@ -61,6 +62,28 @@ in
     home-manager.enable = true;
     nixvim = {
       enable = true;
+      options = {
+        wrap = true;
+        backup = false;
+        number = true;
+        undofile = true;
+        swapfile = false;
+        hlsearch = false;
+        expandtab = true;
+        incsearch = true;
+        smartindent = true;
+        termguicolors = true;
+        relativenumber = true;
+        tabstop = 4;
+        scrolloff = 8;
+        shiftwidth = 4;
+        updatetime = 50;
+        softtabstop = 4;
+        colorcolumn = "80";
+      };
+      plugins = {
+        harpoon.enable = true;
+      };
       colorschemes.base16.enable = true;
       colorschemes.base16.customColorScheme = {
         base00 = "#${palette.base00}";
@@ -80,60 +103,44 @@ in
         base0E = "#${palette.base0E}";
         base0F = "#${palette.base0F}";
       };
+      extraConfigLua = ''
+      	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      '';
       globals.mapleader = " ";
       keymaps = [
-      { mode = "i"; key = "jf"; action = "<Esc>"; }
-      { mode = "n"; key = "fu"; action = "<C-R>"; }
-      { mode = "n"; key = "<leader>fl"; action = "<C-w>l"; }
-      { mode = "n"; key = "<leader>fh"; action = "<C-w>h"; }
-      { mode = "n"; key = "<leader>fk"; action = "<C-w>k"; }
-      { mode = "n"; key = "<leader>fj"; action = "<C-w>j"; }
-      { mode = "n"; key = "<leader>fe"; action = ":Explore<CR>"; }
-      { mode = "n"; key = "<leader>term"; action = ":terminal<CR>"; }
-      { mode = "n"; key = "<leader>split"; action = ":split<CR>"; }
-      { mode = "n"; key = "<leader>vsplit"; action = ":vsplit<CR>"; }
-      { mode = "n"; key = "J"; action = "mzJ`z"; }
-      { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; }
-      { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; }
-      { mode = "n"; key = "<C-d>"; action = "<C-d>zz"; }
-      { mode = "n"; key = "<C-u>"; action = "<C-u>zz"; }
-      {
-        mode = "n";
-        key = "<leader>com";
-        action = "0t,2li<Enter><Esc>V=<Esc>";
-      }
-      {
-        mode = "n";
-        key = "<leader>per";
-        action = "0t.a<Enter><Esc>V=q002t.a<Enter><Esc>V=q8@0";
-      }
-      {
-        mode = "t";
-        key = "jf";
-        action = "<C-\\><C-n>";
-        options.noremap = true;
-      }
+        { mode = "i"; key = "jf"; action = "<Esc>"; }
+        { mode = "n"; key = "fu"; action = "<C-R>"; }
+        { mode = "n"; key = "<leader>fl"; action = "<C-w>l"; }
+        { mode = "n"; key = "<leader>fh"; action = "<C-w>h"; }
+        { mode = "n"; key = "<leader>fk"; action = "<C-w>k"; }
+        { mode = "n"; key = "<leader>fj"; action = "<C-w>j"; }
+        { mode = "n"; key = "<leader>fe"; action = ":Explore<CR>"; }
+        { mode = "n"; key = "<leader>term"; action = ":terminal<CR>"; }
+        { mode = "n"; key = "<leader>split"; action = ":split<CR>"; }
+        { mode = "n"; key = "<leader>vsplit"; action = ":vsplit<CR>"; }
+        { mode = "n"; key = "J"; action = "mzJ`z"; }
+        { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; }
+        { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; }
+        { mode = "n"; key = "<C-d>"; action = "<C-d>zz"; }
+        { mode = "n"; key = "<C-u>"; action = "<C-u>zz"; }
+        {
+          mode = "n";
+          key = "<leader>com";
+          action = "0t,2li<Enter><Esc>V=<Esc>";
+        }
+        {
+          mode = "n";
+          key = "<leader>per";
+          action = "0t.a<Enter><Esc>V=q002t.a<Enter><Esc>V=q8@0";
+        }
+        {
+          mode = "t";
+          key = "jf";
+          action = "<C-\\><C-n>";
+          options.noremap = true;
+        }
       ];
-      options = {
-        wrap = true;
-        backup = false;
-        number = true;
-        undofile = true;
-        swapfile = false;
-        hlsearch = false;
-        expandtab = true;
-        incsearch = true;
-        smartindent = true;
-        termguicolors = true;
-        relativenumber = true;
-        tabstop = 4;
-        scrolloff = 8;
-        shiftwidth = 4;
-        updatetime = 50;
-        softtabstop = 4;
-        colorcolumn = "80";
-        undodir = ''os.getenv("HOME").."/.vim/undodir"'';
-      };
     };
     fuzzel = {
       enable = true;
@@ -203,40 +210,40 @@ in
     alacritty = {
       enable = true;
       settings = {
-	font.size = 10;
-	window.opacity = 0.6;
-	live_config_reload = true;
-	colors = {
-	  bright = {
-	    red        = "#${palette.base0E}";
-	    blue       = "#${palette.base08}";
-	    cyan       = "#${palette.base0B}";
-	    black      = "#${palette.base00}";
-	    green      = "#${palette.base0D}";
-	    white      = "#${palette.base06}";
-	    yellow     = "#${palette.base0A}";
-	    magenta    = "#${palette.base0F}";
-	  };
-	  cursor = {
-	    text       = "#${palette.base06}";
-	    cursor     = "#${palette.base02}";
-	  };
-	  normal = {
-	    red        = "#${palette.base0E}";
-	    blue       = "#${palette.base08}";
-	    cyan       = "#${palette.base0B}";
-	    black      = "#${palette.base00}";
-	    green      = "#${palette.base0D}";
-	    white      = "#${palette.base00}";
-	    yellow     = "#${palette.base0A}";
-	    magenta    = "#${palette.base0F}";
-	  };
-	  primary = {
-	    background = "#${palette.base00}";
-	    foreground = "#${palette.base05}";
-	  };
-	  draw_bold_text_with_bright_colors = true;
-	};
+	    font.size = 10;
+	    window.opacity = 0.85;
+	    live_config_reload = true;
+	    colors = {
+	      bright = {
+	        red        = "#${palette.base08}";
+	        blue       = "#${palette.base0D}";
+	        cyan       = "#${palette.base0C}";
+	        black      = "#${palette.base00}";
+	        green      = "#${palette.base0B}";
+	        white      = "#${palette.base07}";
+	        yellow     = "#${palette.base0A}";
+	        magenta    = "#${palette.base0F}";
+	      };
+	      cursor = {
+	        text       = "#${palette.base06}";
+	        cursor     = "#${palette.base04}";
+	      };
+	      normal = {
+	        red        = "#${palette.base08}";
+	        blue       = "#${palette.base0D}";
+	        cyan       = "#${palette.base0C}";
+	        black      = "#${palette.base00}";
+	        green      = "#${palette.base0B}";
+	        white      = "#${palette.base07}";
+	        yellow     = "#${palette.base0A}";
+	        magenta    = "#${palette.base0F}";
+	      };
+	      primary = {
+	        background = "#${palette.base02}";
+	        foreground = "#${palette.base07}";
+	      };
+	      draw_bold_text_with_bright_colors = true;
+	    };
       };
     };
     nushell = { 
