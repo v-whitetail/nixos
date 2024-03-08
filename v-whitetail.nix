@@ -61,6 +61,25 @@ in
     home-manager.enable = true;
     nixvim = {
       enable = true;
+      options = {
+        wrap = true;
+        backup = false;
+        number = true;
+        undofile = true;
+        swapfile = false;
+        hlsearch = false;
+        expandtab = true;
+        incsearch = true;
+        smartindent = true;
+        termguicolors = true;
+        relativenumber = true;
+        tabstop = 4;
+        scrolloff = 8;
+        shiftwidth = 4;
+        updatetime = 50;
+        softtabstop = 4;
+        colorcolumn = "80";
+      };
       plugins = {
         harpoon.enable = true;
       };
@@ -83,59 +102,44 @@ in
         base0E = "#${palette.base0E}";
         base0F = "#${palette.base0F}";
       };
+      extraConfigLua = ''
+      	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      '';
       globals.mapleader = " ";
       keymaps = [
-      { mode = "i"; key = "jf"; action = "<Esc>"; }
-      { mode = "n"; key = "fu"; action = "<C-R>"; }
-      { mode = "n"; key = "<leader>fl"; action = "<C-w>l"; }
-      { mode = "n"; key = "<leader>fh"; action = "<C-w>h"; }
-      { mode = "n"; key = "<leader>fk"; action = "<C-w>k"; }
-      { mode = "n"; key = "<leader>fj"; action = "<C-w>j"; }
-      { mode = "n"; key = "<leader>fe"; action = ":Explore<CR>"; }
-      { mode = "n"; key = "<leader>term"; action = ":terminal<CR>"; }
-      { mode = "n"; key = "<leader>split"; action = ":split<CR>"; }
-      { mode = "n"; key = "<leader>vsplit"; action = ":vsplit<CR>"; }
-      { mode = "n"; key = "J"; action = "mzJ`z"; }
-      { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; }
-      { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; }
-      { mode = "n"; key = "<C-d>"; action = "<C-d>zz"; }
-      { mode = "n"; key = "<C-u>"; action = "<C-u>zz"; }
-      {
-        mode = "n";
-        key = "<leader>com";
-        action = "0t,2li<Enter><Esc>V=<Esc>";
-      }
-      {
-        mode = "n";
-        key = "<leader>per";
-        action = "0t.a<Enter><Esc>V=q002t.a<Enter><Esc>V=q8@0";
-      }
-      {
-        mode = "t";
-        key = "jf";
-        action = "<C-\\><C-n>";
-        options.noremap = true;
-      }
+        { mode = "i"; key = "jf"; action = "<Esc>"; }
+        { mode = "n"; key = "fu"; action = "<C-R>"; }
+        { mode = "n"; key = "<leader>fl"; action = "<C-w>l"; }
+        { mode = "n"; key = "<leader>fh"; action = "<C-w>h"; }
+        { mode = "n"; key = "<leader>fk"; action = "<C-w>k"; }
+        { mode = "n"; key = "<leader>fj"; action = "<C-w>j"; }
+        { mode = "n"; key = "<leader>fe"; action = ":Explore<CR>"; }
+        { mode = "n"; key = "<leader>term"; action = ":terminal<CR>"; }
+        { mode = "n"; key = "<leader>split"; action = ":split<CR>"; }
+        { mode = "n"; key = "<leader>vsplit"; action = ":vsplit<CR>"; }
+        { mode = "n"; key = "J"; action = "mzJ`z"; }
+        { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; }
+        { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; }
+        { mode = "n"; key = "<C-d>"; action = "<C-d>zz"; }
+        { mode = "n"; key = "<C-u>"; action = "<C-u>zz"; }
+        {
+          mode = "n";
+          key = "<leader>com";
+          action = "0t,2li<Enter><Esc>V=<Esc>";
+        }
+        {
+          mode = "n";
+          key = "<leader>per";
+          action = "0t.a<Enter><Esc>V=q002t.a<Enter><Esc>V=q8@0";
+        }
+        {
+          mode = "t";
+          key = "jf";
+          action = "<C-\\><C-n>";
+          options.noremap = true;
+        }
       ];
-      options = {
-        wrap = true;
-        backup = false;
-        number = true;
-        undofile = true;
-        swapfile = false;
-        hlsearch = false;
-        expandtab = true;
-        incsearch = true;
-        smartindent = true;
-        termguicolors = true;
-        relativenumber = true;
-        tabstop = 4;
-        scrolloff = 8;
-        shiftwidth = 4;
-        updatetime = 50;
-        softtabstop = 4;
-        colorcolumn = "80";
-      };
     };
     fuzzel = {
       enable = true;
