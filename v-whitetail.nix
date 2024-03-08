@@ -61,6 +61,8 @@ in
     wpaperd = {
       enable = true;
       settings.default.path = "/home/v/Pictures/Wallpapers";
+      settings.default.sorting = "random";
+      settings.default.duration = "360m";
     };
     nixvim = {
       enable = true;
@@ -283,6 +285,9 @@ in
     	  horizontal = 8;
     	};
     	window.titlebar = false;
+        startup = [
+          { command = "wpaperd"; always = true; }
+        ];
     	colors = {
     	  background    = "#${palette.base00}";
     	  focused = {
