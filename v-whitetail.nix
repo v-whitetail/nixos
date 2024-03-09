@@ -32,6 +32,7 @@ in
     username = "v";
     homeDirectory = "/home/v";
     packages = with pkgs; [
+      bottles
       rustup
       discord
       dolphin
@@ -51,7 +52,6 @@ in
     rio.enable = true;
     gitui.enable = true;
     swayr.enable = true;
-    waybar.enable = true;
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;

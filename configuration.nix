@@ -112,14 +112,14 @@
       enable = true;
       libinput.enable = true;
       xkb = {
-	variant = "";
-	layout = "us";
+        variant = "";
+        layout = "us";
       };
       displayManager.sddm = {
-	enable = true;
-	autoNumlock = true;
-	wayland.enable = true;
-	theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
+        enable = true;
+        autoNumlock = true;
+        wayland.enable = true;
+        theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
       };
     };
   };
