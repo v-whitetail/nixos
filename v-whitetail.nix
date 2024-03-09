@@ -35,7 +35,6 @@ in
       bottles
       rustup
       discord
-      dolphin
       flameshot
       libnotify
       wdisplays
@@ -48,8 +47,9 @@ in
     gh.enable = true;
     bat.enable = true;
     eza.enable = true;
+    imv.enable = true;
     fzf.enable = true;
-    rio.enable = true;
+    yazi.enable = true;
     gitui.enable = true;
     swayr.enable = true;
     firefox.enable = true;
@@ -62,7 +62,7 @@ in
       enable = true;
       settings.default.path = "/home/v/Pictures/Wallpapers";
       settings.default.sorting = "random";
-      settings.default.duration = "360m";
+      settings.default.duration = "30m";
     };
     nixvim = {
       enable = true;

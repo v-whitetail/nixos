@@ -65,6 +65,8 @@
       rustc
       cargo
       nushell
+      dolphin
+      libsForQt5.dolphin
       libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtquickcontrols2
       libsForQt5.qt5.qtgraphicaleffects
