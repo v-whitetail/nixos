@@ -20,7 +20,7 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.icy;
+  colorScheme = inputs.nix-colors.colorSchemes.lime;
   services = {
     mako = {
       enable = true;
@@ -32,7 +32,6 @@ in
     username = "v";
     homeDirectory = "/home/v";
     packages = with pkgs; [
-      bottles
       rustup
       discord
       flameshot
