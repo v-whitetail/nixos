@@ -8,20 +8,33 @@ alias vim = nvim ./
 alias cdnix = cd /home/v/crystalPeak/nixos
 alias honix = man home-configuration.nix
 alias manix = man configuration.nix
-alias nixrc = nvim /home/v/crystalPeak/nixos
 
-alias ftest = sudo nixos-rebuild --flake .#v-whitetail test
+def nixrc [] {
+  let dir = pwd
+  cd /home/v/crystalPeak/nixos/
+  nvim ./
+  cd $dir
+}
+
+def fgit [] {
+  cd /home/v/crystalPeak/nixos/
+  gitui
+}
+
+def ftest [] {
+  cd /home/v/crystalPeak/nixos/
+  sudo nixos-rebuild --flake .#v-whitetail test
+}
 
 def fbuild [] {
-
   let bg_dir = '/home/v/Pictures/Wallpapers/'
   let bg_img = ls $bg_dir | shuf -n 1
   let bg_src = $bg_dir ++ $bg_img;
 
+  cd /home/v/crystalPeak/nixos/
   cp -f $bg_src ./sddm-background.jpg
 
   sudo nixos-rebuild --flake .#v-whitetail switch
-
 }
 
 
@@ -45,7 +58,6 @@ def nu-wifi [] {
 }
 
 def nu-gc [upper_bound: int] {
-
   let range = seq 2 $upper_bound
   let links = ls | $in
                  | split row -r "\n"
@@ -75,7 +87,6 @@ def nu-gc [upper_bound: int] {
       } | ignore
     }
     _ => { print "aborting garbage collector" }
-
   }
 }
 
