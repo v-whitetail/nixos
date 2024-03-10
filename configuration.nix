@@ -103,8 +103,9 @@
   services = {
     ntp.enable = true;
     dbus.enable = true;
-    gnome.gnome-keyring.enable = true;
     openssh.enable = true;
+    gnome.gnome-keyring.enable = true;
+    logind.lidSwitch= "lock";
     pipewire = {
       enable = true;
       alsa.enable = true;
