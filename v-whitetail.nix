@@ -34,6 +34,9 @@ in
     packages = with pkgs; [
       rustup
       discord
+      hyfetch
+      neofetch
+      owofetch
       flameshot
       libnotify
       wdisplays
@@ -302,6 +305,7 @@ in
     	window.titlebar = false;
         startup = [
           { command = "wpaperd"; always = true; }
+          { command = "autotiling-rs"; always = true; }
         ];
     	colors = {
     	  background    = "#${palette.base00}";
