@@ -39,6 +39,7 @@ in
       wdisplays
       xdg-utils
       wl-clipboard
+      autotiling-rs
     ];
     stateVersion = "23.11";
   };
