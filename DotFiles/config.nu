@@ -58,6 +58,8 @@ def nu-wifi [] {
 }
 
 def nu-gc [upper_bound: int] {
+  let dir = pwd
+  cd /nix/var/nix/profiles/
   let range = seq 2 $upper_bound
   let links = ls | $in
                  | split row -r "\n"
@@ -88,5 +90,6 @@ def nu-gc [upper_bound: int] {
     }
     _ => { print "aborting garbage collector" }
   }
+  cd $dir
 }
 
