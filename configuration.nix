@@ -65,6 +65,8 @@
       rustc
       cargo
       nushell
+      dolphin
+      libsForQt5.dolphin
       libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtquickcontrols2
       libsForQt5.qt5.qtgraphicaleffects
@@ -112,14 +114,14 @@
       enable = true;
       libinput.enable = true;
       xkb = {
-	variant = "";
-	layout = "us";
+        variant = "";
+        layout = "us";
       };
       displayManager.sddm = {
-	enable = true;
-	autoNumlock = true;
-	wayland.enable = true;
-	theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
+        enable = true;
+        autoNumlock = true;
+        wayland.enable = true;
+        theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
       };
     };
   };

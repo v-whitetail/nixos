@@ -20,7 +20,7 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.icy;
+  colorScheme = inputs.nix-colors.colorSchemes.lime;
   services = {
     mako = {
       enable = true;
@@ -33,10 +33,7 @@ in
     homeDirectory = "/home/v";
     packages = with pkgs; [
       rustup
-      swaybg
       discord
-      dolphin
-      variety
       flameshot
       libnotify
       wdisplays
@@ -49,17 +46,23 @@ in
     gh.enable = true;
     bat.enable = true;
     eza.enable = true;
+    imv.enable = true;
     fzf.enable = true;
-    rio.enable = true;
+    yazi.enable = true;
     gitui.enable = true;
     swayr.enable = true;
-    waybar.enable = true;
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
     i3status.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
+    wpaperd = {
+      enable = true;
+      settings.default.path = "/home/v/Pictures/Wallpapers";
+      settings.default.sorting = "random";
+      settings.default.duration = "30m";
+    };
     nixvim = {
       enable = true;
       options = {
@@ -82,8 +85,23 @@ in
         colorcolumn = "80";
       };
       plugins = {
-        harpoon.enable = true;
+        fidget.enable = true;
+        bufferline.enable = true;
+        crates-nvim.enable = true;
+        harpoon = {
+          enable = true;
+          keymaps.addFile = "<leader>had";
+          keymaps.toggleQuickMenu = "<leader>har";
+          keymaps.navFile = {
+            "1" = "<leader>1";
+            "2" = "<leader>2";
+            "3" = "<leader>3";
+            "4" = "<leader>4";
+          };
+        };
       };
+      extraPlugins = with pkgs.vimPlugins; [
+      ];
       colorschemes.base16.enable = true;
       colorschemes.base16.customColorScheme = {
         base00 = "#${palette.base00}";
@@ -281,6 +299,9 @@ in
     	  horizontal = 8;
     	};
     	window.titlebar = false;
+        startup = [
+          { command = "wpaperd"; always = true; }
+        ];
     	colors = {
     	  background    = "#${palette.base00}";
     	  focused = {
