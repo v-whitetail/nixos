@@ -30,8 +30,8 @@ in
     swayidle = {
       enable = true;
       events = [
-        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
         { event = "lock"; command = "lock"; }
+        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
       ];
     };
   };
@@ -65,6 +65,7 @@ in
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
+    # i3blocks.enable = true;
     i3status.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
@@ -291,7 +292,10 @@ in
     windowManager.sway = {
       enable = true;
       config = rec {
-        defaultWorkspace = "workspace number 1";
+        startup = [
+          { command = "wpaperd"; always = true; }
+          { command = "autotiling-rs"; always = true; }
+        ];
         modifier = m_key;
         left     = l_key;
         right    = r_key;
@@ -299,21 +303,40 @@ in
         down     = d_key;
         terminal = d_term;
         menu     = d_menu;
+        bars = [{
+          position = "bottom";
+          statusCommand = "while sleep 1; do date; done";
+          colors = {
+            background = "#${palette.base00}";
+            focusedWorkspace = {
+              text = "#${palette.base0C}";
+              border = "#${palette.base0C}";
+              background = "#${palette.base03}";
+            };
+            activeWorkspace = {
+              text = "#${palette.base0C}";
+              border = "#${palette.base0C}";
+              background = "#${palette.base03}";
+            };
+            urgentWorkspace = {
+              text = "#${palette.base0E}";
+              border = "#${palette.base0E}";
+              background = "#${palette.base03}";
+            };
+          };
+        }];
+        window.titlebar = false;
+        defaultWorkspace = "workspace number 1";
         gaps = {
-    	  left       = 8;
-    	  right      = 8;
-    	  top        = 8;
-    	  bottom     = 8;
-    	  inner      = 8;
-    	  outer      = 8;
-    	  vertical   = 8;
-    	  horizontal = 8;
-    	};
-    	window.titlebar = false;
-        startup = [
-          { command = "wpaperd"; always = true; }
-          { command = "autotiling-rs"; always = true; }
-        ];
+            left       = 8;
+            right      = 8;
+            top        = 8;
+            bottom     = 8;
+            inner      = 8;
+            outer      = 8;
+            vertical   = 8;
+            horizontal = 8;
+        };
     	colors = {
     	  background    = "#${palette.base00}";
     	  focused = {
