@@ -33,6 +33,7 @@ def fbuild [] {
 
   cd /home/v/crystalPeak/nixos/
   cp -f $bg_src ./sddm-background.jpg
+  cp -f $bg_src /home/v/.config/swaylock-bg.jpg
 
   sudo nixos-rebuild --flake .#v-whitetail switch
 }

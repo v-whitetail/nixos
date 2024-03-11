@@ -19,7 +19,7 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
-    ./dotfiles/swaylock.nix
+    ./DotFiles/swaylock.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.lime;
   services = {
