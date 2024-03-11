@@ -303,28 +303,6 @@ in
         down     = d_key;
         terminal = d_term;
         menu     = d_menu;
-        bars = [{
-          position = "bottom";
-          statusCommand = "while sleep 1; do date; done";
-          colors = {
-            background = "#${palette.base00}";
-            focusedWorkspace = {
-              text = "#${palette.base0C}";
-              border = "#${palette.base0C}";
-              background = "#${palette.base03}";
-            };
-            activeWorkspace = {
-              text = "#${palette.base0C}";
-              border = "#${palette.base0C}";
-              background = "#${palette.base03}";
-            };
-            urgentWorkspace = {
-              text = "#${palette.base0E}";
-              border = "#${palette.base0E}";
-              background = "#${palette.base03}";
-            };
-          };
-        }];
         window.titlebar = false;
         defaultWorkspace = "workspace number 1";
         gaps = {
