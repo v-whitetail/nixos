@@ -105,7 +105,11 @@
     dbus.enable = true;
     openssh.enable = true;
     gnome.gnome-keyring.enable = true;
-    logind.lidSwitch= "lock";
+    logind = {
+      lidSwitch= "suspend";
+      lidSwitchDocked= "ignore";
+      lidSwitchExternalPower= "ignore";
+    };
     pipewire = {
       enable = true;
       alsa.enable = true;

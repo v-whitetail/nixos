@@ -26,7 +26,13 @@ in
       enable = true;
       defaultTimeout = 8000;
     };
-    swayidle.enable = true;
+    swayidle = {
+      enable = true;
+      events = [
+        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+        { event = "lock"; command = "lock"; }
+      ];
+    };
   };
   home = {
     username = "v";
