@@ -98,8 +98,38 @@ in
       };
       plugins = {
         fidget.enable = true;
+        luasnip.enable = true;
+        telescope.enable = true;
+        which-key.enable = true;
         bufferline.enable = true;
+        treesitter.enable = true;
         crates-nvim.enable = true;
+        cmp-nvim-lsp.enable = true;
+        cmp-nvim-lua.enable = true;
+        cmp = {
+          enable = true;
+          autoEnableSources = true;
+          settings.sources = [
+            { name = "path"; }
+            { name = "buffer"; }
+            { name = "luasnip"; }
+            { name = "nvim_lsp"; }
+          ];
+        };
+        lsp = {
+          enable = true;
+          servers = {
+            html.enable = true;
+            bashls.enable = true;
+            lua-ls.enable = true;
+            pyright.enable = true;
+            nushell.enable = true;
+            nushell.filetypes = [ "nu" ];
+            rust-analyzer.enable = true;
+            rust-analyzer.installCargo = false;
+            rust-analyzer.installRustc = false;
+          };
+        };
         harpoon = {
           enable = true;
           keymaps.addFile = "<leader>had";
