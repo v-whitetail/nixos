@@ -73,7 +73,7 @@ window#waybar {
     color: #ebcb8b;
 }
 
-#clock, #battery, #cpu, #memory,#idle_inhibitor, #temperature,#custom-keyboard-layout, #backlight, #network, #pulseaudio, #mode, #tray, #window,#custom-launcher,#custom-power,#custom-pacman, #custom-network_traffic {
+#clock, #battery, #cpu, #memory,#idle_inhibitor, #temperature,#garuda-keyboard-layout, #backlight, #network, #pulseaudio, #mode, #tray, #window,#garuda-launcher,#garuda-power,#garuda-pacman, #garuda-network_traffic {
     padding: 0 3px;
     border-bottom: 2px;
     border-style: solid;
@@ -160,7 +160,7 @@ window#waybar {
 #tray {
 }
 
-#custom-launcher,#custom-power{
+#garuda-launcher,#garuda-power{
     border-style: hidden;
     margin-top:2px;    
 }
@@ -173,7 +173,7 @@ window#waybar {
     margin-bottom:3px;
 }
 
-#custom-keyboard-layout{
+#garuda-keyboard-layout{
    color:#d08770;
 }   
 

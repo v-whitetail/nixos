@@ -8,16 +8,13 @@
       "sway/window"
     ],
     "modules-right": [
+      "tray",
       "backlight",
-      "garuda/keyboard-layout",
+      "pulseaudio",
       "cpu",
       "memory",
-      "battery",
       "network",
-      "garuda/network_traffic",
-      "pulseaudio",
-      "tray",
-      "idle_inhibitor",
+      "battery",
       "clock",
       "garuda/power"
     ],
@@ -44,13 +41,6 @@
     },
     "sway/window": {
       "format": "{}"
-    },
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-        "activated": "",
-        "deactivated": ""
-      }
     },
     "tray": {
       "icon-size": 14,
