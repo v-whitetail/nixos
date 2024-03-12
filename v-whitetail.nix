@@ -62,11 +62,12 @@ in
     yazi.enable = true;
     gitui.enable = true;
     swayr.enable = true;
+    waybar.enable = true;
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
     # i3blocks.enable = true;
-    i3status.enable = true;
+    # i3status.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
     wpaperd = {
@@ -322,6 +323,11 @@ in
     windowManager.sway = {
       enable = true;
       config = rec {
+        bars = [{
+          id = "default_waybar";
+          command = "waybar";
+          position = "bottom";
+        }];
         startup = [
           { command = "wpaperd"; always = true; }
           { command = "autotiling-rs"; always = true; }
