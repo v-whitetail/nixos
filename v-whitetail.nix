@@ -19,6 +19,7 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
+    ./DotFiles/swaylock.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.lime;
   services = {
@@ -26,7 +27,13 @@ in
       enable = true;
       defaultTimeout = 8000;
     };
-    swayidle.enable = true;
+    swayidle = {
+      enable = true;
+      events = [
+        { event = "lock"; command = "lock"; }
+        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+      ];
+    };
   };
   home = {
     username = "v";
@@ -34,11 +41,15 @@ in
     packages = with pkgs; [
       rustup
       discord
+      hyfetch
+      neofetch
+      owofetch
       flameshot
       libnotify
       wdisplays
       xdg-utils
       wl-clipboard
+      autotiling-rs
     ];
     stateVersion = "23.11";
   };
@@ -54,6 +65,7 @@ in
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
+    # i3blocks.enable = true;
     i3status.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
@@ -86,8 +98,38 @@ in
       };
       plugins = {
         fidget.enable = true;
+        luasnip.enable = true;
+        telescope.enable = true;
+        which-key.enable = true;
         bufferline.enable = true;
+        treesitter.enable = true;
         crates-nvim.enable = true;
+        cmp-nvim-lsp.enable = true;
+        cmp-nvim-lua.enable = true;
+        cmp = {
+          enable = true;
+          autoEnableSources = true;
+          settings.sources = [
+            { name = "path"; }
+            { name = "buffer"; }
+            { name = "luasnip"; }
+            { name = "nvim_lsp"; }
+          ];
+        };
+        lsp = {
+          enable = true;
+          servers = {
+            html.enable = true;
+            bashls.enable = true;
+            lua-ls.enable = true;
+            pyright.enable = true;
+            nushell.enable = true;
+            nushell.filetypes = [ "nu" ];
+            rust-analyzer.enable = true;
+            rust-analyzer.installCargo = false;
+            rust-analyzer.installRustc = false;
+          };
+        };
         harpoon = {
           enable = true;
           keymaps.addFile = "<leader>had";
@@ -280,7 +322,10 @@ in
     windowManager.sway = {
       enable = true;
       config = rec {
-        defaultWorkspace = "workspace number 1";
+        startup = [
+          { command = "wpaperd"; always = true; }
+          { command = "autotiling-rs"; always = true; }
+        ];
         modifier = m_key;
         left     = l_key;
         right    = r_key;
@@ -288,20 +333,18 @@ in
         down     = d_key;
         terminal = d_term;
         menu     = d_menu;
+        window.titlebar = false;
+        defaultWorkspace = "workspace number 1";
         gaps = {
-    	  left       = 8;
-    	  right      = 8;
-    	  top        = 8;
-    	  bottom     = 8;
-    	  inner      = 8;
-    	  outer      = 8;
-    	  vertical   = 8;
-    	  horizontal = 8;
-    	};
-    	window.titlebar = false;
-        startup = [
-          { command = "wpaperd"; always = true; }
-        ];
+            left       = 8;
+            right      = 8;
+            top        = 8;
+            bottom     = 8;
+            inner      = 8;
+            outer      = 8;
+            vertical   = 8;
+            horizontal = 8;
+        };
     	colors = {
     	  background    = "#${palette.base00}";
     	  focused = {
