@@ -48,8 +48,11 @@ in
       libnotify
       wdisplays
       xdg-utils
+      pavucontrol
+      brightnessctl
       wl-clipboard
       autotiling-rs
+      nwg-launchers
     ];
     stateVersion = "23.11";
     file = {
@@ -65,6 +68,7 @@ in
     yazi.enable = true;
     gitui.enable = true;
     swayr.enable = true;
+    bottom.enable = true;
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
