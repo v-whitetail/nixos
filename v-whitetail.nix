@@ -21,7 +21,7 @@ in
     inputs.nixvim.homeManagerModules.nixvim
     ./DotFiles/swaylock.nix
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.lime;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   services = {
     mako = {
       enable = true;
@@ -52,6 +52,9 @@ in
       autotiling-rs
     ];
     stateVersion = "23.11";
+    file = {
+      ".config/waybar".source = ./DotFiles/GarudaBar;
+    };
   };
   programs = let palette = config.colorScheme.palette; in {
     gh.enable = true;
@@ -62,7 +65,6 @@ in
     yazi.enable = true;
     gitui.enable = true;
     swayr.enable = true;
-    waybar.enable = true;
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
@@ -318,6 +320,9 @@ in
       userEmail = "white.tail.millwork@gmail.com";
       ignores   = [ "*.swp" "*.swo" ];
     };
+    waybar = {
+      enable = true;
+    };
   };
   wayland = let palette = config.colorScheme.palette; in {
     windowManager.sway = {
@@ -326,7 +331,6 @@ in
         bars = [{
           id = "default_waybar";
           command = "waybar";
-          position = "bottom";
         }];
         startup = [
           { command = "wpaperd"; always = true; }
