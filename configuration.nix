@@ -65,7 +65,6 @@
       rustc
       cargo
       nushell
-      dolphin
       libsForQt5.dolphin
       libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtquickcontrols2
@@ -129,6 +128,11 @@
         theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
       };
     };
+  };
+
+  fonts = {
+    fontconfig.enable = true;
+    enableDefaultPackages = true;
   };
 
   system = { stateVersion = "23.11"; };

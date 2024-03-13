@@ -22,6 +22,7 @@ in
     ./DotFiles/swaylock.nix
   ];
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  fonts.fontconfig.enable = true;
   services = {
     mako = {
       enable = true;
@@ -38,6 +39,9 @@ in
   home = {
     username = "v";
     homeDirectory = "/home/v";
+    file = {
+      ".config/waybar".source = ./DotFiles/GarudaBar;
+    };
     packages = with pkgs; [
       rustup
       discord
@@ -55,17 +59,14 @@ in
       nwg-launchers
     ];
     stateVersion = "23.11";
-    file = {
-      ".config/waybar".source = ./DotFiles/GarudaBar;
-    };
   };
   programs = let palette = config.colorScheme.palette; in {
     gh.enable = true;
+    lf.enable = true;
     bat.enable = true;
     eza.enable = true;
     imv.enable = true;
     fzf.enable = true;
-    yazi.enable = true;
     gitui.enable = true;
     swayr.enable = true;
     bottom.enable = true;
