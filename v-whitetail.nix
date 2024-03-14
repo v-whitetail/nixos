@@ -45,10 +45,9 @@ in
     packages = with pkgs; [
       rustup
       discord
-      hyfetch
+      dotacat
       neofetch
-      owofetch
-      flameshot
+      grimblast
       libnotify
       wdisplays
       xdg-utils
@@ -62,9 +61,8 @@ in
   };
   programs = let palette = config.colorScheme.palette; in {
     gh.enable = true;
-    lf.enable = true;
     bat.enable = true;
-    eza.enable = true;
+    lsd.enable = true;
     imv.enable = true;
     fzf.enable = true;
     gitui.enable = true;
@@ -73,10 +71,22 @@ in
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
-    # i3blocks.enable = true;
-    # i3status.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
+    lf = {
+      enable = true;
+      commands = {
+        editor = ''$$EDITOR $f'';
+        dragon-ds = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
+        mkdir = ''
+          ''${{
+            printf "Directory Name: "
+              read DIR
+              mkdir $DIR
+          }}
+        '';
+      };
+    };
     wpaperd = {
       enable = true;
       settings.default.path = "/home/v/Pictures/Wallpapers";
