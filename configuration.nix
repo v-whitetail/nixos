@@ -78,10 +78,6 @@
 
   programs = {
     mtr.enable = true;
-    sway = {
-      enable = true;
-      wrapperFeatures.gtk = true;
-    };
     gnupg = {
       agent = {
         enable = true;
@@ -106,8 +102,8 @@
     gnome.gnome-keyring.enable = true;
     logind = {
       lidSwitch= "suspend";
-      lidSwitchDocked= "ignore";
-      lidSwitchExternalPower= "ignore";
+      lidSwitchDocked= "suspend";
+      lidSwitchExternalPower= "suspend";
     };
     pipewire = {
       enable = true;

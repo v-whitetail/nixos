@@ -171,7 +171,8 @@ in
       extraPlugins = with pkgs.vimPlugins; [
       ];
       colorschemes.base16.enable = true;
-      colorschemes.base16.customColorScheme = {
+      colorschemes.base16.colorscheme = {
+
         base00 = "#${palette.base00}";
         base01 = "#${palette.base01}";
         base02 = "#${palette.base02}";
