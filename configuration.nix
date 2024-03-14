@@ -133,6 +133,11 @@
   fonts = {
     fontconfig.enable = true;
     enableDefaultPackages = true;
+    packages = with pkgs; [
+      nerdfonts
+      maple-mono-NF
+      jetbrains-mono
+    ];
   };
 
   system = { stateVersion = "23.11"; };
