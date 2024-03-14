@@ -41,6 +41,7 @@ in
     homeDirectory = "/home/v";
     file = {
       ".config/waybar".source = ./DotFiles/GarudaBar;
+      ".config/lf/icons".source = ./DotFiles/icons;
     };
     packages = with pkgs; [
       rustup
@@ -75,6 +76,13 @@ in
     home-manager.enable = true;
     lf = {
       enable = true;
+      settings = {
+        icons = true;
+        hidden = true;
+        drawbox = true;
+        preview = true;
+        ignorecase = true;
+      };
       commands = {
         editor = ''$$EDITOR $f'';
         dragon-ds = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
