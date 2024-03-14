@@ -21,7 +21,7 @@ in
     inputs.nixvim.homeManagerModules.nixvim
     ./DotFiles/swaylock.nix
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  colorScheme = inputs.nix-colors.colorSchemes.icy;
   fonts.fontconfig.enable = true;
   services = {
     mako = {
@@ -411,7 +411,7 @@ in
       style = 
       ''
         * {
-            color: #eceff4;
+            color: #${palette.base06};
             border: 0px;
             border-radius: 0px;
             padding: 0px 0px;
@@ -422,22 +422,22 @@ in
             padding-bottom:2px;
            }
         window#waybar {
-            background: #2e3440;
+            background: #${palette.base00};
             opacity: 0.80;
         }
         #workspaces button {
             padding: 4px 0px 2px 0px;
             border-bottom: 2px;
-            color: #eceff4;
-            border-color: #d8dee9;
+            color: #${palette.base06};
+            border-color: #${palette.base0C};
             border-style: solid;
             margin-top:2px;
         }
         #workspaces button.focused {
-            border-color: #81a1c1;
+            border-color: #${palette.base0E};
         }
         #mode {
-            color: #ebcb8b;
+            color: #${palette.base06};
         }
         #clock, #battery, #cpu, #memory, #temperature, #backlight, #network,
         #pulseaudio, #mode, #tray, #window, #custom-power, #custom-screenshot
@@ -451,32 +451,32 @@ in
             border-style: hidden;
             padding: 2px 4px;
         }
-        #clock { color:#a3be8c; }
-        #backlight { color: #ebcb8b; }
-        #battery { color: #d8dee9; }
-        #battery.charging { color: #81a1c1; }
+        #clock { color:#${palette.base06}; }
+        #backlight { color: #${palette.base06}; }
+        #battery { color: #${palette.base06}; }
+        #battery.charging { color: #${palette.base06}; }
         @keyframes blink {
             to {
-                color: #4c566a;
-                background-color: #eceff4;
+                color: #${palette.base06};
+                background-color: #${palette.base06};
             }
         }
         #battery.critical:not(.charging) {
-            background: #bf616a;
-            color: #eceff4;
+            background: #${palette.base06};
+            color: #${palette.base06};
             animation-name: blink;
             animation-duration: 0.5s;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
             animation-direction: alternate;
         }
-        #cpu { color:#a3be8c ; }
-        #memory { color: #d3869b; }
-        #network{ color:#a3be8c; }
-        #network.disabled { color:#bf616a; }
-        #network.disconnected { color: #bf616a; }
-        #pulseaudio { color: #b48ead; }
-        #pulseaudio.muted { color: #3b4252; }
+        #cpu { color:#${palette.base06}; }
+        #memory { color: #${palette.base06}; }
+        #network{ color:#${palette.base06}; }
+        #network.disabled { color:#${palette.base06}; }
+        #network.disconnected { color: #${palette.base06}; }
+        #pulseaudio { color: #${palette.base06}; }
+        #pulseaudio.muted { color: #${palette.base06}; }
         #window{
             border-style: hidden;
             margin-top:1px;  
