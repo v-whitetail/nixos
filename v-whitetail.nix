@@ -41,7 +41,7 @@ in
     homeDirectory = "/home/v";
     file = {
       ".config/waybar".source = ./DotFiles/GarudaBar;
-      ".config/lf/icons".source = ./DotFiles/icons;
+      ".config/lf/icons".source = ./DotFiles/lficons.txt;
     };
     packages = with pkgs; [
       rustup
