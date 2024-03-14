@@ -41,7 +41,6 @@ in
     homeDirectory = "/home/v";
     file = {
       ".config/waybar".source = ./DotFiles/GarudaBar;
-      ".config/lf/icons".source = ./DotFiles/lficons.txt;
     };
     packages = with pkgs; [
       rustup
@@ -66,6 +65,7 @@ in
     lsd.enable = true;
     imv.enable = true;
     fzf.enable = true;
+    yazi.enable = true;
     gitui.enable = true;
     swayr.enable = true;
     bottom.enable = true;
@@ -74,27 +74,6 @@ in
     thefuck.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
-    lf = {
-      enable = true;
-      settings = {
-        icons = true;
-        hidden = true;
-        drawbox = true;
-        preview = true;
-        ignorecase = true;
-      };
-      commands = {
-        editor = ''$$EDITOR $f'';
-        dragon-ds = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
-        mkdir = ''
-          ''${{
-            printf "Directory Name: "
-              read DIR
-              mkdir $DIR
-          }}
-        '';
-      };
-    };
     wpaperd = {
       enable = true;
       settings.default.path = "/home/v/Pictures/Wallpapers";

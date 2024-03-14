@@ -4,6 +4,7 @@ alias ls = lsd
 alias lsa = lsd -a
 alias cat = bat
 alias vim = nvim ./
+alias lf = yazi
 
 alias cdnix = cd /home/v/crystalPeak/nixos
 alias honix = man home-configuration.nix
