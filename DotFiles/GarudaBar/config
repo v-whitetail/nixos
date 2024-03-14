@@ -16,6 +16,7 @@
       "network",
       "clock",
       "battery",
+      "custom/screenshot",
       "custom/power"
     ],
 
@@ -48,23 +49,17 @@
     },
     "clock": {
       "tooltip-format": "{:%A %B %d %Y | %H:%M}",
-      "format": " {:%a %d %b  %I:%M %p}",	
-      "format-alt": " {:%d/%m/%Y  %H:%M:%S}",
-      //"timezones": [ "Kolkata" ],
-      //"max-length": 200
+      "format": "  {:%a %d %b  %I:%M %p}",	
+      "format-alt": "  {:%d/%m/%Y  %H:%M:%S}",
       "interval": 1
     },
     "cpu": {
-      "format": " {usage: >3}%",
+      "format": "  {usage: >3}%",
       "on-click": "alacritty -e htop"
     },
     "memory": {
-      "format": " {: >3}%",
+      "format": "  {: >3}%",
       "on-click": "alacritty -e btm"
-    },
-    "temperature": {
-      "critical-threshold": 80,
-      "format": "{temperatureC}°C "
     },
     "backlight": {
       "format": "{icon} {percent: >3}%",
@@ -78,12 +73,12 @@
         "critical": 15
       },
       "format": "{icon} {capacity: >3}%",
-      "format-icons": ["", "", "", "", ""]
+      "format-icons": [" ", " ", " ", " ", " "]
     },
     "network": {
       "format": "⚠ Disabled",
-      "format-wifi": " {essid}",
-      "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+      "format-wifi": "  {essid}",
+      "format-ethernet": "  {ifname}: {ipaddr}/{cidr}",
       "format-disconnected": "⚠ Disconnected",
       "on-click": "alacritty -e nmtui"
     },
@@ -108,9 +103,8 @@
       "on-click": "nwgbar",
       "tooltip": false
     },
-    "custom/network_traffic": {
-      "exec": "~/.config/waybar/scripts/network_traffic.sh",
-      "return-type": "json",
-      "format-ethernet": "{icon} {ifname} ⇣{bandwidthDownBytes:>4} ⇡{bandwidthUpBytes:>4}"
-    }
+    "custom/screenshot": {
+      "format":"",
+      "on-click": "grimblast copy area",
+    },
 }

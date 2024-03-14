@@ -32,10 +32,28 @@ window#waybar {
     color: #ebcb8b;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode, #tray, #window, #custom-power {
-    padding: 0 3px;
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#mode,
+#tray,
+#window,
+#custom-power,
+#custom-screenshot {
+    padding: 2px 2px;
     border-bottom: 2px;
     border-style: solid;
+}
+
+#custom-power,
+#custom-screenshot {
+    border-style: hidden;
+    padding: 2px 4px;
 }
  
 /* -----------------------------------------------------------------------------
@@ -110,11 +128,6 @@ window#waybar {
 
 #temperature.critical {
     color: #bf616a;
-}
-
-#custom-power{
-    border-style: hidden;
-    margin-top:2px;    
 }
 
 #window{
