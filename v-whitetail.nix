@@ -39,9 +39,7 @@ in
   home = {
     username = "v";
     homeDirectory = "/home/v";
-    file = {
-      ".config/waybar".source = ./DotFiles/GarudaBar;
-    };
+    file = { };
     packages = with pkgs; [
       rustup
       discord
@@ -147,11 +145,9 @@ in
           };
         };
       };
-      extraPlugins = with pkgs.vimPlugins; [
-      ];
+      extraPlugins = with pkgs.vimPlugins; [ ];
       colorschemes.base16.enable = true;
       colorschemes.base16.colorscheme = {
-
         base00 = "#${palette.base00}";
         base01 = "#${palette.base01}";
         base02 = "#${palette.base02}";
@@ -325,6 +321,168 @@ in
     };
     waybar = {
       enable = true;
+      settings = [{
+        layer = "top";
+        position = "bottom";
+        height = 24;
+        modules-left = [
+          "sway/workspaces" "sway/mode" "sway/window"
+        ];
+        modules-right = [
+          "tray" "cpu" "memory" "backlight" "pulseaudio"
+          "network" "clock" "battery" "custom/screenshot" "custom/power"
+        ];
+        "sway/workspaces" = {
+          disable-scroll = true;
+          all-outputs = true;
+          format = "{icon}";
+        };
+        "sway/mode" = {
+          format = "<span style=\"italic\">{}</span>";
+        };
+        "sway/window" = {
+          format = "{}";
+        };
+        "tray" = {
+          icon-size = 14;
+          spacing = 5;
+        };
+        "clock" = {
+          tooltip-format = "{:%A %B %d %Y | %H:%M}";
+          format = "  {:%a %d %b  %I:%M %p}";
+          format-alt = "  {:%d/%m/%Y  %H:%M:%S}";
+          interval = 1;
+        };
+        "cpu" = {
+          format = "  {usage: >3}%";
+          on-click = "alacritty -e htop";
+        };
+        "memory" = {
+          format = "  {: >3}%";
+          on-click = "alacritty -e btm";
+        };
+        "backlight" = {
+          format = "{icon} {percent: >3}%";
+          format-icons = ["" ""];
+          on-scroll-down = "brightnessctl -c backlight set 1%-";
+          on-scroll-up = "brightnessctl -c backlight set +1%";
+        };
+        "battery" = {
+          states = {
+            warning = 25;
+            critical = 15;
+          };
+          format = "{icon} {capacity: >3}%";
+          format-icons = [" " " " " " " " " "];
+        };
+        "network" = {
+          format = "⚠ Disabled";
+          format-wifi = "  {essid}";
+          format-ethernet = "  {ifname}: {ipaddr}/{cidr}";
+          format-disconnected = "⚠ Disconnected";
+          on-click = "alacritty -e nmtui";
+        };
+        "pulseaudio" = {
+          scroll-step = 1;
+          format = "{icon} {volume: >3}%";
+          format-bluetooth = "{icon} {volume: >3}%";
+          format-muted =" muted";
+          format-icons = {
+            headphones = "";
+            handsfree = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = ["" ""];
+          };
+          on-click = "pavucontrol";
+        };
+        "custom/power" = {
+          format ="⏻";
+          on-click = "nwgbar";
+          tooltip = false;
+        };
+        "custom/screenshot" = {
+          format = "";
+          on-click = "grimblast copy area";
+        };
+      }];
+      style = 
+      ''
+        * {
+            color: #eceff4;
+            border: 0px;
+            border-radius: 0px;
+            padding: 0px 0px;
+            font-family:Maple-Mono-NF;
+            font-size: 14px;
+            margin-right: 4px;
+            margin-left: 4px;
+            padding-bottom:2px;
+           }
+        window#waybar {
+            background: #2e3440;
+            opacity: 0.80;
+        }
+        #workspaces button {
+            padding: 4px 0px 2px 0px;
+            border-bottom: 2px;
+            color: #eceff4;
+            border-color: #d8dee9;
+            border-style: solid;
+            margin-top:2px;
+        }
+        #workspaces button.focused {
+            border-color: #81a1c1;
+        }
+        #mode {
+            color: #ebcb8b;
+        }
+        #clock, #battery, #cpu, #memory, #temperature, #backlight, #network,
+        #pulseaudio, #mode, #tray, #window, #custom-power, #custom-screenshot
+        {
+            padding: 2px 2px;
+            border-bottom: 2px;
+            border-style: solid;
+        }
+        #custom-power,
+        #custom-screenshot {
+            border-style: hidden;
+            padding: 2px 4px;
+        }
+        #clock { color:#a3be8c; }
+        #backlight { color: #ebcb8b; }
+        #battery { color: #d8dee9; }
+        #battery.charging { color: #81a1c1; }
+        @keyframes blink {
+            to {
+                color: #4c566a;
+                background-color: #eceff4;
+            }
+        }
+        #battery.critical:not(.charging) {
+            background: #bf616a;
+            color: #eceff4;
+            animation-name: blink;
+            animation-duration: 0.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        #cpu { color:#a3be8c ; }
+        #memory { color: #d3869b; }
+        #network{ color:#a3be8c; }
+        #network.disabled { color:#bf616a; }
+        #network.disconnected { color: #bf616a; }
+        #pulseaudio { color: #b48ead; }
+        #pulseaudio.muted { color: #3b4252; }
+        #window{
+            border-style: hidden;
+            margin-top:1px;  
+        }    
+        #mode{ margin-bottom:3px; }
+      '';
     };
   };
   wayland = let palette = config.colorScheme.palette; in {
