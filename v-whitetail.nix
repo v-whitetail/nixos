@@ -21,7 +21,8 @@ in
     inputs.nixvim.homeManagerModules.nixvim
     ./DotFiles/swaylock.nix
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.lime;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  fonts.fontconfig.enable = true;
   services = {
     mako = {
       enable = true;
@@ -38,37 +39,54 @@ in
   home = {
     username = "v";
     homeDirectory = "/home/v";
+    file = {
+      ".config/waybar".source = ./DotFiles/GarudaBar;
+    };
     packages = with pkgs; [
       rustup
       discord
-      hyfetch
+      dotacat
       neofetch
-      owofetch
-      flameshot
+      grimblast
       libnotify
       wdisplays
       xdg-utils
+      pavucontrol
+      brightnessctl
       wl-clipboard
       autotiling-rs
+      nwg-launchers
     ];
     stateVersion = "23.11";
   };
   programs = let palette = config.colorScheme.palette; in {
     gh.enable = true;
     bat.enable = true;
-    eza.enable = true;
+    lsd.enable = true;
     imv.enable = true;
     fzf.enable = true;
-    yazi.enable = true;
     gitui.enable = true;
     swayr.enable = true;
+    bottom.enable = true;
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
-    # i3blocks.enable = true;
-    i3status.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
+    lf = {
+      enable = true;
+      commands = {
+        editor = ''$$EDITOR $f'';
+        dragon-ds = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
+        mkdir = ''
+          ''${{
+            printf "Directory Name: "
+              read DIR
+              mkdir $DIR
+          }}
+        '';
+      };
+    };
     wpaperd = {
       enable = true;
       settings.default.path = "/home/v/Pictures/Wallpapers";
@@ -317,11 +335,18 @@ in
       userEmail = "white.tail.millwork@gmail.com";
       ignores   = [ "*.swp" "*.swo" ];
     };
+    waybar = {
+      enable = true;
+    };
   };
   wayland = let palette = config.colorScheme.palette; in {
     windowManager.sway = {
       enable = true;
       config = rec {
+        bars = [{
+          id = "default_waybar";
+          command = "waybar";
+        }];
         startup = [
           { command = "wpaperd"; always = true; }
           { command = "autotiling-rs"; always = true; }

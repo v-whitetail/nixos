@@ -1,7 +1,7 @@
 
 alias :q = exit
-alias ls = eza
-alias lsa = eza -a
+alias ls = lsd
+alias lsa = lsd -a
 alias cat = bat
 alias vim = nvim ./
 
