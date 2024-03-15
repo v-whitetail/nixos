@@ -39,7 +39,9 @@ in
   home = {
     username = "v";
     homeDirectory = "/home/v";
-    file = { };
+    file = {
+      ".config/nwg-launchers".source = ./DotFiles/nwg-launchers/;
+    };
     packages = with pkgs; [
       rustup
       discord
