@@ -55,6 +55,12 @@ in
       autotiling-rs
       nwg-launchers
     ];
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 22;
+    };
     stateVersion = "23.11";
   };
   programs = let palette = config.colorScheme.palette; in {
