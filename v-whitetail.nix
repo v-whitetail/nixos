@@ -39,9 +39,7 @@ in
   home = {
     username = "v";
     homeDirectory = "/home/v";
-    file = {
-      ".config/nwg-launchers".source = ./DotFiles/nwg-launchers/;
-    };
+    file = { };
     packages = with pkgs; [
       rustup
       discord
@@ -55,7 +53,6 @@ in
       brightnessctl
       wl-clipboard
       autotiling-rs
-      nwg-launchers
     ];
     pointerCursor = {
       gtk.enable = true;
@@ -338,7 +335,8 @@ in
         ];
         modules-right = [
           "tray" "cpu" "memory" "backlight" "pulseaudio"
-          "network" "clock" "battery" "custom/screenshot" "custom/power"
+          "network" "clock" "battery"
+          "custom/screenshot" "custom/logout" "custom/power"
         ];
         "sway/workspaces" = {
           disable-scroll = true;
@@ -406,14 +404,20 @@ in
           };
           on-click = "pavucontrol";
         };
+        "custom/screenshot" = {
+          format = "󰄄";
+          on-click = "grimblast copy area";
+          tooltip = false;
+        };
+        "custom/logout" = {
+          format = "";
+          on-click = "swaymsg exit";
+          tooltip = false;
+        };
         "custom/power" = {
           format ="⏻";
           on-click = "nwgbar";
           tooltip = false;
-        };
-        "custom/screenshot" = {
-          format = "";
-          on-click = "grimblast copy area";
         };
       }];
       style = 
@@ -448,17 +452,20 @@ in
             color: #${palette.base05};
             margin-bottom: 3px;
         }
-        #clock, #battery, #cpu, #memory, #temperature, #backlight, #network,
-        #pulseaudio, #mode, #tray, #window, #custom-power, #custom-screenshot
+        #clock, #battery, #cpu, #memory, #temperature, #backlight,
+        #network, #pulseaudio, #mode, #tray, #window,
+        #custom-power, #custom-power, #custom-screenshot
         {
             padding: 2px 2px;
             border-bottom: 2px;
             border-style: solid;
         }
         #custom-power,
+        #custom-logout,
         #custom-screenshot {
             border-style: hidden;
             padding: 2px 4px;
+            color: #${palette.base0F};
         }
         #clock { color:#${palette.base0D}; }
         #backlight { color: #${palette.base0A}; }
@@ -481,8 +488,8 @@ in
         }
         #cpu { color:#${palette.base08}; }
         #memory { color: #${palette.base09}; }
-        #network{ color:#${palette.base0C}; }
-        #network.disabled { color:#${palette.base03}; }
+        #network { color: #${palette.base0C}; }
+        #network.disabled { color: #${palette.base03}; }
         #network.disconnected { color: #${palette.base05}; }
         #pulseaudio { color: #${palette.base0B}; }
         #pulseaudio.muted { color: #${palette.base03}; }
