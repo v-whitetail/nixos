@@ -21,7 +21,7 @@ in
     inputs.nixvim.homeManagerModules.nixvim
     ./DotFiles/swaylock.nix
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.icy;
+  colorScheme = inputs.nix-colors.colorSchemes.default-dark;
   fonts.fontconfig.enable = true;
   services = {
     mako = {
@@ -211,12 +211,12 @@ in
     	border.radius = 2;
     	colors = {
     	  background      = "${palette.base00}AA";
-    	  border          = "${palette.base0F}FF";
-    	  text            = "${palette.base06}AA";
-    	  match           = "${palette.base0D}FF";
-    	  selection       = "${palette.base06}44";
-    	  selection-text  = "${palette.base0D}FF";
-    	  selection-match = "${palette.base0A}FF";
+    	  border          = "${palette.base07}FF";
+    	  text            = "${palette.base07}AA";
+    	  match           = "${palette.base0B}FF";
+    	  selection       = "${palette.base0A}44";
+    	  selection-text  = "${palette.base0C}FF";
+    	  selection-match = "${palette.base0D}FF";
     	};
       };
     };
@@ -226,17 +226,17 @@ in
 	    copy_command  = "wl-copy";
 	    default_shell = "nu";
 	    theme = "nix-colors";
-	    themes.nix-colors.fg      = "#${palette.base06}";
-	    themes.nix-colors.bg      = "#${palette.base00}";
+        themes.nix-colors.black   = "#${palette.base00}";
+	    themes.nix-colors.bg      = "#${palette.base01}";
+        themes.nix-colors.fg      = "#${palette.base04}";
+        themes.nix-colors.white   = "#${palette.base07}";
 	    themes.nix-colors.red     = "#${palette.base08}";
+        themes.nix-colors.orange  = "#${palette.base09}";
+        themes.nix-colors.yellow  = "#${palette.base0A}";
+        themes.nix-colors.green   = "#${palette.base0B}";
+        themes.nix-colors.cyan    = "#${palette.base0C}";
 	    themes.nix-colors.blue    = "#${palette.base0D}";
-	    themes.nix-colors.cyan    = "#${palette.base0C}";
-	    themes.nix-colors.black   = "#${palette.base00}";
-	    themes.nix-colors.green   = "#${palette.base0B}";
-	    themes.nix-colors.white   = "#${palette.base06}";
-	    themes.nix-colors.orange  = "#${palette.base09}";
-	    themes.nix-colors.yellow  = "#${palette.base09}";
-	    themes.nix-colors.magenta = "#${palette.base0E}";
+        themes.nix-colors.magenta = "#${palette.base0E}";
 	    ui.pane_frames.rounded_corners = true;
 	    keybinds = {
 	      shared = {
@@ -277,32 +277,32 @@ in
 	    live_config_reload = true;
 	    colors = {
 	      bright = {
+            black      = "#${palette.base00}";
+            white      = "#${palette.base07}";
 	        red        = "#${palette.base08}";
+            yellow     = "#${palette.base0A}";
+            green      = "#${palette.base0B}";
+            cyan       = "#${palette.base0C}";
 	        blue       = "#${palette.base0D}";
-	        cyan       = "#${palette.base0C}";
-	        black      = "#${palette.base00}";
-	        green      = "#${palette.base0B}";
-	        white      = "#${palette.base07}";
-	        yellow     = "#${palette.base0A}";
-	        magenta    = "#${palette.base0F}";
+            magenta    = "#${palette.base0E}";
 	      };
 	      cursor = {
 	        text       = "#${palette.base06}";
-	        cursor     = "#${palette.base04}";
+	        cursor     = "#${palette.base0F}";
 	      };
 	      normal = {
+            black      = "#${palette.base00}";
+            white      = "#${palette.base07}";
 	        red        = "#${palette.base08}";
+            yellow     = "#${palette.base0A}";
+            green      = "#${palette.base0B}";
+            cyan       = "#${palette.base0C}";
 	        blue       = "#${palette.base0D}";
-	        cyan       = "#${palette.base0C}";
-	        black      = "#${palette.base00}";
-	        green      = "#${palette.base0B}";
-	        white      = "#${palette.base07}";
-	        yellow     = "#${palette.base0A}";
-	        magenta    = "#${palette.base0F}";
+            magenta    = "#${palette.base0E}";
 	      };
 	      primary = {
-	        background = "#${palette.base02}";
-	        foreground = "#${palette.base07}";
+	        background = "#${palette.base01}";
+	        foreground = "#${palette.base05}";
 	      };
 	      draw_bold_text_with_bright_colors = true;
 	    };
@@ -411,7 +411,7 @@ in
       style = 
       ''
         * {
-            color: #${palette.base06};
+            color: #${palette.base05};
             border: 0px;
             border-radius: 0px;
             padding: 0px 0px;
@@ -422,22 +422,23 @@ in
             padding-bottom:2px;
            }
         window#waybar {
-            background: #${palette.base00};
+            background: #${palette.base01};
             opacity: 0.80;
         }
         #workspaces button {
             padding: 4px 0px 2px 0px;
             border-bottom: 2px;
-            color: #${palette.base06};
-            border-color: #${palette.base0C};
+            color: #${palette.base05};
+            border-color: #${palette.base05};
             border-style: solid;
             margin-top:2px;
         }
         #workspaces button.focused {
-            border-color: #${palette.base0E};
+            border-color: #${palette.base08};
         }
         #mode {
-            color: #${palette.base06};
+            color: #${palette.base05};
+            margin-bottom: 3px;
         }
         #clock, #battery, #cpu, #memory, #temperature, #backlight, #network,
         #pulseaudio, #mode, #tray, #window, #custom-power, #custom-screenshot
@@ -451,37 +452,36 @@ in
             border-style: hidden;
             padding: 2px 4px;
         }
-        #clock { color:#${palette.base06}; }
-        #backlight { color: #${palette.base06}; }
-        #battery { color: #${palette.base06}; }
-        #battery.charging { color: #${palette.base06}; }
+        #clock { color:#${palette.base0D}; }
+        #backlight { color: #${palette.base0A}; }
+        #battery { color: #${palette.base0E}; }
+        #battery.charging { color: #${palette.base0B}; }
         @keyframes blink {
             to {
-                color: #${palette.base06};
-                background-color: #${palette.base06};
+                color: #${palette.base07};
+                background-color: #${palette.base03};
             }
         }
         #battery.critical:not(.charging) {
-            background: #${palette.base06};
-            color: #${palette.base06};
+            background: #${palette.base0E};
+            color: #${palette.base08};
             animation-name: blink;
             animation-duration: 0.5s;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
             animation-direction: alternate;
         }
-        #cpu { color:#${palette.base06}; }
-        #memory { color: #${palette.base06}; }
-        #network{ color:#${palette.base06}; }
-        #network.disabled { color:#${palette.base06}; }
-        #network.disconnected { color: #${palette.base06}; }
-        #pulseaudio { color: #${palette.base06}; }
-        #pulseaudio.muted { color: #${palette.base06}; }
+        #cpu { color:#${palette.base08}; }
+        #memory { color: #${palette.base09}; }
+        #network{ color:#${palette.base0C}; }
+        #network.disabled { color:#${palette.base03}; }
+        #network.disconnected { color: #${palette.base05}; }
+        #pulseaudio { color: #${palette.base0B}; }
+        #pulseaudio.muted { color: #${palette.base03}; }
         #window{
             border-style: hidden;
             margin-top:1px;  
         }    
-        #mode{ margin-bottom:3px; }
       '';
     };
   };
@@ -519,39 +519,39 @@ in
     	colors = {
     	  background    = "#${palette.base00}";
     	  focused = {
-    	    text        = "#${palette.base06}";
-    	    border      = "#${palette.base0D}";
-    	    indicator   = "#${palette.base0B}";
-    	    background  = "#${palette.base00}";
-    	    childBorder = "#${palette.base08}";
-    	  };
-    	  focusedInactive = {
-    	    text        = "#${palette.base03}";
-    	    border      = "#${palette.base00}";
-    	    indicator   = "#${palette.base00}";
-    	    background  = "#${palette.base00}";
-    	    childBorder = "#${palette.base00}";
-    	  };
-    	  placeholder = {
-    	    text        = "#${palette.base03}";
-    	    border      = "#${palette.base00}";
-    	    indicator   = "#${palette.base00}";
-    	    background  = "#${palette.base00}";
-    	    childBorder = "#${palette.base00}";
-    	  };
-    	  unfocused = {
-    	    text        = "#${palette.base03}";
-    	    border      = "#${palette.base00}";
-    	    indicator   = "#${palette.base00}";
-    	    background  = "#${palette.base00}";
-    	    childBorder = "#${palette.base00}";
-    	  };
-    	  urgent = {
-    	    text        = "#${palette.base09}";
+            background  = "#${palette.base01}";
+    	    text        = "#${palette.base07}";
     	    border      = "#${palette.base0E}";
     	    indicator   = "#${palette.base0E}";
-    	    background  = "#${palette.base0E}";
     	    childBorder = "#${palette.base0E}";
+    	  };
+    	  focusedInactive = {
+            background  = "#${palette.base01}";
+    	    text        = "#${palette.base07}";
+    	    border      = "#${palette.base0D}";
+    	    indicator   = "#${palette.base0D}";
+    	    childBorder = "#${palette.base0D}";
+    	  };
+    	  unfocused = {
+            background  = "#${palette.base01}";
+    	    text        = "#${palette.base07}";
+    	    border      = "#${palette.base0C}";
+    	    indicator   = "#${palette.base0C}";
+    	    childBorder = "#${palette.base0C}";
+    	  };
+    	  placeholder = {
+            background  = "#${palette.base01}";
+    	    text        = "#${palette.base07}";
+    	    border      = "#${palette.base0B}";
+    	    indicator   = "#${palette.base0B}";
+    	    childBorder = "#${palette.base0B}";
+    	  };
+    	  urgent = {
+    	    text        = "#${palette.base08}";
+    	    border      = "#${palette.base08}";
+    	    indicator   = "#${palette.base08}";
+    	    background  = "#${palette.base08}";
+    	    childBorder = "#${palette.base08}";
     	  };
     	};
     	keybindings = with pkgs; {
