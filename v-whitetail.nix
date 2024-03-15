@@ -21,7 +21,7 @@ in
     inputs.nixvim.homeManagerModules.nixvim
     ./DotFiles/swaylock.nix
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.default-dark;
+  colorScheme = inputs.nix-colors.colorSchemes.vice;
   fonts.fontconfig.enable = true;
   services = {
     mako = {
@@ -66,12 +66,12 @@ in
     yazi.enable = true;
     gitui.enable = true;
     swayr.enable = true;
-    bottom.enable = true;
     firefox.enable = true;
     ripgrep.enable = true;
     thefuck.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
+    bottom. enable = true;
     wpaperd = {
       enable = true;
       settings.default.path = "/home/v/Pictures/Wallpapers";
@@ -228,7 +228,7 @@ in
 	    theme = "nix-colors";
         themes.nix-colors.black   = "#${palette.base00}";
 	    themes.nix-colors.bg      = "#${palette.base01}";
-        themes.nix-colors.fg      = "#${palette.base04}";
+        themes.nix-colors.fg      = "#${palette.base05}";
         themes.nix-colors.white   = "#${palette.base07}";
 	    themes.nix-colors.red     = "#${palette.base08}";
         themes.nix-colors.orange  = "#${palette.base09}";
@@ -287,7 +287,7 @@ in
             magenta    = "#${palette.base0E}";
 	      };
 	      cursor = {
-	        text       = "#${palette.base06}";
+	        text       = "#${palette.base05}";
 	        cursor     = "#${palette.base0F}";
 	      };
 	      normal = {
@@ -521,9 +521,9 @@ in
     	  focused = {
             background  = "#${palette.base01}";
     	    text        = "#${palette.base07}";
-    	    border      = "#${palette.base0E}";
-    	    indicator   = "#${palette.base0E}";
-    	    childBorder = "#${palette.base0E}";
+    	    border      = "#${palette.base0F}";
+    	    indicator   = "#${palette.base0F}";
+    	    childBorder = "#${palette.base0F}";
     	  };
     	  focusedInactive = {
             background  = "#${palette.base01}";
