@@ -12,8 +12,10 @@ let
   l_key = "h";
   r_key = "l";
   m_key = "Mod4";
+  d_task = "btm";
+  d_term = "foot";
   d_menu = "fuzzel";
-  d_term = "alacritty";
+  d_font = "Maple Mono NF";
 in
 {
   imports = [
@@ -68,7 +70,7 @@ in
     lsd.enable = true;
     imv.enable = true;
     fzf.enable = true;
-    yazi.enable = true;
+    rio.enable = true;
     gitui.enable = true;
     swayr.enable = true;
     firefox.enable = true;
@@ -77,6 +79,10 @@ in
     swaylock.enable = true;
     home-manager.enable = true;
     bottom. enable = true;
+    yazi = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
     wpaperd = {
       enable = true;
       settings.default.path = "/home/v/Pictures/Wallpapers";
@@ -274,43 +280,37 @@ in
 	    };
       };
     };
-    alacritty = {
+    foot = {
       enable = true;
       settings = {
-	    font.size = 10;
-	    window.opacity = 0.85;
-	    live_config_reload = true;
-	    colors = {
-	      bright = {
-            black      = "#${palette.base00}";
-            white      = "#${palette.base07}";
-	        red        = "#${palette.base08}";
-            yellow     = "#${palette.base0A}";
-            green      = "#${palette.base0B}";
-            cyan       = "#${palette.base0C}";
-	        blue       = "#${palette.base0D}";
-            magenta    = "#${palette.base0E}";
-	      };
-	      cursor = {
-	        text       = "#${palette.base05}";
-	        cursor     = "#${palette.base0F}";
-	      };
-	      normal = {
-            black      = "#${palette.base00}";
-            white      = "#${palette.base07}";
-	        red        = "#${palette.base08}";
-            yellow     = "#${palette.base0A}";
-            green      = "#${palette.base0B}";
-            cyan       = "#${palette.base0C}";
-	        blue       = "#${palette.base0D}";
-            magenta    = "#${palette.base0E}";
-	      };
-	      primary = {
-	        background = "#${palette.base01}";
-	        foreground = "#${palette.base05}";
-	      };
-	      draw_bold_text_with_bright_colors = true;
-	    };
+        main = {
+          font = "${d_font}:size=10";
+          font-bold = "${d_font}:style=Bold:size=10";
+          font-italic = "${d_font}:style=Italic:size=10";
+          font-bold-italic = "${d_font}:style=BoldItalic:size=10";
+          line-height="11";
+        };
+        colors = {
+          alpha = 0.85;
+          background = "${palette.base01}";
+          foreground = "${palette.base05}";
+          bright0    = "${palette.base00}";
+          bright7    = "${palette.base07}";
+	      bright1    = "${palette.base08}";
+          bright3    = "${palette.base0A}";
+          bright2    = "${palette.base0B}";
+          bright6    = "${palette.base0C}";
+	      bright4    = "${palette.base0D}";
+          bright5    = "${palette.base0E}";
+          regular0   = "${palette.base00}";
+          regular7   = "${palette.base07}";
+	      regular1   = "${palette.base08}";
+          regular3   = "${palette.base0A}";
+          regular2   = "${palette.base0B}";
+          regular6   = "${palette.base0C}";
+	      regular4   = "${palette.base0D}";
+          regular5   = "${palette.base0E}";
+        };
       };
     };
     nushell = { 
@@ -355,17 +355,17 @@ in
         };
         "clock" = {
           tooltip-format = "{:%A %B %d %Y | %H:%M}";
-          format = "  {:%a %d %b  %I:%M %p}";
-          format-alt = "  {:%d/%m/%Y  %H:%M:%S}";
+          format = " {:%a %d %b  %I:%M %p}";
+          format-alt = " {:%d/%m/%Y  %H:%M:%S}";
           interval = 1;
         };
         "cpu" = {
-          format = "  {usage: >3}%";
-          on-click = "alacritty -e htop";
+          format = "{usage: >3}%";
+          on-click = "${d_term} -e ${d_task}";
         };
         "memory" = {
-          format = "  {: >3}%";
-          on-click = "alacritty -e btm";
+          format = "{: >3}%";
+          on-click = "${d_term} -e ${d_task}";
         };
         "backlight" = {
           format = "{icon} {percent: >3}%";
@@ -379,14 +379,14 @@ in
             critical = 15;
           };
           format = "{icon} {capacity: >3}%";
-          format-icons = [" " " " " " " " " "];
+          format-icons = ["" "" "" "" ""];
         };
         "network" = {
           format = "⚠ Disabled";
-          format-wifi = "  {essid}";
-          format-ethernet = "  {ifname}: {ipaddr}/{cidr}";
+          format-wifi = " {essid}";
+          format-ethernet = " {ifname}: {ipaddr}/{cidr}";
           format-disconnected = "⚠ Disconnected";
-          on-click = "alacritty -e nmtui";
+          on-click = "${d_term} -e nmtui";
         };
         "pulseaudio" = {
           scroll-step = 1;
@@ -427,11 +427,11 @@ in
             border: 0px;
             border-radius: 0px;
             padding: 0px 0px;
-            font-family:Maple-Mono-NF;
-            font-size: 14px;
+            font-family: ${d_font};
+            font-size: 16px;
             margin-right: 4px;
             margin-left: 4px;
-            padding-bottom:2px;
+            padding-bottom: 2px;
            }
         window#waybar {
             background: #${palette.base01};
@@ -463,6 +463,7 @@ in
         #custom-power,
         #custom-logout,
         #custom-screenshot {
+            font-size: 20;
             border-style: hidden;
             padding: 2px 4px;
             color: #${palette.base0F};
