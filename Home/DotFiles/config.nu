@@ -98,11 +98,13 @@ def nu-gc [upper_bound: int] {
 }
 
 def memeshell [] {
+  clear
   let meme_dir = '/home/v/.config/memeshell/'
   let meme_src = ls $meme_dir | shuf -n 1
   let meme_path = $meme_dir ++ $meme_src
   let meme_text = cat $meme_path | dotacat
   print $meme_text
 }
+alias clear = memeshell
 
 memeshell
