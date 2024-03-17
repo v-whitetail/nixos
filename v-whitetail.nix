@@ -23,7 +23,7 @@ in
     inputs.nixvim.homeManagerModules.nixvim
     ./DotFiles/swaylock.nix
   ];
-  #colorScheme = inputs.nix-colors.colorSchemes.vice;
+  # colorScheme = inputs.nix-colors.colorSchemes.vice;
   colorScheme = {
     slug = "citruszest";
     name = "CitrusZest";
@@ -157,7 +157,7 @@ in
           enable = true;
           servers = {
             html.enable = true;
-            # nixd.enable = true;
+            # nixd.enable = true; unstable
             bashls.enable = true;
             lua-ls.enable = true;
             pyright.enable = true;
