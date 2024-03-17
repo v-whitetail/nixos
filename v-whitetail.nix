@@ -12,9 +12,11 @@ let
   l_key = "h";
   r_key = "l";
   m_key = "Mod4";
+  d_man = "yazi";
   d_task = "btm";
   d_term = "foot";
   d_menu = "fuzzel";
+  d_brow = "firefox";
   d_font = "Maple Mono NF";
 in
 {
@@ -66,6 +68,7 @@ in
     homeDirectory = "/home/v";
     file = { };
     packages = with pkgs; [
+      nodejs_21
       rustup
       discord
       dotacat
@@ -598,6 +601,8 @@ in
     	keybindings = with pkgs; {
     	  "${m_key}+Return" = "exec ${d_term}";
     	  "${m_key}+d" = "exec ${d_menu}";
+    	  "${m_key}+i" = "exec ${d_brow}";
+    	  "${m_key}+e" = "exec ${d_man}";
     	  "${m_key}+q" = "kill";
     	  "${m_key}+b" = "splith";
     	  "${m_key}+v" = "splitv";
