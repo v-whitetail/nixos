@@ -34,7 +34,7 @@
               };
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.v = import ./v-whitetail.nix;
+              users.v = import ./Home/v-whitetail.nix;
             };
           }
         ];
