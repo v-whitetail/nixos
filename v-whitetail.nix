@@ -23,7 +23,30 @@ in
     inputs.nixvim.homeManagerModules.nixvim
     ./DotFiles/swaylock.nix
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.vice;
+  #colorScheme = inputs.nix-colors.colorSchemes.vice;
+  colorScheme = {
+    slug = "citruszest";
+    name = "CitrusZest";
+    author = "https://github.com/zootedb0t";
+    palette = {
+      base00 = "#121212";
+      base01 = "#232323";
+      base02 = "#232323";
+      base03 = "#383838";
+      base04 = "#404040";
+      base05 = "#767C77";
+      base06 = "#BFBFBF";
+      base07 = "#F9F9F9";
+      base08 = "#FF5454";
+      base09 = "#FF7431";
+      base0A = "#FFD700";
+      base0B = "#00CC7A";
+      base0C = "#00FFFF";
+      base0D = "#00BFFF";
+      base0E = "#FF1A75";
+      base0F = "#1AFFA3";
+    };
+  };
   fonts.fontconfig.enable = true;
   services = {
     mako = {
@@ -134,6 +157,7 @@ in
           enable = true;
           servers = {
             html.enable = true;
+            # nixd.enable = true;
             bashls.enable = true;
             lua-ls.enable = true;
             pyright.enable = true;
@@ -162,9 +186,9 @@ in
         base00 = "#${palette.base00}";
         base01 = "#${palette.base01}";
         base02 = "#${palette.base02}";
-        base03 = "#${palette.base03}";
-        base04 = "#${palette.base04}";
-        base05 = "#${palette.base05}";
+        base03 = "#${palette.base05}"; # comments
+        base04 = "#${palette.base05}"; # line numbers
+        base05 = "#${palette.base06}"; # fg text
         base06 = "#${palette.base06}";
         base07 = "#${palette.base07}";
         base08 = "#${palette.base08}";
@@ -293,7 +317,7 @@ in
         colors = {
           alpha = 0.85;
           background = "${palette.base01}";
-          foreground = "${palette.base05}";
+          foreground = "${palette.base06}";
           bright0    = "${palette.base00}";
           bright7    = "${palette.base07}";
 	      bright1    = "${palette.base08}";
@@ -446,6 +470,7 @@ in
             margin-top:2px;
         }
         #workspaces button.focused {
+            color: #${palette.base08};
             border-color: #${palette.base08};
         }
         #mode {
