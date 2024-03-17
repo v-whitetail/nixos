@@ -23,7 +23,7 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
-    ./DotFiles/swaylock.nix
+    ./swaylock.nix
   ];
   # colorScheme = inputs.nix-colors.colorSchemes.vice;
   colorScheme = {
