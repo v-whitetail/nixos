@@ -3,7 +3,6 @@
   config,
   inputs,
   home-manager,
-  colorschemes,
   ...
 }:
 
@@ -11,6 +10,7 @@ let
   palette = config.colorScheme.palette;
 in 
 {
+  programs.nixvim = {
     enable = true;
     options = {
       wrap = true;
@@ -136,4 +136,5 @@ in
         options.noremap = true;
       }
     ];
+  };
 }
