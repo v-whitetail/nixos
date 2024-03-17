@@ -32,12 +32,16 @@ in
       colorcolumn = "80";
     };
     plugins = {
+      nix.enable = true;
       fidget.enable = true;
       luasnip.enable = true;
       telescope.enable = true;
       which-key.enable = true;
       bufferline.enable = true;
-      treesitter.enable = true;
+      treesitter = {
+        enable = true;
+        nixGrammars = true;
+      };
       crates-nvim.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lua.enable = true;
@@ -45,13 +49,19 @@ in
         enable = true;
         autoEnableSources = true;
         settings.sources = [
-        { name = "path"; }
-        { name = "buffer"; }
-        { name = "luasnip"; }
-        { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+          { name = "luasnip"; }
+          { name = "nvim_lsp"; }
         ];
+        settings.mapping = {
+          "<C-y>" = "cmp.mapping.confirm({ select = true })";
+          "<C-n>" = "cmp.mapping.select_next_item()";
+          "<C-p>" = "cmp.mapping.select_prev_item()";
+        };
       };
       lsp = {
+        onAttach = "default_keymaps({ buffer = buffnr })";
         enable = true;
         servers = {
           html.enable = true;
@@ -64,6 +74,13 @@ in
           rust-analyzer.enable = true;
           rust-analyzer.installCargo = false;
           rust-analyzer.installRustc = false;
+        };
+        keymaps.lspBuf = {
+          "K" = "hover";
+          "<leader>how" = "type_definition";
+          "<leader>why" = "implementation";
+          "<leader>what" = "definition";
+          "<leader>where" = "references";
         };
       };
       harpoon = {
