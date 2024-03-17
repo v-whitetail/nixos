@@ -56,6 +56,12 @@ in
       base0F = "#1AFFA3";
     };
   };
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
   fonts.fontconfig.enable = true;
   services = {
     mako = {
