@@ -23,14 +23,14 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
-    ./swaylock.nix
-    ./nixvim.nix
-    ./fuzzel.nix
-    ./zellij.nix
     ./foot.nix
-    ./waybar.nix
-    ./programs.nix
     ./sway.nix
+    ./fuzzel.nix
+    ./nixvim.nix
+    ./waybar.nix
+    ./zellij.nix
+    ./programs.nix
+    ./swaylock.nix
   ];
   # colorScheme = inputs.nix-colors.colorSchemes.vice;
   colorScheme = {
