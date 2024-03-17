@@ -79,7 +79,9 @@ in
   home = {
     username = "v";
     homeDirectory = "/home/v";
-    file = { };
+    file = {
+      ".config/memeshell".source = ./DotFiles/memeshell;
+    };
     packages = with pkgs; [
       nodejs_21
       rustup
