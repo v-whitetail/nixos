@@ -3,6 +3,7 @@
   config,
   inputs,
   home-manager,
+  colorschemes,
   ...
 }:
 
@@ -10,7 +11,6 @@ let
   palette = config.colorScheme.palette;
 in 
 {
-  nixvim = {
     enable = true;
     options = {
       wrap = true;
@@ -85,9 +85,9 @@ in
       base01 = "#${palette.base01}";
       base02 = "#${palette.base02}";
       base03 = "#${palette.base05}"; # comments
-        base04 = "#${palette.base05}"; # line numbers
-        base05 = "#${palette.base06}"; # fg text
-        base06 = "#${palette.base06}";
+      base04 = "#${palette.base05}"; # line numbers
+      base05 = "#${palette.base06}"; # fg text
+      base06 = "#${palette.base06}";
       base07 = "#${palette.base07}";
       base08 = "#${palette.base08}";
       base09 = "#${palette.base09}";
@@ -99,7 +99,7 @@ in
       base0F = "#${palette.base0F}";
     };
     extraConfigLua = ''
-    	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     '';
     globals.mapleader = " ";
@@ -136,5 +136,4 @@ in
         options.noremap = true;
       }
     ];
-  }
 }
