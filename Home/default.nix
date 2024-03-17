@@ -27,6 +27,8 @@ in
     ./nixvim.nix
     ./fuzzel.nix
     ./zellij.nix
+    ./foot.nix
+    ./waybar.nix
   ];
   # colorScheme = inputs.nix-colors.colorSchemes.vice;
   colorScheme = {

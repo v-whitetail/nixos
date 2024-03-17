@@ -8,6 +8,17 @@
 
 let
   palette = config.colorScheme.palette;
+  d_key = "j";
+  u_key = "k";
+  l_key = "h";
+  r_key = "l";
+  m_key = "Mod4";
+  d_man = "yazi";
+  d_task = "btm";
+  d_term = "foot";
+  d_menu = "fuzzel";
+  d_brow = "firefox";
+  d_font = "Maple Mono NF";
 in 
 {
   programs.waybar = {
