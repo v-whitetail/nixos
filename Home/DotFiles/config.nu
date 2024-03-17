@@ -28,6 +28,11 @@ def ftest [] {
 }
 
 def fbuild [] {
+  cd /home/v/crystalPeak/nixos/
+  sudo nixos-rebuild --flake .#v-whitetail switch
+}
+
+def bg-shuf [] {
   let bg_dir = '/home/v/Pictures/Wallpapers/'
   let bg_img = ls $bg_dir | shuf -n 1
   let bg_src = $bg_dir ++ $bg_img;
@@ -35,10 +40,7 @@ def fbuild [] {
   cd /home/v/crystalPeak/nixos/
   cp -f $bg_src ./sddm-background.jpg
   cp -f $bg_src /home/v/.config/swaylock-bg.jpg
-
-  sudo nixos-rebuild --flake .#v-whitetail switch
 }
-
 
 def nu-wifi [] {
   let wifi_scan = nmcli d wifi list

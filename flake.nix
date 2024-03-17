@@ -24,7 +24,7 @@
       v-whitetail = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./System/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -34,7 +34,7 @@
               };
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.v = import ./v-whitetail.nix;
+              users.v = import ./Home;
             };
           }
         ];
