@@ -42,14 +42,14 @@ in
       window.titlebar = false;
       defaultWorkspace = "workspace number 1";
       gaps = {
-          left       = 8;
-          right      = 8;
-          top        = 8;
-          bottom     = 8;
-          inner      = 8;
-          outer      = 8;
-          vertical   = 8;
-          horizontal = 8;
+        left       = 8;
+        right      = 8;
+        top        = 8;
+        bottom     = 8;
+        inner      = 8;
+        outer      = 8;
+        vertical   = 8;
+        horizontal = 8;
       };
       colors = {
         background    = "#${palette.base00}";
@@ -130,5 +130,5 @@ in
         "${m_key}+Shift+0" = "move container to workspace number 10";
       };
     };
-   ;
+  };
 }

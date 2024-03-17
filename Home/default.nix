@@ -30,6 +30,7 @@ in
     ./foot.nix
     ./waybar.nix
     ./programs.nix
+    ./sway.nix
   ];
   # colorScheme = inputs.nix-colors.colorSchemes.vice;
   colorScheme = {
