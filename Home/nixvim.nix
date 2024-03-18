@@ -35,6 +35,7 @@ in
       nix.enable = true;
       fidget.enable = true;
       luasnip.enable = true;
+      openscad.enable = true;
       telescope.enable = true;
       which-key.enable = true;
       bufferline.enable = true;

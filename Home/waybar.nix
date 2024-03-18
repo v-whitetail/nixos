@@ -132,7 +132,7 @@ in
          }
       window#waybar {
           background: #${palette.base01};
-          opacity: 0.80;
+          opacity: 0.90;
       }
       #workspaces button {
           padding: 4px 0px 2px 0px;

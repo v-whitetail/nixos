@@ -10,6 +10,9 @@ alias cdnix = cd /home/v/crystalPeak/nixos
 alias honix = man home-configuration.nix
 alias manix = man configuration.nix
 
+alias ssh-on = sudo systemctl start sshd.service
+alias ssh-off = sudo systemctl start sshd.service
+
 def nixrc [] {
   let dir = pwd
   cd /home/v/crystalPeak/nixos/

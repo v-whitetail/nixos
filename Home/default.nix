@@ -83,18 +83,19 @@ in
       ".config/memeshell".source = ./DotFiles/memeshell;
     };
     packages = with pkgs; [
-      nodejs_21
       rustup
       discord
       dotacat
       neofetch
+      openscad
       grimblast
       libnotify
+      nodejs_21
       wdisplays
       xdg-utils
       pavucontrol
-      brightnessctl
       wl-clipboard
+      brightnessctl
       autotiling-rs
     ];
     pointerCursor = {
