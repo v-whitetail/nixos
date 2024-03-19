@@ -83,6 +83,7 @@ in
       ".config/memeshell".source = ./DotFiles/memeshell;
     };
     packages = with pkgs; [
+      fd
       rustup
       discord
       dotacat

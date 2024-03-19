@@ -35,17 +35,20 @@ in
       nix.enable = true;
       fidget.enable = true;
       luasnip.enable = true;
-      openscad.enable = true;
       telescope.enable = true;
       which-key.enable = true;
       bufferline.enable = true;
+      crates-nvim.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-nvim-lua.enable = true;
+      openscad = {
+        enable = true;
+        fuzzyFinder = "fzf";
+      };
       treesitter = {
         enable = true;
         nixGrammars = true;
       };
-      crates-nvim.enable = true;
-      cmp-nvim-lsp.enable = true;
-      cmp-nvim-lua.enable = true;
       cmp = {
         enable = true;
         autoEnableSources = true;
