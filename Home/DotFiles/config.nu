@@ -13,6 +13,8 @@ alias manix = man configuration.nix
 alias ssh-on = sudo systemctl start sshd.service
 alias ssh-off = sudo systemctl start sshd.service
 
+alias write-rust = zellij -l rust_dev
+
 def nixrc [] {
   let dir = pwd
   cd /home/v/crystalPeak/nixos/

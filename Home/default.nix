@@ -81,6 +81,7 @@ in
     homeDirectory = "/home/v";
     file = {
       ".config/memeshell".source = ./DotFiles/memeshell;
+      ".config/zellij/layouts".source = ./DotFiles/zellij/layouts;
     };
     packages = with pkgs; [
       fd
