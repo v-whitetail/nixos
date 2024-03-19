@@ -94,6 +94,7 @@ in
       nodejs_21
       wdisplays
       xdg-utils
+      cargo-watch
       pavucontrol
       wl-clipboard
       brightnessctl
