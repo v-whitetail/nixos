@@ -43,9 +43,9 @@ in
       cmp-nvim-lua.enable = true;
       luasnip = {
         enable = true;
-        fromLua = [{
-          paths = ./DotFiles/snippets.lua;
-        }];
+        # fromLua = [{
+        #   paths = ./DotFiles/snippets.lua;
+        # }];
       };
       treesitter = {
         enable = true;
@@ -59,6 +59,7 @@ in
           { name = "buffer"; }
           { name = "luasnip"; }
           { name = "nvim_lsp"; }
+          { name = "cmp_luasnip"; }
         ];
         settings.mapping = {
           "<C-y>" = "cmp.mapping.confirm({ select = true })";

@@ -161,7 +161,7 @@ in
       #custom-power,
       #custom-logout,
       #custom-screenshot {
-          font-size: 20;
+          font-size: 20px;
           border-style: hidden;
           padding: 2px 4px;
           color: #${palette.base0F};
