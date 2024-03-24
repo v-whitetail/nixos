@@ -24,6 +24,12 @@ in
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
+      input."*" = {
+        tap = "enabled";
+        drag = "enabled";
+        drag_lock = "enabled";
+        tap_button_map = "lrm";
+      };
       bars = [{
         id = "default_waybar";
         command = "waybar";

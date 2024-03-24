@@ -43,9 +43,9 @@ in
       cmp-nvim-lua.enable = true;
       luasnip = {
         enable = true;
-        # fromLua = [{
-        #   paths = ./DotFiles/snippets.lua;
-        # }];
+        fromLua = [{
+          paths = ./DotFiles/snippets.lua;
+        }];
       };
       treesitter = {
         enable = true;
@@ -66,13 +66,18 @@ in
           "<C-n>" = "cmp.mapping.select_next_item()";
           "<C-p>" = "cmp.mapping.select_prev_item()";
         };
+        settings.snippet.expand = ''
+        function(args)
+          require('luasnip').lsp_expand(args.body)
+        end
+        '';
       };
       lsp = {
         onAttach = "default_keymaps({ buffer = buffnr })";
         enable = true;
         servers = {
           html.enable = true;
-          # nixd.enable = true; unstable
+          nixd.enable = true;
           bashls.enable = true;
           lua-ls.enable = true;
           pyright.enable = true;
