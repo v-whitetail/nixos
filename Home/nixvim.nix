@@ -72,7 +72,7 @@ in
         enable = true;
         servers = {
           html.enable = true;
-          # nixd.enable = true; unstable
+          nixd.enable = true;
           bashls.enable = true;
           lua-ls.enable = true;
           pyright.enable = true;
