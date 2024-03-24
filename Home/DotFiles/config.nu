@@ -10,6 +10,11 @@ alias cdnix = cd /home/v/crystalPeak/nixos
 alias honix = man home-configuration.nix
 alias manix = man configuration.nix
 
+alias ssh-on = sudo systemctl start sshd.service
+alias ssh-off = sudo systemctl start sshd.service
+
+alias write-rust = zellij -l rust_dev
+
 def nixrc [] {
   let dir = pwd
   cd /home/v/crystalPeak/nixos/
@@ -97,3 +102,14 @@ def nu-gc [upper_bound: int] {
   cd $dir
 }
 
+def memeshell [] {
+  clear
+  let meme_dir = '/home/v/.config/memeshell/'
+  let meme_src = ls $meme_dir | shuf -n 1
+  let meme_path = $meme_dir ++ $meme_src
+  let meme_text = cat $meme_path | dotacat
+  print $meme_text
+}
+alias clear = memeshell
+
+memeshell

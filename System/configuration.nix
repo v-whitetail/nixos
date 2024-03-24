@@ -46,7 +46,7 @@
       wlp3s0 = { useDHCP = true; };
     };
     firewall = {
-      allowedTCPPorts = [ ];
+      allowedTCPPorts = [ 22 ];
       allowedUDPPorts = [ ];
     };
     networkmanager.enable = true;

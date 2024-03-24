@@ -32,7 +32,7 @@ in
         line-height="11";
       };
       colors = {
-        alpha = 0.85;
+        alpha = 0.90;
         background = "${palette.base01}";
         foreground = "${palette.base06}";
         bright0    = "${palette.base00}";

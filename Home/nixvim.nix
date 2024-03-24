@@ -34,17 +34,23 @@ in
     plugins = {
       nix.enable = true;
       fidget.enable = true;
-      luasnip.enable = true;
       telescope.enable = true;
       which-key.enable = true;
       bufferline.enable = true;
+      crates-nvim.enable = true;
+      cmp_luasnip.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-nvim-lua.enable = true;
+      luasnip = {
+        enable = true;
+        # fromLua = [{
+        #   paths = ./DotFiles/snippets.lua;
+        # }];
+      };
       treesitter = {
         enable = true;
         nixGrammars = true;
       };
-      crates-nvim.enable = true;
-      cmp-nvim-lsp.enable = true;
-      cmp-nvim-lua.enable = true;
       cmp = {
         enable = true;
         autoEnableSources = true;
@@ -53,6 +59,7 @@ in
           { name = "buffer"; }
           { name = "luasnip"; }
           { name = "nvim_lsp"; }
+          { name = "cmp_luasnip"; }
         ];
         settings.mapping = {
           "<C-y>" = "cmp.mapping.confirm({ select = true })";

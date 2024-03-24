@@ -32,30 +32,30 @@ in
     ./programs.nix
     ./swaylock.nix
   ];
-  # colorScheme = inputs.nix-colors.colorSchemes.vice;
-  colorScheme = {
-    slug = "citruszest";
-    name = "CitrusZest";
-    author = "https://github.com/zootedb0t";
-    palette = {
-      base00 = "#121212";
-      base01 = "#232323";
-      base02 = "#232323";
-      base03 = "#383838";
-      base04 = "#404040";
-      base05 = "#767C77";
-      base06 = "#BFBFBF";
-      base07 = "#F9F9F9";
-      base08 = "#FF5454";
-      base09 = "#FF7431";
-      base0A = "#FFD700";
-      base0B = "#00CC7A";
-      base0C = "#00FFFF";
-      base0D = "#00BFFF";
-      base0E = "#FF1A75";
-      base0F = "#1AFFA3";
-    };
-  };
+  colorScheme = inputs.nix-colors.colorSchemes.vice;
+  # colorScheme = {
+  #   slug = "citruszest";
+  #   name = "CitrusZest";
+  #   author = "https://github.com/zootedb0t";
+  #   palette = {
+  #     base00 = "#121212";
+  #     base01 = "#232323";
+  #     base02 = "#232323";
+  #     base03 = "#383838";
+  #     base04 = "#404040";
+  #     base05 = "#767C77";
+  #     base06 = "#BFBFBF";
+  #     base07 = "#F9F9F9";
+  #     base08 = "#FF5454";
+  #     base09 = "#FF7431";
+  #     base0A = "#FFD700";
+  #     base0B = "#00CC7A";
+  #     base0C = "#00FFFF";
+  #     base0D = "#00BFFF";
+  #     base0E = "#FF1A75";
+  #     base0F = "#1AFFA3";
+  #   };
+  # };
   xdg = {
     userDirs = {
       enable = true;
@@ -79,20 +79,25 @@ in
   home = {
     username = "v";
     homeDirectory = "/home/v";
-    file = { };
+    file = {
+      ".config/memeshell".source = ./DotFiles/memeshell;
+      ".config/zellij/layouts".source = ./DotFiles/zellij/layouts;
+    };
     packages = with pkgs; [
-      nodejs_21
+      fd
       rustup
       discord
       dotacat
       neofetch
       grimblast
       libnotify
+      nodejs_21
       wdisplays
       xdg-utils
+      cargo-watch
       pavucontrol
-      brightnessctl
       wl-clipboard
+      brightnessctl
       autotiling-rs
     ];
     pointerCursor = {
