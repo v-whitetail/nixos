@@ -32,7 +32,7 @@ in
     ./programs.nix
     ./swaylock.nix
   ];
-  colorScheme = inputs.nix-colors.colorSchemes.vice;
+  colorScheme = inputs.nix-colors.colorSchemes.monokai;
   # colorScheme = {
   #   slug = "citruszest";
   #   name = "CitrusZest";
@@ -89,7 +89,6 @@ in
       discord
       dotacat
       neofetch
-      openscad
       grimblast
       libnotify
       nodejs_21
