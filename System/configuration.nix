@@ -107,7 +107,16 @@
     };
     xserver = {
       enable = true;
-      libinput.enable = true;
+      libinput = {
+        enable = true;
+        touchpad = {
+          tapping = true;
+          tappingDragLock = true;
+          tappingButtonMap = "lrm";
+          naturalScrolling = true;
+          disableWhileTyping = true;
+        };
+      };
       xkb = {
         variant = "";
         layout = "us";
