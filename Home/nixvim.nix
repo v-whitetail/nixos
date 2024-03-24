@@ -38,15 +38,15 @@ in
       which-key.enable = true;
       bufferline.enable = true;
       crates-nvim.enable = true;
-      cmp_luasnip.enable = true;
+      # cmp_luasnip.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lua.enable = true;
-      luasnip = {
-        enable = true;
-        # fromLua = [{
-        #   paths = ./DotFiles/snippets.lua;
-        # }];
-      };
+      # luasnip = {
+      #   enable = true;
+      #   fromLua = [{
+      #     paths = ./DotFiles/snippets.lua;
+      #   }];
+      # };
       treesitter = {
         enable = true;
         nixGrammars = true;
@@ -57,9 +57,9 @@ in
         settings.sources = [
           { name = "path"; }
           { name = "buffer"; }
-          { name = "luasnip"; }
+          # { name = "luasnip"; }
           { name = "nvim_lsp"; }
-          { name = "cmp_luasnip"; }
+          # { name = "cmp_luasnip"; }
         ];
         settings.mapping = {
           "<C-y>" = "cmp.mapping.confirm({ select = true })";
