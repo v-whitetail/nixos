@@ -13,7 +13,17 @@ alias manix = man configuration.nix
 alias ssh-on = sudo systemctl start sshd.service
 alias ssh-off = sudo systemctl start sshd.service
 
-alias write-rust = zellij -l rust_dev
+def write-rust-aoc [] {
+  print "Session Name:\t"
+  let session = input
+  zellij -l write-rust-aoc -s $session
+}
+
+def write-rust [] {
+  print "Session Name:\t"
+  let session = input
+  zellij -l write-rust -s $session
+}
 
 def nixrc [] {
   let dir = pwd
