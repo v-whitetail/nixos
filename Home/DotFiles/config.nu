@@ -1,7 +1,5 @@
 
 alias :q = exit
-alias ls = lsd
-alias lsa = lsd -a
 alias cat = bat
 alias vim = nvim ./
 alias lf = yazi
@@ -115,9 +113,8 @@ def nu-gc [upper_bound: int] {
 def memeshell [] {
   clear
   let meme_dir = '/home/v/.config/memeshell/'
-  let meme_src = ls $meme_dir | shuf -n 1
-  let meme_path = $meme_dir ++ $meme_src
-  let meme_text = cat $meme_path | dotacat
+  let meme_path = ls $meme_dir | shuffle | get name | get 0
+  let meme_text = dotacat $meme_path
   print $meme_text
 }
 alias clear = memeshell
