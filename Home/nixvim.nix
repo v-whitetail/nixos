@@ -12,7 +12,7 @@ in
 {
   programs.nixvim = {
     enable = true;
-    options = {
+    opts = {
       wrap = true;
       backup = false;
       number = true;

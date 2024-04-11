@@ -79,6 +79,7 @@
   programs = {
     mtr.enable = true;
     sway.enable = true;
+    steam.enable = true;
     xwayland.enable = true;
   };
 
