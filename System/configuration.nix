@@ -122,12 +122,12 @@
         variant = "";
         layout = "us";
       };
-      displayManager.sddm = {
-        enable = true;
-        autoNumlock = true;
-        wayland.enable = true;
-        theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
-      };
+    };
+    displayManager.sddm = {
+      enable = true;
+      autoNumlock = true;
+      wayland.enable = true;
+      theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
     };
   };
 
