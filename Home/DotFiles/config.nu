@@ -78,10 +78,7 @@ def nu-gc [upper_bound: int] {
   let dir = pwd
   cd /nix/var/nix/profiles/
   let range = seq 2 $upper_bound
-  let links = ls | $in
-                 | split row -r "\n"
-                 | split column -r " "
-                 | get column1
+  let links = ls | get name
 
   $links | each { |link_name|
     $range | each { |link_index|
