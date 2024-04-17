@@ -85,21 +85,23 @@ in
     };
     packages = with pkgs; [
       fd
+      wl-clipboard
+      xdg-utils
+      dart
+      dart-sass
+      cargo-watch
+      nodejs_21
       rustup
       discord
       dotacat
+      fermyon-spin
       neofetch
       grimblast
       libnotify
-      nodejs_21
       wdisplays
-      xdg-utils
-      cargo-watch
-      pavucontrol
-      fermyon-spin
-      wl-clipboard
-      brightnessctl
       autotiling-rs
+      pavucontrol
+      brightnessctl
     ];
     pointerCursor = {
       gtk.enable = true;
