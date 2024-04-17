@@ -96,6 +96,7 @@ in
       xdg-utils
       cargo-watch
       pavucontrol
+      fermyon-spin
       wl-clipboard
       brightnessctl
       autotiling-rs
