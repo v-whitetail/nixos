@@ -52,7 +52,10 @@
     networkmanager.enable = true;
   };
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings.hosts = [ "unix:///var/run/docker.sock" ];
+  };
 
   environment = {
     systemPackages = with pkgs; [
