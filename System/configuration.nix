@@ -52,9 +52,9 @@
     networkmanager.enable = true;
   };
 
-  virtualisation.docker = {
+  virtualisation.docker.rootless = {
     enable = true;
-    daemon.settings.hosts = [ "unix:///var/run/docker.sock" ];
+    setSocketVariable = true;
   };
 
   environment = {
@@ -113,19 +113,19 @@
     };
     xserver = {
       enable = true;
-      libinput = {
-        enable = true;
-        touchpad = {
-          tapping = true;
-          tappingDragLock = true;
-          tappingButtonMap = "lrm";
-          naturalScrolling = true;
-          disableWhileTyping = true;
-        };
-      };
       xkb = {
         variant = "";
         layout = "us";
+      };
+    };
+    libinput = {
+      enable = true;
+      touchpad = {
+        tapping = true;
+        tappingDragLock = true;
+        tappingButtonMap = "lrm";
+        naturalScrolling = true;
+        disableWhileTyping = true;
       };
     };
     displayManager.sddm = {

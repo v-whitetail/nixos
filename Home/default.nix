@@ -90,7 +90,7 @@ in
       dart
       dart-sass
       cargo-watch
-      nodejs_21
+      nodejs
       rustup
       discord
       dotacat
