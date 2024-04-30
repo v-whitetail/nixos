@@ -100,6 +100,7 @@
     ntp.enable = true;
     dbus.enable = true;
     openssh.enable = true;
+    postgresql.enable = true;
     gnome.gnome-keyring.enable = true;
     logind = {
       lidSwitch= "suspend";
