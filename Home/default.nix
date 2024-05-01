@@ -101,6 +101,7 @@ in
       wdisplays
       autotiling-rs
       pavucontrol
+      tailwindcss
       brightnessctl
     ];
     pointerCursor = {
