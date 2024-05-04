@@ -62,6 +62,8 @@
       fzf
       gcc
       git
+      gtk3
+      gtk4
       vim
       dbus
       sway
@@ -70,6 +72,8 @@
       rustc
       cargo
       nushell
+      openssl
+      pkg-config
       libsForQt5.dolphin
       libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtquickcontrols2
