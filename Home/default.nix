@@ -62,6 +62,20 @@ in
       createDirectories = true;
     };
   };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "catppuccin-gtk";
+      package = pkgs.catppuccin-gtk;
+    };
+  };
+  qt = {
+    enable = true;
+    style = {
+      name = "catppuccin-qt5ct";
+      package = pkgs.catppuccin-qt5ct;
+    };
+  };
   fonts.fontconfig.enable = true;
   services = {
     mako = {
