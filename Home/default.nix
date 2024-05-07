@@ -96,7 +96,6 @@ in
     file = {
       ".config/memeshell".source = ./DotFiles/memeshell;
       ".config/zellij/layouts".source = ./DotFiles/zellij/layouts;
-      "devshells".source = ./DotFiles/devshells;
     };
     packages = with pkgs; [
       fd
