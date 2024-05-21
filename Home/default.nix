@@ -62,6 +62,20 @@ in
       createDirectories = true;
     };
   };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "catppuccin-gtk";
+      package = pkgs.catppuccin-gtk;
+    };
+  };
+  qt = {
+    enable = true;
+    style = {
+      name = "catppuccin-qt5ct";
+      package = pkgs.catppuccin-qt5ct;
+    };
+  };
   fonts.fontconfig.enable = true;
   services = {
     mako = {
@@ -85,20 +99,24 @@ in
     };
     packages = with pkgs; [
       fd
+      wl-clipboard
+      xdg-utils
+      dart
+      dart-sass
+      cargo-watch
+      nodejs
       rustup
       discord
       dotacat
+      fermyon-spin
       neofetch
       grimblast
       libnotify
-      nodejs_21
       wdisplays
-      xdg-utils
-      cargo-watch
-      pavucontrol
-      wl-clipboard
-      brightnessctl
       autotiling-rs
+      pavucontrol
+      tailwindcss
+      brightnessctl
     ];
     pointerCursor = {
       gtk.enable = true;

@@ -3,6 +3,7 @@ alias :q = exit
 alias cat = bat
 alias vim = nvim ./
 alias lf = yazi
+alias tw = tailwindcss
 
 alias cdnix = cd /home/v/crystalPeak/nixos
 alias honix = man home-configuration.nix
@@ -78,10 +79,7 @@ def nu-gc [upper_bound: int] {
   let dir = pwd
   cd /nix/var/nix/profiles/
   let range = seq 2 $upper_bound
-  let links = ls | $in
-                 | split row -r "\n"
-                 | split column -r " "
-                 | get column1
+  let links = ls | get name
 
   $links | each { |link_name|
     $range | each { |link_index|

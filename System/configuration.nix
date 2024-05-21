@@ -52,11 +52,18 @@
     networkmanager.enable = true;
   };
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   environment = {
     systemPackages = with pkgs; [
       fzf
       gcc
       git
+      gtk3
+      gtk4
       vim
       dbus
       sway
@@ -65,6 +72,8 @@
       rustc
       cargo
       nushell
+      openssl
+      pkg-config
       libsForQt5.dolphin
       libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtquickcontrols2
@@ -95,6 +104,7 @@
     ntp.enable = true;
     dbus.enable = true;
     openssh.enable = true;
+    postgresql.enable = true;
     gnome.gnome-keyring.enable = true;
     logind = {
       lidSwitch= "suspend";
@@ -108,19 +118,19 @@
     };
     xserver = {
       enable = true;
-      libinput = {
-        enable = true;
-        touchpad = {
-          tapping = true;
-          tappingDragLock = true;
-          tappingButtonMap = "lrm";
-          naturalScrolling = true;
-          disableWhileTyping = true;
-        };
-      };
       xkb = {
         variant = "";
         layout = "us";
+      };
+    };
+    libinput = {
+      enable = true;
+      touchpad = {
+        tapping = true;
+        tappingDragLock = true;
+        tappingButtonMap = "lrm";
+        naturalScrolling = true;
+        disableWhileTyping = true;
       };
     };
     displayManager.sddm = {
