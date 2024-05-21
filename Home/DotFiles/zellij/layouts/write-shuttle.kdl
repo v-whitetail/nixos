@@ -1,0 +1,47 @@
+layout {
+  tab focus=true {
+    pane {
+      size 1;
+      borderless true;
+      plugin location="zellij:compact-bar";
+    }
+    pane {
+      focus true;
+      name "neovim";
+      command "nvim";
+      args "./";
+    }
+    pane size=2 borderless=true {
+      plugin location="zellij:status-bar";
+    }
+  }
+  tab {
+    pane {
+      size 1;
+      borderless true;
+      plugin location="zellij:compact-bar";
+    }
+    pane {
+      stacked true;
+      pane {
+          expanded true;
+          name "live-server";
+          command "live-server";
+          args "./index.html" "--host" "0.0.0.0" "--port" "8080";
+      }
+      pane {
+        name "tailwind";
+        command "watchexec";
+        args "tailwindcss -i input.css -o outputs.css" "--watch" "./index.html";
+      }
+      pane {
+        name "html2maud-bin";
+        command "watchexec";
+        args "html2maud-bin -i index.html -o outputs.maud" "--watch" "./index.html";
+      }
+    }
+    pane size=2 borderless=true {
+      plugin location="zellij:status-bar";
+    }
+  };
+};
