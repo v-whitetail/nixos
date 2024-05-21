@@ -1,8 +1,5 @@
 {
-  pkgs,
   config,
-  inputs,
-  home-manager,
   ...
 }:
 
@@ -73,16 +70,19 @@ in
         '';
       };
       lsp = {
-        onAttach = "default_keymaps({ buffer = buffnr })";
+        # onAttach = "default_keymaps({ buffer = buffnr })";
         enable = true;
         servers = {
           html.enable = true;
+          htmx.enable = true;
+          htmx.filetypes = [ "html" ".html" ];
           nixd.enable = true;
           bashls.enable = true;
           lua-ls.enable = true;
           pyright.enable = true;
           nushell.enable = true;
-          nushell.filetypes = [ "nu" ];
+          nushell.filetypes = [ "nu" ".nu" ];
+          tailwindcss.enable = true;
           rust-analyzer.enable = true;
           rust-analyzer.installCargo = false;
           rust-analyzer.installRustc = false;
@@ -107,7 +107,7 @@ in
         };
       };
     };
-    extraPlugins = with pkgs.vimPlugins; [ ];
+    # extraPlugins = with pkgs.vimPlugins; [ ];
     colorschemes.base16.enable = true;
     colorschemes.base16.colorscheme = {
       base00 = "#${palette.base00}";

@@ -1,8 +1,5 @@
 {
-  pkgs,
   config,
-  inputs,
-  home-manager,
   ...
 }:
 
