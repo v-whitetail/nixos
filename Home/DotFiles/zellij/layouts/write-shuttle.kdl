@@ -31,8 +31,8 @@ layout {
       }
       pane {
         name "tailwind";
-        command "watchexec";
-        args "--watch" "./index.html" "tailwindcss -i input.css -o outputs.css";
+        command "tailwindcss";
+        args "-i" "input.css" "-o" "output.css" "-w" "index.html";
       }
       pane {
         name "html2maud-bin";
