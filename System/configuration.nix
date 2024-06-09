@@ -73,8 +73,6 @@
       cargo
       nushell
       bluetuith
-      libsForQt5.dolphin
-      libsForQt5.qt5.qtsvg
     ];
   };
 
@@ -104,9 +102,9 @@
     postgresql.enable = true;
     gnome.gnome-keyring.enable = true;
     logind = {
-      lidSwitch= "suspend";
-      lidSwitchDocked= "suspend";
-      lidSwitchExternalPower= "suspend";
+      lidSwitch = "suspend";
+      lidSwitchDocked = "suspend";
+      lidSwitchExternalPower = "suspend";
     };
     pipewire = {
       enable = true;
@@ -135,6 +133,7 @@
       autoNumlock = true;
       wayland.enable = true;
       extraPackages = with pkgs; [
+        libsForQt5.qt5.qtsvg
         libsForQt5.qt5.qtquickcontrols2
         libsForQt5.qt5.qtgraphicaleffects
       ];
