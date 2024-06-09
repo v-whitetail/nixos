@@ -31,13 +31,19 @@ in
     plugins = {
       nix.enable = true;
       fidget.enable = true;
-      telescope.enable = true;
       which-key.enable = true;
       bufferline.enable = true;
       crates-nvim.enable = true;
       cmp_luasnip.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lua.enable = true;
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fd".action = "find_files";
+          "<leader>lg".action = "live_grep";
+        };
+      };
       luasnip = {
         enable = true;
         fromLua = [{

@@ -42,8 +42,8 @@
     hostName = "fogCanyon";
     useDHCP = false;
     interfaces = {
-      enp2s0 = { useDHCP = true; };
-      wlp3s0 = { useDHCP = true; };
+      enp2s0.useDHCP = true;
+      wlp3s0.useDHCP = true;
     };
     firewall = {
       allowedTCPPorts = [ 22 ];
@@ -63,15 +63,13 @@
       fzf
       gcc
       git
-      gtk3
-      gtk4
-      vim
       dbus
       sway
       wget
       gitui
       rustc
       cargo
+      neovim
       nushell
       bluetuith
     ];
