@@ -73,6 +73,7 @@
       cargo
       nushell
       openssl
+      bluetuith
       pkg-config
       libsForQt5.dolphin
       libsForQt5.qt5.qtsvg
