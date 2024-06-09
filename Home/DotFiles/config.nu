@@ -114,7 +114,7 @@ def nu-gc [] {
     $remove | each { |link|
       sudo rm $link.name
     }
-    nix store --gc
+    nix-store --gc
   }
 
   cd $source
