@@ -1,14 +1,7 @@
 {
-  pkgs,
-  config,
-  inputs,
-  home-manager,
   ...
 }:
 
-let
-  palette = config.colorScheme.palette;
-in 
 {
   programs = {
     gh.enable = true;

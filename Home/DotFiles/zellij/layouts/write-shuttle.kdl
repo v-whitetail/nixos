@@ -24,20 +24,20 @@ layout {
     pane {
       stacked true;
       pane {
-          expanded true;
-          name "live-server";
-          command "live-server";
-          args "./index.html" "--host" "0.0.0.0" "--port" "8080";
+        expanded true;
+        name "live-server";
+        command "live-server";
+        args "./" "--host" "0.0.0.0" "--port" "8080";
       }
       pane {
         name "tailwind";
-        command "watchexec";
-        args "tailwindcss -i input.css -o outputs.css" "--watch" "./index.html";
+        command "tailwindcss";
+        args "-i" "input.css" "-o" "output.css" "-w" "index.html";
       }
       pane {
         name "html2maud-bin";
         command "watchexec";
-        args "html2maud-bin -i index.html -o outputs.maud" "--watch" "./index.html";
+        args "--watch" "./index.html" "html2maud-bin -i index.html -o output.maud";
       }
     }
     pane size=2 borderless=true {

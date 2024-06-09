@@ -13,8 +13,7 @@
 
   };
 
-  outputs = inputs@{
-    self,
+  outputs = inputs@ {
     nixpkgs,
     nix-colors,
     home-manager,
