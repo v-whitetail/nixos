@@ -15,6 +15,7 @@
 
   hardware = {
     opengl.enable = true;
+    bluetooth.enable = true;
     trackpoint.enable = true;
   };
 
@@ -85,14 +86,6 @@
     sway.enable = true;
     steam.enable = true;
     xwayland.enable = true;
-  };
-
-  xdg = {
-    portal = {
-      enable = true;
-      config.common.default = "wlr";
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    };
   };
 
   services = {
