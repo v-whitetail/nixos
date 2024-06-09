@@ -12,6 +12,21 @@ alias manix = man configuration.nix
 alias ssh-on = sudo systemctl start sshd.service
 alias ssh-off = sudo systemctl start sshd.service
 
+def devshell [] {
+  let flake = ls ~/.config/devshells | input list -d name --fuzzy
+  let target = pwd
+
+  ls $flake.name | each { |file|
+    cp -r $file.name $target
+    print $'Copied ($file.name) into the current directory'
+  } | ignore
+
+  let input = [no yes] | input list --fuzzy 'Proceed to Dev Shell?'
+  if $input == yes {
+    nix develop
+  }
+}
+
 def write-rust-aoc [] {
   print "Session Name:\t"
   let session = input
@@ -75,37 +90,33 @@ def nu-wifi [] {
   nmcli d wifi connect $wifi_name password $pass_word
 }
 
-def nu-gc [upper_bound: int] {
-  let dir = pwd
-  cd /nix/var/nix/profiles/
-  let range = seq 2 $upper_bound
-  let links = ls | get name
+def nu-gc [] {
+  let source = pwd
+  let target = '/nix/var/nix/profiles/'
 
-  $links | each { |link_name|
-    $range | each { |link_index|
-      if ($link_name | str contains $"system-($link_index)-") {
-        print $link_name
-        break
-      }
+  cd $target
+
+  let links = ls | where { |link| $link.name | str contains 'system-' } | skip 1 | drop 1
+  let length = $links | length
+
+  print $'($length) Items available for garbage collection:'
+  print $links
+
+  let prompt  = 'Input quantity to reserve:'
+  let reserve = seq 0 $length | reverse | input list --fuzzy $prompt
+  let remove  = $links | take ($length - $reserve)
+
+  print 'Items marked for garbage collection:'
+  print $remove
+
+  let confirm = [no yes] | input list --fuzzy 'Confirm garbage collection:'
+  if $confirm == yes {
+    $remove | each { |link|
+      sudo rm $link.name
     }
-  } | ignore
-
-  print "Comfirm Delete? [yes/no]"
-  let confirm = (input)
-
-  match $confirm {
-    "yes" => {
-      $links | each { |link_name|
-        $range | each { |link_index|
-          if ($link_name | str contains $"system-($link_index)-") {
-            sudo rm $link_name
-          }
-        }
-      } | ignore
-    }
-    _ => { print "aborting garbage collector" }
   }
-  cd $dir
+
+  cd $source
 }
 
 def memeshell [] {
