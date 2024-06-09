@@ -75,8 +75,6 @@
       bluetuith
       libsForQt5.dolphin
       libsForQt5.qt5.qtsvg
-      libsForQt5.qt5.qtquickcontrols2
-      libsForQt5.qt5.qtgraphicaleffects
     ];
   };
 
@@ -136,6 +134,10 @@
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
+      extraPackages = with pkgs; [
+        libsForQt5.qt5.qtquickcontrols2
+        libsForQt5.qt5.qtgraphicaleffects
+      ];
       theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
     };
   };
