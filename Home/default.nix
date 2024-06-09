@@ -61,11 +61,8 @@
       ".config/devshells".source = ./DotFiles/devshells;
     };
     packages = with pkgs; [
-      fd
       wl-clipboard
       xdg-utils
-      dart
-      dart-sass
       cargo-watch
       nodejs
       rustup

@@ -33,7 +33,6 @@
         isNormalUser = true;
         description = "v-whitetail";
         extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [ ];
       };
     };
   };
@@ -59,6 +58,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      fd
       fzf
       gcc
       git
@@ -72,9 +72,7 @@
       rustc
       cargo
       nushell
-      openssl
       bluetuith
-      pkg-config
       libsForQt5.dolphin
       libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtquickcontrols2
