@@ -71,6 +71,7 @@
       cargo
       neovim
       nushell
+      openssl
       bluetuith
     ];
   };
@@ -83,6 +84,7 @@
     mtr.enable = true;
     sway.enable = true;
     steam.enable = true;
+    nix-ld.enable = true;
     xwayland.enable = true;
   };
 
