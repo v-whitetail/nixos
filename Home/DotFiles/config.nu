@@ -21,6 +21,8 @@ def devshell [] {
     print $'Copied ($file.name) into the current directory'
   } | ignore
 
+  ls | each { |file| chmod +rw $file.name } | ignore
+
   let input = [no yes] | input list --fuzzy 'Proceed to Dev Shell?'
   if $input == yes {
     nix develop

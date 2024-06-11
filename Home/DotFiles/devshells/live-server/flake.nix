@@ -14,7 +14,6 @@
     pkgs = nixpkgs.legacyPackages.${system};
 
     packages = with pkgs; [
-      cargo
       zellij
       tailwindcss
     ];
@@ -24,8 +23,7 @@
       buildInputs = packages;
 
       shellHook = ''
-      cargo install live-server
-      zellij -l dev.kdl
+      nu -c "zellij -l dev.kdl"
       exit
       '';
     };
