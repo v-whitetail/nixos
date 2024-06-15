@@ -23,6 +23,7 @@
       buildInputs = packages;
 
       shellHook = ''
+      cargo install live-server
       nu -c "zellij -l dev.kdl"
       exit
       '';
