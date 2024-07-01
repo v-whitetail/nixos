@@ -24,7 +24,6 @@
       nushell
       zellij
       watchexec
-      neovim
       curl
       wget
       pkg-config
