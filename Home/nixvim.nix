@@ -31,13 +31,19 @@ in
     plugins = {
       nix.enable = true;
       fidget.enable = true;
-      telescope.enable = true;
       which-key.enable = true;
       bufferline.enable = true;
       crates-nvim.enable = true;
       cmp_luasnip.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lua.enable = true;
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fd".action = "find_files";
+          "<leader>lg".action = "live_grep";
+        };
+      };
       luasnip = {
         enable = true;
         fromLua = [{
@@ -47,6 +53,8 @@ in
       treesitter = {
         enable = true;
         nixGrammars = true;
+        ensureInstalled = [ "nu" ];
+        parserInstallDir = ".vim/parserinstalldir";
       };
       cmp = {
         enable = true;
@@ -130,6 +138,17 @@ in
     extraConfigLua = ''
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+      parser_config.nu = {
+        install_info = {
+          url = "https://github.com/nushell/tree-sitter-nu",
+          files = { "src/parser.c" },
+          branch = "main",
+        },
+        filetype = "nu",
+      }
     '';
     globals.mapleader = " ";
     keymaps = [

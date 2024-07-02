@@ -17,13 +17,21 @@
     ./programs.nix
     ./swaylock.nix
   ];
+
   colorScheme = inputs.nix-colors.colorSchemes.vice;
+
   xdg = {
     userDirs = {
       enable = true;
       createDirectories = true;
     };
+    portal = {
+      enable = true;
+      config.common.default = "wlr";
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    };
   };
+
   gtk = {
     enable = true;
     theme = {
@@ -31,6 +39,7 @@
       package = pkgs.catppuccin-gtk;
     };
   };
+
   qt = {
     enable = true;
     style = {
@@ -38,7 +47,9 @@
       package = pkgs.catppuccin-qt5ct;
     };
   };
+
   fonts.fontconfig.enable = true;
+
   services = {
     mako = {
       enable = true;
@@ -52,6 +63,7 @@
       ];
     };
   };
+
   home = {
     username = "v";
     homeDirectory = "/home/v";

@@ -14,7 +14,8 @@
   };
 
   hardware = {
-    opengl.enable = true;
+    graphics.enable = true;
+    bluetooth.enable = true;
     trackpoint.enable = true;
   };
 
@@ -41,8 +42,8 @@
     hostName = "fogCanyon";
     useDHCP = false;
     interfaces = {
-      enp2s0 = { useDHCP = true; };
-      wlp3s0 = { useDHCP = true; };
+      enp2s0.useDHCP = true;
+      wlp3s0.useDHCP = true;
     };
     firewall = {
       allowedTCPPorts = [ 22 ];
@@ -62,21 +63,16 @@
       fzf
       gcc
       git
-      gtk3
-      gtk4
-      vim
       dbus
       sway
       wget
       gitui
       rustc
       cargo
+      neovim
       nushell
+      openssl
       bluetuith
-      libsForQt5.dolphin
-      libsForQt5.qt5.qtsvg
-      libsForQt5.qt5.qtquickcontrols2
-      libsForQt5.qt5.qtgraphicaleffects
     ];
   };
 
@@ -88,15 +84,8 @@
     mtr.enable = true;
     sway.enable = true;
     steam.enable = true;
+    nix-ld.enable = true;
     xwayland.enable = true;
-  };
-
-  xdg = {
-    portal = {
-      enable = true;
-      config.common.default = "wlr";
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    };
   };
 
   services = {
@@ -106,9 +95,9 @@
     postgresql.enable = true;
     gnome.gnome-keyring.enable = true;
     logind = {
-      lidSwitch= "suspend";
-      lidSwitchDocked= "suspend";
-      lidSwitchExternalPower= "suspend";
+      lidSwitch = "suspend";
+      lidSwitchDocked = "suspend";
+      lidSwitchExternalPower = "suspend";
     };
     pipewire = {
       enable = true;
@@ -136,6 +125,11 @@
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
+      extraPackages = with pkgs; [
+        libsForQt5.qt5.qtsvg
+        libsForQt5.qt5.qtquickcontrols2
+        libsForQt5.qt5.qtgraphicaleffects
+      ];
       theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
     };
   };

@@ -21,6 +21,8 @@ def devshell [] {
     print $'Copied ($file.name) into the current directory'
   } | ignore
 
+  ls | each { |file| chmod +rw $file.name } | ignore
+
   let input = [no yes] | input list --fuzzy 'Proceed to Dev Shell?'
   if $input == yes {
     nix develop
@@ -77,15 +79,17 @@ def nu-wifi [] {
   let header_end = $wifi_scan | str index-of "\n"
   let header_row = $wifi_scan | str substring 0..$header_end
 
-  let ssid_head = $header_row | str index-of " SSID"
-  let ssid_tail = $header_row | str index-of " MODE"
+  let ssid_head = $header_row | str index-of ' SSID'
+  let ssid_tail = $header_row | str index-of ' MODE'
 
-  let scan_data = $wifi_scan  | str substring $header_end..
-  let input_row = $scan_data  | fzf
-  let wifi_name = $input_row  | str substring $ssid_head..$ssid_tail | str trim
+  let scan_data = $wifi_scan | str substring $header_end..
+                             | split row -r '\n'
+                             | each { str substring $ssid_head.. }
+  let wifi_name = $scan_data | input list --fuzzy
+                             | str substring 1..($ssid_tail - $ssid_head)
+                             | str trim -r
 
-  print "\t Input Password:"
-  let pass_word = input -s
+  let pass_word = input $"Password for ($wifi_name):\t"
 
   nmcli d wifi connect $wifi_name password $pass_word
 }
@@ -114,6 +118,7 @@ def nu-gc [] {
     $remove | each { |link|
       sudo rm $link.name
     }
+    nix-store --gc
   }
 
   cd $source
