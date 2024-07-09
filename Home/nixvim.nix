@@ -53,8 +53,10 @@ in
       treesitter = {
         enable = true;
         nixGrammars = true;
-        ensureInstalled = [ "nu" ];
-        parserInstallDir = ".vim/parserinstalldir";
+        settings = {
+          ensureInstalled = [ "nu" ];
+          parserInstallDir = ".vim/parserinstalldir";
+        };
       };
       cmp = {
         enable = true;

@@ -81,7 +81,6 @@
       discord
       dotacat
       fermyon-spin
-      neofetch
       grimblast
       libnotify
       wdisplays
