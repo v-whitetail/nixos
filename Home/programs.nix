@@ -15,7 +15,6 @@
     bottom.enable = true;
     firefox.enable = true;
     ripgrep.enable = true;
-    thefuck.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;
     yazi = {
