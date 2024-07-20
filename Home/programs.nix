@@ -13,7 +13,7 @@
     gitui.enable = true;
     swayr.enable = true;
     bottom.enable = true;
-    firefox.enable = true;
+    librewolf.enable = true;
     ripgrep.enable = true;
     swaylock.enable = true;
     home-manager.enable = true;

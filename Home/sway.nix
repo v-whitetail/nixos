@@ -15,7 +15,7 @@ let
   d_task = "btm";
   d_term = "foot";
   d_menu = "fuzzel";
-  d_brow = "firefox";
+  d_brow = "librewolf";
   d_font = "Maple Mono NF";
 in 
 {
