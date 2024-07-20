@@ -65,10 +65,11 @@
           criteria = "Acer Technologies XB271HU A #ASOCIiJmrKvd";
           adaptiveSync = true;
           position = "1920,0";
+          mode = "2560x1440@165Hz";
         } {
           criteria = "Ancor Communications Inc ASUS VS228 D9LMTF088670";
           adaptiveSync = false;
-          position = "0,0";
+          position = "0,360";
         } ];
         #given by 'swaymsg -t get_outputs'
       } ];
