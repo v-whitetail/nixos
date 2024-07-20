@@ -16,7 +16,7 @@
   hardware = {
     graphics.enable = true;
     bluetooth.enable = true;
-    trackpoint.enable = true;
+    keyboard.qmk.enable = true;
   };
 
   nix = {
@@ -52,9 +52,16 @@
     networkmanager.enable = true;
   };
 
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
+  virtualisation = {
+    docker.rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+    virtualbox.host = {
+      enable = true;
+      enableKvm = true;
+      addNetworkInterface = false;
+    };
   };
 
   environment = {
