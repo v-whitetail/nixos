@@ -13,9 +13,10 @@
     gitui.enable = true;
     swayr.enable = true;
     bottom.enable = true;
-    librewolf.enable = true;
     ripgrep.enable = true;
+    firefox.enable = true;
     swaylock.enable = true;
+    librewolf.enable = true;
     home-manager.enable = true;
     yazi = {
       enable = true;

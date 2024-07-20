@@ -69,7 +69,7 @@
         } {
           criteria = "Ancor Communications Inc ASUS VS228 D9LMTF088670";
           adaptiveSync = false;
-          position = "0,360";
+          position = "0,420";
         } ];
         #given by 'swaymsg -t get_outputs'
       } ];
@@ -111,6 +111,8 @@
       pavucontrol
       tailwindcss
       brightnessctl
+      wtwitch
+      vlc
     ];
     pointerCursor = {
       gtk.enable = true;
