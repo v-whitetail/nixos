@@ -36,6 +36,7 @@
         extraGroups = [ "networkmanager" "wheel" ];
       };
     };
+    extraGroups.vboxusers.members = [ "v" ];
   };
 
   networking = {
@@ -59,8 +60,7 @@
     };
     virtualbox.host = {
       enable = true;
-      enableKvm = true;
-      addNetworkInterface = false;
+      enableExtensionPack = true;
     };
   };
 
