@@ -9,7 +9,6 @@
     lsd.enable = true;
     imv.enable = true;
     fzf.enable = true;
-    rio.enable = true;
     gitui.enable = true;
     swayr.enable = true;
     bottom.enable = true;
