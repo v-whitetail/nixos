@@ -113,17 +113,10 @@
     };
     libinput = {
       enable = true;
-      touchpad = {
-        tapping = true;
-        tappingDragLock = true;
-        tappingButtonMap = "lrm";
-        naturalScrolling = true;
-        disableWhileTyping = true;
-      };
     };
     displayManager.sddm = {
       enable = true;
-      autoNumlock = true;
+      autoNumlock = false;
       wayland.enable = true;
       extraPackages = with pkgs; [
         libsForQt5.qt5.qtsvg

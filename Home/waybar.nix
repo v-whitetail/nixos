@@ -20,8 +20,8 @@ in
         "sway/workspaces" "sway/mode" "sway/window"
       ];
       modules-right = [
-        "tray" "cpu" "memory" "backlight" "pulseaudio"
-        "network" "clock" "battery"
+        "tray" "cpu" "memory" "pulseaudio"
+        "network" "clock" 
         "custom/screenshot" "custom/logout" "custom/power"
       ];
       "sway/workspaces" = {
@@ -52,20 +52,6 @@ in
       "memory" = {
         format = "{: >3}%";
         on-click = "${d_term} -e ${d_task}";
-      };
-      "backlight" = {
-        format = "{icon} {percent: >3}%";
-        format-icons = ["" ""];
-        on-scroll-down = "brightnessctl -c backlight set 1%-";
-        on-scroll-up = "brightnessctl -c backlight set +1%";
-      };
-      "battery" = {
-        states = {
-          warning = 25;
-          critical = 15;
-        };
-        format = "{icon} {capacity: >3}%";
-        format-icons = ["" "" "" "" ""];
       };
       "network" = {
         format = "⚠ Disabled";
@@ -120,60 +106,42 @@ in
           padding-bottom: 2px;
          }
       window#waybar {
-          background: #${palette.base01};
-          opacity: 0.90;
+          background: transparent;
       }
       #workspaces button {
-          padding: 4px 0px 2px 0px;
-          border-bottom: 2px;
-          color: #${palette.base05};
-          border-color: #${palette.base05};
+          padding: 2px 8px;
           border-style: solid;
-          margin-top:2px;
+          border-bottom: 4px;
+          border-radius: 4px 16px;
+          color: #${palette.base05};
+          background: #${palette.base01};
       }
       #workspaces button.focused {
           color: #${palette.base08};
-          border-color: #${palette.base08};
       }
       #mode {
           color: #${palette.base05};
-          margin-bottom: 3px;
       }
-      #clock, #battery, #cpu, #memory, #temperature, #backlight,
+      #clock, #cpu, #memory, #temperature,
       #network, #pulseaudio, #mode, #tray, #window,
-      #custom-power, #custom-power, #custom-screenshot
+      #custom-logout, #custom-power, #custom-screenshot
       {
-          padding: 2px 2px;
-          border-bottom: 2px;
+          padding: 2px 8px;
+          border-bottom: 4px;
           border-style: solid;
+          border-radius: 4px 16px;
+          background: #${palette.base01};
       }
       #custom-power,
       #custom-logout,
       #custom-screenshot {
+          padding: 2px 16px;
           font-size: 20px;
-          border-style: hidden;
-          padding: 2px 4px;
+          border-style: solid;
+          border-bottom: 4px;
           color: #${palette.base0F};
       }
       #clock { color:#${palette.base0D}; }
-      #backlight { color: #${palette.base0A}; }
-      #battery { color: #${palette.base0E}; }
-      #battery.charging { color: #${palette.base0B}; }
-      @keyframes blink {
-          to {
-              color: #${palette.base07};
-              background-color: #${palette.base03};
-          }
-      }
-      #battery.critical:not(.charging) {
-          background: #${palette.base0E};
-          color: #${palette.base08};
-          animation-name: blink;
-          animation-duration: 0.5s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-      }
       #cpu { color:#${palette.base08}; }
       #memory { color: #${palette.base09}; }
       #network { color: #${palette.base0C}; }
@@ -181,10 +149,6 @@ in
       #network.disconnected { color: #${palette.base05}; }
       #pulseaudio { color: #${palette.base0B}; }
       #pulseaudio.muted { color: #${palette.base03}; }
-      #window{
-          border-style: hidden;
-          margin-top:1px;  
-      }    
     '';
   };
 }
