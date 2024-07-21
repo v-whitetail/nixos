@@ -9,7 +9,6 @@
 
   boot = {
     initrd.enable = true;
-    initrd.systemd.enableTpm2 = true;
     plymouth.enable = true;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
@@ -59,20 +58,7 @@
       enable = true;
       setSocketVariable = true;
     };
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        runAsRoot = true;
-        swtpm.enable = true;
-        ovmf = {
-          packages = [(pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          })];
-        };
-      };
-    };
+    libvirtd.enable = true;
   };
 
   environment = {
