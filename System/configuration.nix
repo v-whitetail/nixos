@@ -33,7 +33,7 @@
       v = {
         isNormalUser = true;
         description = "v-whitetail";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "libvirtd"];
       };
     };
   };
@@ -57,6 +57,9 @@
       enable = true;
       setSocketVariable = true;
     };
+    libvirtd = {
+      enable = true;
+    };
   };
 
   environment = {
@@ -75,6 +78,7 @@
       nushell
       openssl
       bluetuith
+      virt-manager
     ];
   };
 
@@ -88,6 +92,8 @@
     steam.enable = true;
     nix-ld.enable = true;
     xwayland.enable = true;
+    virt-manager.enable = true;
+    # dconf.enable = true;
   };
 
   services = {
