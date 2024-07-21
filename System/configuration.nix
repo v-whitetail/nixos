@@ -8,6 +8,8 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   boot = {
+    initrd.enable = true;
+    initrd.systemd.enableTpm2 = true;
     plymouth.enable = true;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
@@ -59,6 +61,17 @@
     };
     libvirtd = {
       enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf = {
+          packages = [(pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          })];
+        };
+      };
     };
   };
 
@@ -78,7 +91,6 @@
       nushell
       openssl
       bluetuith
-      virt-manager
     ];
   };
 
@@ -93,7 +105,7 @@
     nix-ld.enable = true;
     xwayland.enable = true;
     virt-manager.enable = true;
-    # dconf.enable = true;
+    dconf.enable = true;
   };
 
   services = {
