@@ -36,7 +36,6 @@
         extraGroups = [ "networkmanager" "wheel" ];
       };
     };
-    extraGroups.vboxusers.members = [ "v" ];
   };
 
   networking = {
@@ -57,10 +56,6 @@
     docker.rootless = {
       enable = true;
       setSocketVariable = true;
-    };
-    virtualbox.host = {
-      enable = true;
-      enableExtensionPack = true;
     };
   };
 
