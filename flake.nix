@@ -11,15 +11,10 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvirt = {
-      url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@ {
     nixpkgs,
-    nixvirt,
     nix-colors,
     home-manager,
     ...
@@ -34,7 +29,6 @@
             home-manager = {
               extraSpecialArgs = {
                 inherit inputs;
-                inherit nixvirt;
                 inherit nix-colors;
               };
               useGlobalPkgs = true;

@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  nixvirt,
   ...
 }:
 
@@ -9,7 +8,6 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
-    inputs.nixvirt.homeModules.default
     ./foot.nix
     ./sway.nix
     ./fuzzel.nix
@@ -19,21 +17,6 @@
     ./programs.nix
     ./swaylock.nix
   ];
-
-  virtualisation.libvirt.swtpm.enable = true;
-  virtualisation.libvirt.connections."qemu:///session".domains = [{
-    definition = nixvirt.lib.domain.writeXML (nixvirt.lib.domain.templates.windows {
-      name = "Wendys";
-      uuid = "bf032124-7a3e-456d-850a-84a8e74d4485";
-      memory = { count = 8; unit = "GiB"; };
-      storage_vol = { pool = "MyPool"; volume = "Wendys.qcow2"; };
-      install_vol = /home/v/VM/Win11_23H2_English_x64v2.iso;
-      nvram_path = /home/v/VM/Wendys.nvram;
-      virtio_net = true;
-      virtio_drive = true;
-      install_virtio = true;
-    });
-  }];
 
   colorScheme = inputs.nix-colors.colorSchemes.vice;
 
