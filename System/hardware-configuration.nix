@@ -18,7 +18,7 @@
       fsType = "ext4";
     };
 
-  fileSystems."/boot" =
+  fileSystems."/efi" =
     { device = "systemd-1";
       fsType = "autofs";
     };
