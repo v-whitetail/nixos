@@ -8,10 +8,32 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   boot = {
-    initrd.enable = true;
     plymouth.enable = true;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    # initrd = {
+    #   enable = true;
+    #   kernelModules = [
+    #     "vfio_pci"
+    #     "vfio"
+    #     "vfio_iommu_type1"
+    #     #"vfio_virqfd"
+
+    #     #"nvidia"
+    #     #"nvidia_modeset"
+    #     #"nvidia_uvm"
+    #     #"nvidia_drm"
+    #     "amdgpu"
+    #     "nvidiafb"
+    #     "nouveau"
+    #     "snd_hda_intel"
+    #   ];
+    # };
+    # kernelParams = [
+    #   "amd_iommu=on"
+    #   "iommu=pt"
+    #   "vfio-pci.ids=1002:744c,1002:ab30"
+    # ];
   };
 
   hardware = {
@@ -58,6 +80,7 @@
       enable = true;
       setSocketVariable = true;
     };
+    spiceUSBRedirection.enable = true;
     libvirtd = {
       enable = true;
       qemu = {
