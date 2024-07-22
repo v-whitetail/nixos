@@ -11,29 +11,24 @@
     plymouth.enable = true;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    # initrd = {
-    #   enable = true;
-    #   kernelModules = [
-    #     "vfio_pci"
-    #     "vfio"
-    #     "vfio_iommu_type1"
-    #     #"vfio_virqfd"
-
-    #     #"nvidia"
-    #     #"nvidia_modeset"
-    #     #"nvidia_uvm"
-    #     #"nvidia_drm"
-    #     "amdgpu"
-    #     "nvidiafb"
-    #     "nouveau"
-    #     "snd_hda_intel"
-    #   ];
-    # };
-    # kernelParams = [
-    #   "amd_iommu=on"
-    #   "iommu=pt"
-    #   "vfio-pci.ids=1002:744c,1002:ab30"
-    # ];
+    initrd = {
+      enable = true;
+      kernelModules = [
+        "amdgpu"
+        # "vfio_pci"
+        # "vfio"
+        # "vfio_iommu_type1"
+        # "nvidiafb"
+        # "nouveau"
+        # "snd_hda_intel"
+      ];
+    };
+    kernelParams = [
+      "splash"
+      # "amd_iommu=on"
+      # "iommu=pt"
+      # "vfio-pci.ids=1002:744c,1002:ab30"
+    ];
   };
 
   hardware = {
