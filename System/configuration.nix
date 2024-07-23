@@ -111,6 +111,7 @@
       neovim
       nushell
       openssl
+      pciutils
       bluetuith
     ];
   };
