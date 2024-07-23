@@ -29,6 +29,9 @@
       # "iommu=pt"
       # "vfio-pci.ids=1002:744c,1002:ab30"
     ];
+    supportedFilesystems = [
+      "ntfs"
+    ];
   };
 
   hardware = {
