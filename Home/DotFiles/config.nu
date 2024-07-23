@@ -51,6 +51,15 @@ def fbuild [] {
   sudo nixos-rebuild --flake .#v-whitetail switch
 }
 
+def nu-iommu [] {
+  glob '/sys/kernel/iommu_groups/*' --depth 1 | sort --natural | each { |group|
+    print $"IOMMU Group ($group | path basename)"
+    $group | path join 'devices/*' | glob $in | each { |device|
+      print $"\t($device | path basename | lspci -nns $in)"
+    } | ignore
+  } | ignore
+}
+
 def nu-wifi [] {
   let wifi_scan = nmcli d wifi list
 
