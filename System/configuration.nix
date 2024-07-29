@@ -111,6 +111,7 @@
       neovim
       nushell
       openssl
+      mangohud
       pciutils
       bluetuith
     ];
@@ -123,11 +124,15 @@
   programs = {
     mtr.enable = true;
     sway.enable = true;
-    steam.enable = true;
     nix-ld.enable = true;
     xwayland.enable = true;
     virt-manager.enable = true;
     dconf.enable = true;
+    gamemode.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
   };
 
   services = {
@@ -152,6 +157,7 @@
         variant = "";
         layout = "us";
       };
+      videoDrivers = ["amdgpu"];
     };
     libinput = {
       enable = true;
