@@ -94,7 +94,7 @@ in
         };
       };
       keybindings = with pkgs; {
-        "${m_key}+p" = "exec /home/v/.config/wpaperd/refresh.nu";
+        "${m_key}+p" = "exec /home/v/.config/wpaperd/refresh.sh";
         "${m_key}+Return" = "exec ${d_term}";
         "${m_key}+d" = "exec ${d_menu}";
         "${m_key}+i" = "exec ${d_brow}";
