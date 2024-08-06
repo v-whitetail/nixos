@@ -1,0 +1,2 @@
+pkill wpaperd
+wpaperd -d
