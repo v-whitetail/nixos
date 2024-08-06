@@ -126,9 +126,12 @@
     sway.enable = true;
     nix-ld.enable = true;
     xwayland.enable = true;
-    virt-manager.enable = true;
     dconf.enable = true;
     gamemode.enable = true;
+    virt-manager = {
+      enable = true;
+      # package = pkgs.virt-manager-qt;
+    };
     steam = {
       enable = true;
       gamescopeSession.enable = true;

@@ -35,16 +35,16 @@
   gtk = {
     enable = true;
     theme = {
-      name = "catppuccin-gtk";
-      package = pkgs.catppuccin-gtk;
+      name = "rose-pine";
+      package = pkgs.rose-pine-gtk-theme;
     };
   };
 
   qt = {
     enable = true;
     style = {
-      name = "catppuccin-qt5ct";
-      package = pkgs.catppuccin-qt5ct;
+      name = "Dracula";
+      package = pkgs.dracula-theme;
     };
   };
 
