@@ -94,7 +94,6 @@
       ".config/memeshell".source = ./DotFiles/memeshell;
       ".config/zellij/layouts".source = ./DotFiles/zellij/layouts;
       ".config/devshells".source = ./DotFiles/devshells;
-      ".config/wpaperd/refresh.nu".source = ./DotFiles/refresh.nu;
     };
     packages = with pkgs; [
       wl-clipboard
