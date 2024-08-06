@@ -95,8 +95,9 @@ in
       };
       keybindings = with pkgs; {
         "${m_key}+p" = "exec nu -c \""
-            + "pkill wpaperd; wpaperd -d;"
-            + "pkill waybar; swaymsg exec waybar\"";
+                     + "pkill kanshi;"
+                     + "pkill wpaperd; wpaperd -d;"
+                     + "pkill waybar; swaymsg exec waybar\"";
         "${m_key}+Return" = "exec ${d_term}";
         "${m_key}+d" = "exec ${d_menu}";
         "${m_key}+i" = "exec ${d_brow}";
@@ -135,6 +136,8 @@ in
         "${m_key}+Shift+8" = "move container to workspace number 8";
         "${m_key}+Shift+9" = "move container to workspace number 9";
         "${m_key}+Shift+0" = "move container to workspace number 10";
+        "${m_key}+n" = "resize grow width 64px";
+        "${m_key}+m" = "resize shrink width 64px";
       };
     };
   };
