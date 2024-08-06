@@ -113,6 +113,7 @@
       brightnessctl
       wtwitch
       vlc
+      via
     ];
     pointerCursor = {
       gtk.enable = true;

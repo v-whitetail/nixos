@@ -102,6 +102,7 @@
       fzf
       gcc
       git
+      via
       dbus
       sway
       wget
@@ -144,6 +145,7 @@
     openssh.enable = true;
     postgresql.enable = true;
     gnome.gnome-keyring.enable = true;
+    udev.packages = [ pkgs.via ];
     logind = {
       lidSwitch = "suspend";
       lidSwitchDocked = "suspend";
@@ -167,7 +169,7 @@
     };
     displayManager.sddm = {
       enable = true;
-      autoNumlock = false;
+      autoNumlock = true;
       wayland.enable = true;
       extraPackages = with pkgs; [
         libsForQt5.qt5.qtsvg
