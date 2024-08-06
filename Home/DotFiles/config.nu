@@ -53,11 +53,13 @@ def fbuild [] {
 
 def nu-iommu [] {
   glob '/sys/kernel/iommu_groups/*' --depth 1 | sort --natural | each { |group|
-    print $"IOMMU Group ($group | path basename)"
-    $group | path join 'devices/*' | glob $in | each { |device|
-      print $"\t($device | path basename | lspci -nns $in)"
-    } | ignore
-  } | ignore
+    {
+      IOMMU_Group: ($group | path basename),
+      Devices: ($group | path join 'devices/*' | glob $in | each { |device|
+        $device | path basename | lspci -nns $in
+      })
+    }
+  }
 }
 
 def nu-wifi [] {
