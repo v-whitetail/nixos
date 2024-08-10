@@ -88,7 +88,7 @@ in
       };
       "custom/power" = {
         format ="⏻";
-        on-click = "nwgbar";
+        on-click = "systemctl suspend";
         tooltip = false;
       };
     }];
