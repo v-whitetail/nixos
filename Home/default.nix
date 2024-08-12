@@ -51,29 +51,29 @@
   fonts.fontconfig.enable = true;
 
   services = {
-    # kanshi = {
-    #   enable = true;
-    #   systemdTarget = "sway-session.target";
-    #   settings = [ {
-    #     profile.name = "undocked";
-    #     profile.outputs = [ {
-    #       criteria = "eDP-1";
-    #     } ];
-    #   } {
-    #     profile.name = "fogCanyon";
-    #     profile.outputs = [ {
-    #       criteria = "Acer Technologies XB271HU A #ASOCIiJmrKvd";
-    #       adaptiveSync = true;
-    #       position = "1920,0";
-    #       mode = "2560x1440@165Hz";
-    #     } {
-    #       criteria = "Ancor Communications Inc ASUS VS228 D9LMTF088670";
-    #       adaptiveSync = false;
-    #       position = "0,420";
-    #     } ];
-    #     #given by 'swaymsg -t get_outputs'
-    #   } ];
-    # };
+    kanshi = {
+      enable = true;
+      systemdTarget = "sway-session.target";
+      settings = [ {
+        profile.name = "undocked";
+        profile.outputs = [ {
+          criteria = "eDP-1";
+        } ];
+      } {
+        profile.name = "fogCanyon";
+        profile.outputs = [ {
+          criteria = "Acer Technologies XB271HU A #ASOCIiJmrKvd";
+          adaptiveSync = true;
+          position = "1920,0";
+          mode = "2560x1440@165Hz";
+        } {
+          criteria = "Ancor Communications Inc ASUS VS228 D9LMTF088670";
+          adaptiveSync = false;
+          position = "0,420";
+        } ];
+        #given by 'swaymsg -t get_outputs'
+      } ];
+    };
     mako = {
       enable = true;
       defaultTimeout = 8000;
@@ -99,20 +99,15 @@
       wl-clipboard
       xdg-utils
       cargo-watch
-      nodejs
       rustup
       discord
       dotacat
-      fermyon-spin
       grimblast
       libnotify
-      wdisplays
       autotiling-rs
       pavucontrol
       tailwindcss
       brightnessctl
-      wtwitch
-      vlc
       via
     ];
     pointerCursor = {
