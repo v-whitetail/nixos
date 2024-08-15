@@ -145,7 +145,7 @@
   };
 
   services = {
-    ntp.enable = true;
+    # ntp.enable = true;
     dbus.enable = true;
     openssh.enable = true;
     postgresql.enable = true;
