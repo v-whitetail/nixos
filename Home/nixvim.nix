@@ -54,8 +54,8 @@ in
         enable = true;
         nixGrammars = true;
         settings = {
+          auto_install = true;
           ensureInstalled = [ "nu" ];
-          parserInstallDir = ".vim/parserinstalldir";
         };
       };
       cmp = {
