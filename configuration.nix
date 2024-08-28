@@ -35,6 +35,7 @@
 
   environment.systemPackages = with pkgs; [
     fd
+    gh
     git
     vim
     wget
