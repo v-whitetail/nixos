@@ -7,7 +7,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "splash" ];
+  # boot.kernelParams = [ "splash" ];
 
   time.timeZone = "US/Eastern";
   time.hardwareClockInLocalTime = true;
@@ -28,7 +28,7 @@
       v = {
         isNormalUser = true;
         description = "v-whitetail";
-        extraGroups = [ "networkmanager" "wheel" "libvirtd"];
+        extraGroups = [ "networkmanager" "wheel" ];
       };
     };
   };
@@ -43,9 +43,9 @@
     pciutils
   ];
 
-  security = {
-    polkit.enable = true;
-  };
+  # security = {
+  #   polkit.enable = true;
+  # };
 
   programs = {
     mtr.enable = true;
@@ -56,17 +56,7 @@
   };
 
   services = {
-    openssh.enable = true;
     getty.autologinUser = "v";
-    gnome.gnome-keyring.enable = true;
-    xserver = {
-      enable = true;
-      xkb = {
-        variant = "";
-        layout = "us";
-      };
-    };
-    tailscale.enable = true;
   };
 
   system = { stateVersion = "23.11"; };

@@ -1,8 +1,15 @@
 { config, pkgs, lib, inputs, ... }:
 {
 
-  imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
-  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+  imports = [
+    inputs.nix-minecraft.nixosModules.minecraft-servers
+  ];
+  nixpkgs.overlays = [
+    inputs.nix-minecraft.overlay
+  ];
+
+  services.openssh.enable = true;
+  services.tailscale.enable = true;
 
   services.minecraft-servers = {
     enable = true;
