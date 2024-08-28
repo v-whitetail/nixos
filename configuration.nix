@@ -23,7 +23,7 @@
   };
 
   users = {
-    defaultUserShell = pkgs.nushell;
+    # defaultUserShell = pkgs.nushell;
     users = {
       v = {
         isNormalUser = true;
@@ -39,7 +39,6 @@
     vim
     wget
     gitui
-    nushell
     pciutils
   ];
 
