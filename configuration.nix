@@ -18,8 +18,8 @@
   networking = {
     hostName = "queensGarden";
     networkmanager.enable = true;
-    firewall.allowedTCPPorts = [ 22 ];
-    firewall.allowedUDPPorts = [ 22 ];
+    firewall.allowedTCPPorts = [ 22 42069 ];
+    firewall.allowedUDPPorts = [ 22 42069 ];
   };
 
   users = {
@@ -49,8 +49,6 @@
 
   programs = {
     mtr.enable = true;
-    nix-ld.enable = true;
-    dconf.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -59,6 +57,7 @@
 
   services = {
     openssh.enable = true;
+    getty.autologinUser = "v";
     gnome.gnome-keyring.enable = true;
     xserver = {
       enable = true;
