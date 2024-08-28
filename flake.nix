@@ -4,7 +4,7 @@
   inputs = {
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nix-minecraft.tul = "github:Infinidoge/nix-minecraft";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
   };
 
@@ -14,7 +14,7 @@
   }: {
     nixosConfigurations = {
       v-whitetail = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
