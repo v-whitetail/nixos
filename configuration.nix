@@ -18,8 +18,8 @@
   networking = {
     hostName = "queensGarden";
     networkmanager.enable = true;
-    firewall.allowedTCPPorts = [ "22" ];
-    firewall.allowedUDPPorts = [ "22" ];
+    firewall.allowedTCPPorts = [ 22 ];
+    firewall.allowedUDPPorts = [ 22 ];
   };
 
   users = {
@@ -66,7 +66,7 @@
         layout = "us";
       };
     };
-    services.tailscale.enable = true;
+    tailscale.enable = true;
   };
 
   system = { stateVersion = "23.11"; };
