@@ -104,13 +104,13 @@
       alsa.enable = true;
       pulse.enable = true;
     };
-    xserver = {
-      enable = true;
-      xkb = {
-        variant = "";
-        layout = "us";
-      };
-    };
+    # xserver = {
+    #   enable = true;
+    #   xkb = {
+    #     variant = "";
+    #     layout = "us";
+    #   };
+    # };
     libinput = {
       enable = true;
       touchpad = {
