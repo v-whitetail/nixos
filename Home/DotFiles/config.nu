@@ -13,7 +13,7 @@ alias ssh-on = sudo systemctl start sshd.service
 alias ssh-off = sudo systemctl start sshd.service
 
 def devshell [] {
-  let flake = ls ~/.config/devshells | input list -d name --fuzzy
+  let flake = ls ~/.config/devshells | input list --fuzzy 'Devshell Name'
   let target = pwd
 
   ls $flake.name | each { |file|
@@ -27,18 +27,6 @@ def devshell [] {
   if $input == yes {
     nix develop
   }
-}
-
-def write-rust-aoc [] {
-  print "Session Name:\t"
-  let session = input
-  zellij -l write-rust-aoc -s $session
-}
-
-def write-rust [] {
-  print "Session Name:\t"
-  let session = input
-  zellij -l write-rust -s $session
 }
 
 def nixrc [] {
@@ -63,14 +51,15 @@ def fbuild [] {
   sudo nixos-rebuild --flake .#v-whitetail switch
 }
 
-def bg-shuf [] {
-  let bg_dir = '/home/v/Pictures/Wallpapers/'
-  let bg_img = ls $bg_dir | shuf -n 1
-  let bg_src = $bg_dir ++ $bg_img;
-
-  cd /home/v/crystalPeak/nixos/
-  cp -f $bg_src ./sddm-background.jpg
-  cp -f $bg_src /home/v/.config/swaylock-bg.jpg
+def nu-iommu [] {
+  glob '/sys/kernel/iommu_groups/*' --depth 1 | sort --natural | each { |group|
+    {
+      IOMMU_Group: ($group | path basename),
+      Devices: ($group | path join 'devices/*' | glob $in | each { |device|
+        $device | path basename | lspci -nns $in
+      })
+    }
+  }
 }
 
 def nu-wifi [] {
