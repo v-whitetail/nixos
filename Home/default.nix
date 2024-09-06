@@ -75,9 +75,7 @@
     packages = with pkgs; [
       wl-clipboard
       xdg-utils
-      cargo-watch
       nodejs
-      rustup
       discord
       dotacat
       fermyon-spin
@@ -88,6 +86,10 @@
       pavucontrol
       tailwindcss
       brightnessctl
+      rustup
+      openssl_3
+      pkg-config
+      cargo-watch
     ];
     pointerCursor = {
       gtk.enable = true;

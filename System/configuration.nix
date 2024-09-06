@@ -67,11 +67,8 @@
       sway
       wget
       gitui
-      rustc
-      cargo
       neovim
       nushell
-      openssl
       bluetuith
     ];
   };
