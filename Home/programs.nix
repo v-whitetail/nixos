@@ -1,4 +1,5 @@
 {
+  pkgs,
   ...
 }:
 
@@ -31,6 +32,9 @@
       enable = true;
       envFile.source    = ./DotFiles/env.nu;
       configFile.source = ./DotFiles/config.nu;
+      # extraEnv = ''
+      #   $env.LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath [ pkgs.openssl_3 ]}/libssl.so.3"
+      # '';
     };
     git = {
       enable = true;
