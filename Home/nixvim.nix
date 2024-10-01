@@ -37,6 +37,7 @@ in
       cmp_luasnip.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lua.enable = true;
+      web-devicons.enable = true;
       telescope = {
         enable = true;
         keymaps = {
