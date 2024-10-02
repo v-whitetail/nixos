@@ -100,9 +100,9 @@ $env.NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
-$env.CC = gcc
+$env.CC = "gcc"
 $env.PATH = ( $env.PATH | append '~/.cargo/bin' )
-$env.EDITOR = nvim
+$env.EDITOR = "nvim"
 $env.PROMPT_INDICATOR_VI_INSERT = "::<&'i str> "
 $env.PROMPT_INDICATOR_VI_NORMAL = "::<&'n str> "
 $env.config = { show_banner: false, edit_mode: vi }
