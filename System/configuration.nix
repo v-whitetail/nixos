@@ -23,6 +23,7 @@
         # "snd_hda_intel"
       ];
     };
+    # kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     kernelParams = [
       "splash"
       # "amd_iommu=on"
