@@ -131,6 +131,6 @@ def memeshell [] {
   let meme_text = dotacat $meme_path
   print $meme_text
 }
-alias clear = memeshell
+alias cl = memeshell
 
 memeshell

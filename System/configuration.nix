@@ -67,11 +67,6 @@
 
   networking = {
     hostName = "fogCanyon";
-    useDHCP = false;
-    interfaces = {
-      enp33s0.useDHCP = true;
-      wlp37s0.useDHCP = true;
-    };
     firewall = {
       allowedTCPPorts = [ 22 ];
       allowedUDPPorts = [ ];
@@ -80,10 +75,10 @@
   };
 
   virtualisation = {
-    docker.rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+    # docker.rootless = {
+    #   enable = true;
+    #   setSocketVariable = true;
+    # };
     spiceUSBRedirection.enable = true;
     libvirtd = {
       enable = true;
@@ -149,7 +144,7 @@
     # ntp.enable = true;
     dbus.enable = true;
     openssh.enable = true;
-    postgresql.enable = true;
+    # postgresql.enable = true;
     gnome.gnome-keyring.enable = true;
     udev.packages = [ pkgs.via ];
     logind = {
@@ -173,6 +168,7 @@
     libinput = {
       enable = true;
     };
+    displayManager.defaultSession = "sway";
     displayManager.sddm = {
       enable = true;
       autoNumlock = true;
