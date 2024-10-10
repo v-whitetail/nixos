@@ -27,8 +27,18 @@
     };
     portal = {
       enable = true;
+      # wlr.enable = true;
       config.common.default = "wlr";
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+      extraPortals = with pkgs; [
+        xdg-desktop-portal
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
+      ];
+      configPackages = with pkgs; [
+        xdg-desktop-portal
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
+      ];
     };
   };
 
