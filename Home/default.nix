@@ -64,23 +64,19 @@
     kanshi = {
       enable = true;
       systemdTarget = "sway-session.target";
-      settings = [ {
-        profile.name = "undocked";
-        profile.outputs = [ {
-          criteria = "eDP-1";
-        } ];
-      } {
-        profile.name = "fogCanyon";
-        profile.outputs = [ {
-          criteria = "Acer Technologies XB271HU A #ASOCIiJmrKvd";
-          adaptiveSync = true;
-          position = "1920,0";
-          mode = "2560x1440@165Hz";
+      settings = [
+        {
+          profile.name = "undocked";
+          profile.outputs = [{
+            criteria = "eDP-1";
+          }];
         } {
-          criteria = "Ancor Communications Inc ASUS VS228 D9LMTF088670";
-          adaptiveSync = false;
-          position = "0,420";
-        } ];
+          profile.name = "fogCanyon";
+          profile.outputs = [{
+            criteria = "Acer Technologies XB271HU A #ASOCIiJmrKvd";
+            adaptiveSync = true;
+            mode = "2560x1440@165Hz";
+          }];
         #given by 'swaymsg -t get_outputs'
       } ];
     };
