@@ -125,12 +125,13 @@ def nu-gc [] {
 }
 
 def memeshell [] {
-  clear
+  clear --keep-scrollback
   let meme_dir = '/home/v/.config/memeshell/'
   let meme_path = ls $meme_dir | shuffle | get name | get 0
   let meme_text = dotacat $meme_path
   print $meme_text
 }
-alias cl = memeshell
+alias clear = memeshell
+alias jf = memeshell
 
 memeshell

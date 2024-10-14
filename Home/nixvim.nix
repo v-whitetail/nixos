@@ -89,14 +89,14 @@ in
           htmx.filetypes = [ "html" ".html" ];
           nixd.enable = true;
           bashls.enable = true;
-          lua-ls.enable = true;
+          lua_ls.enable = true;
           pyright.enable = true;
           nushell.enable = true;
           nushell.filetypes = [ "nu" ".nu" ];
           tailwindcss.enable = true;
-          rust-analyzer.enable = true;
-          rust-analyzer.installCargo = false;
-          rust-analyzer.installRustc = false;
+          rust_analyzer.enable = true;
+          rust_analyzer.installCargo = false;
+          rust_analyzer.installRustc = false;
         };
         keymaps.lspBuf = {
           "K" = "hover";
