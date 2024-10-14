@@ -16,7 +16,7 @@
     ./zellij.nix
     ./programs.nix
     ./swaylock.nix
-    ./hyprland.nix
+    # ./hyprland.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.vice;
@@ -28,7 +28,6 @@
     };
     portal = {
       enable = true;
-      # wlr.enable = true;
       config.common.default = "wlr";
       extraPortals = with pkgs; [
         xdg-desktop-portal
@@ -39,7 +38,6 @@
         xdg-desktop-portal
         xdg-desktop-portal-gtk
         xdg-desktop-portal-wlr
-        xdg-desktop-portal-hyprland
       ];
     };
   };
@@ -112,7 +110,8 @@
       xdg-utils
       cargo-watch
       rustup
-      discord
+      # discord
+      vesktop
       dotacat
       grimblast
       libnotify
