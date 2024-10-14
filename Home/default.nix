@@ -120,7 +120,11 @@
       tailwindcss
       brightnessctl
       via
+      protonup
     ];
+    sessionVariables = {
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
+    };
     pointerCursor = {
       gtk.enable = true;
       package = pkgs.bibata-cursors;

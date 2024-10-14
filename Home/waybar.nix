@@ -79,17 +79,17 @@ in
       "custom/screenshot" = {
         format = "󰄄";
         on-click = "grimblast copy area";
-        tooltip = false;
+        tooltip = "take a screenshot";
       };
       "custom/logout" = {
         format = "";
         on-click = "swaymsg exit";
-        tooltip = false;
+        tooltip = "lotout of sway";
       };
       "custom/power" = {
         format ="⏻";
         on-click = "systemctl suspend";
-        tooltip = false;
+        tooltip = "suspend the system";
       };
     }];
     style = 
