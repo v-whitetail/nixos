@@ -16,6 +16,7 @@
     ./zellij.nix
     ./programs.nix
     ./swaylock.nix
+    ./hyprland.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.vice;
