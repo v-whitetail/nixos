@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   config,
   ...
@@ -24,10 +25,15 @@ in
     # systemd.enable = true;
     xwayland.enable = true;
 
-    extraConfig = concatStrings [
+    extraConfig = lib.concatStrings [
       ''
+        env = XDG_CURRENT_DESKTOP, Hyprland
+        env = XDG_SESSION_TYPE, wayland
+        env = XDG_SESSION_DESKTOP, Hyprland
 
-
+        bind = ${m_key},Return,exec,${d_term}
+        bind = ${m_key},I,exec,${d_brow}
+        bind = ${m_key},D,exec,${d_menu}
       ''
     ];
 
