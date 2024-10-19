@@ -136,8 +136,10 @@ in
         "${m_key}+Shift+8" = "move container to workspace number 8";
         "${m_key}+Shift+9" = "move container to workspace number 9";
         "${m_key}+Shift+0" = "move container to workspace number 10";
-        "${m_key}+n" = "resize grow width 64px";
-        "${m_key}+m" = "resize shrink width 64px";
+        "${m_key}+Ctrl+${u_key}" = "resize grow height 64px";
+        "${m_key}+Ctrl+${d_key}" = "resize shrink height 64px";
+        "${m_key}+Ctrl+${l_key}" = "resize shrink width 64px";
+        "${m_key}+Ctrl+${r_key}" = "resize grow width 64px";
       };
     };
   };

@@ -66,17 +66,22 @@
       systemdTarget = "sway-session.target";
       settings = [
         {
-          profile.name = "undocked";
-          profile.outputs = [{
-            criteria = "eDP-1";
-          }];
-        } {
           profile.name = "fogCanyon";
-          profile.outputs = [{
-            criteria = "Acer Technologies XB271HU A #ASOCIiJmrKvd";
-            adaptiveSync = true;
-            mode = "2560x1440@165Hz";
-          }];
+          profile.outputs = [
+            {
+              criteria = "DP-1";
+              adaptiveSync = true;
+              mode = "3840x2160@160Hz";
+              scale = 1.5;
+              position = "2560,0";
+            }
+            {
+              criteria = "DP-2";
+              adaptiveSync = true;
+              mode = "2560x1440@165Hz";
+              position = "0,0";
+            }
+          ];
         #given by 'swaymsg -t get_outputs'
       } ];
     };
