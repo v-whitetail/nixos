@@ -27,13 +27,14 @@
           home-manager.nixosModules.home-manager
           {
             home-manager = {
+              users.v = import ./Home;
               extraSpecialArgs = {
                 inherit inputs;
                 inherit nix-colors;
               };
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.v = import ./Home;
+              backupFileExtension = "nixbak";
             };
           }
         ];
