@@ -66,20 +66,32 @@
       systemdTarget = "sway-session.target";
       settings = [
         {
-          profile.name = "fogCanyon";
+          profile.name = "Pixio";
           profile.outputs = [
             {
               criteria = "DP-1";
               adaptiveSync = true;
               mode = "3840x2160@160Hz";
-              scale = 1.5;
+              scale = 1.0;
               position = "2560,0";
             }
-            {
-              criteria = "DP-2";
-              adaptiveSync = true;
-              mode = "2560x1440@165Hz";
-              position = "0,0";
+          ];
+      }
+      {
+        profile.name = "Acer+Pixio";
+        profile.outputs = [
+        {
+        criteria = "DP-1";
+        adaptiveSync = true;
+        mode = "3840x2160@160Hz";
+        scale = 1.5;
+        position = "2560,0";
+        }
+        {
+        criteria = "DP-2";
+        adaptiveSync = true;
+        mode = "2560x1440@165Hz";
+        position = "0,0";
             }
           ];
         #given by 'swaymsg -t get_outputs'
