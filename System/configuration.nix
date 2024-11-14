@@ -37,6 +37,7 @@
 
   hardware = {
     graphics.enable = true;
+    graphics.enable32Bit = true;
     bluetooth.enable = true;
     keyboard.qmk.enable = true;
   };
