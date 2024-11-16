@@ -34,7 +34,7 @@
               };
               useGlobalPkgs = true;
               useUserPackages = true;
-              backupFileExtension = "nixbak";
+              backupFileExtension = "nixbak2";
             };
           }
         ];
