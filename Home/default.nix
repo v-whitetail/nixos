@@ -9,6 +9,7 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.nixvim.homeManagerModules.nixvim
     ./foot.nix
+    ./niri.nix
     ./sway.nix
     ./fuzzel.nix
     ./nixvim.nix
