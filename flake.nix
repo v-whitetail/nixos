@@ -3,6 +3,7 @@
 
   inputs = {
 
+    niri.url = "github:sodiboo/niri-flake";
     nixvim.url = "github:nix-community/nixvim";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
