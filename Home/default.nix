@@ -17,7 +17,7 @@
     ./zellij.nix
     ./programs.nix
     ./swaylock.nix
-    # ./niri.nix
+    ./niri.nix
     # ./hyprland.nix
   ];
 
