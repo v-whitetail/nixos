@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -125,8 +125,11 @@
     rtkit.enable = true;
   };
 
+  xdg.portal.wlr.enable = lib.mkForce true; # NOTE REMOVE THIS IF ABLE
+
   programs = {
     mtr.enable = true;
+    niri.enable = true;
     sway.enable = true;
     nix-ld.enable = true;
     xwayland.enable = true;
@@ -172,7 +175,7 @@
       enable = true;
     };
     # desktopManager.plasma6.enable = true;
-    displayManager.defaultSession = "sway";
+    displayManager.defaultSession = "niri";
     displayManager.sddm = {
       enable = true;
       autoNumlock = true;
