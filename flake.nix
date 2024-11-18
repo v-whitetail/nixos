@@ -15,6 +15,7 @@
   };
 
   outputs = inputs@ {
+    niri,
     nixpkgs,
     nix-colors,
     home-manager,
@@ -30,6 +31,7 @@
             home-manager = {
               users.v = import ./Home;
               extraSpecialArgs = {
+                inherit niri;
                 inherit inputs;
                 inherit nix-colors;
               };

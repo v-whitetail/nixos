@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   ...
 }:
 
@@ -7,6 +8,7 @@ let
   palette = config.colorScheme.palette;
 in 
 {
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
   programs.nixvim = {
     enable = true;
     opts = {

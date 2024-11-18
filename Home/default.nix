@@ -6,9 +6,7 @@
 
 {
   imports = [
-    inputs.niri.homeModules.niri
     inputs.nix-colors.homeManagerModules.default
-    inputs.nixvim.homeManagerModules.nixvim
     ./foot.nix
     ./sway.nix
     ./fuzzel.nix
