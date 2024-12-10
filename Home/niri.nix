@@ -12,6 +12,10 @@
       enable = true;
       settings = {
 
+        input.keyboard.xkb.layout = "no";
+
+        prefer-no-csd = true;
+
         layout = {
           gaps = 16;
           struts.left = 64;
@@ -29,11 +33,10 @@
           default-column-width = { proportion = 1.0 / 2.0; };
         };
 
-        spawn-at-startup = [{
-          command = [ "waybar" ];
-        } {
-          command = [ "wpaperd" ];
-        }];
+        spawn-at-startup = [
+          { command = [ "waybar"  ]; }
+          { command = [ "wpaperd" ]; }
+        ];
 
         binds = with config.lib.niri.actions; {
 

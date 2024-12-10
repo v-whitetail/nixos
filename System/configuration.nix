@@ -117,6 +117,7 @@
       mangohud
       pciutils
       bluetuith
+      xwayland-satellite
     ];
   };
 
@@ -193,8 +194,7 @@
     fontconfig.enable = true;
     enableDefaultPackages = true;
     packages = with pkgs; [
-      nerdfonts
-      jetbrains-mono
+      nerd-fonts.jetbrains-mono
       maple-mono-NF
     ];
   };
