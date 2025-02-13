@@ -32,10 +32,10 @@ in
     };
     plugins = {
       nix.enable = true;
+      crates.enable = true;
       fidget.enable = true;
       which-key.enable = true;
       bufferline.enable = true;
-      crates-nvim.enable = true;
       cmp_luasnip.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lua.enable = true;
