@@ -116,7 +116,7 @@
               criteria = "HDMI-A-1";
               adaptiveSync = false;
               mode = "1920x1080@60Hz";
-              position = "640x1440";
+              position = "640,1440";
             }
           ];
         #positions can be fine tuned with wdisplays
