@@ -149,8 +149,7 @@
       xdg-utils
       cargo-watch
       rustup
-      # discord
-      vesktop
+      discord
       dotacat
       grimblast
       libnotify
