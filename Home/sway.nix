@@ -21,6 +21,20 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
+    systemd = {
+      enable = true;
+      variables = [
+        "DISPLAY"
+        "WAYLAND_DISPLAY"
+        "SWAYSOCK"
+        "XDG_CURRENT_DESKTOP"
+        "XDG_SESSION_TYPE"
+        "NIXOS_OZONE_WL"
+        "XCURSOR_THEME"
+        "XCURSON_SIZE"
+        "SDL_VIDEODRIVER=1"
+      ];
+    };
     config = rec {
       input."*" = {
         tap = "enabled";
