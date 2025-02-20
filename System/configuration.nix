@@ -15,20 +15,11 @@
       enable = true;
       kernelModules = [
         "amdgpu"
-        # "vfio_pci"
-        # "vfio"
-        # "vfio_iommu_type1"
-        # "nvidiafb"
-        # "nouveau"
-        # "snd_hda_intel"
       ];
     };
     # kernelPackages = pkgs.linuxKernel.packages.linux_zen;
     kernelParams = [
       "splash"
-      # "amd_iommu=on"
-      # "iommu=pt"
-      # "vfio-pci.ids=1002:744c,1002:ab30"
     ];
     supportedFilesystems = [
       "ntfs"
