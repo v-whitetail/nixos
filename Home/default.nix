@@ -10,6 +10,7 @@
     ./foot.nix
     ./sway.nix
     ./fuzzel.nix
+    ./kanshi.nix
     ./nixvim.nix
     ./waybar.nix
     ./zellij.nix
@@ -61,7 +62,6 @@
   fonts.fontconfig.enable = true;
 
   services = {
-    kanshi = import ./kanshi.nix { inherit pkgs; };
     mako = {
       enable = true;
       defaultTimeout = 8000;

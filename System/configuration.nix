@@ -153,11 +153,6 @@
     # postgresql.enable = true;
     gnome.gnome-keyring.enable = true;
     udev.packages = [ pkgs.via ];
-    logind = {
-      lidSwitch = "suspend";
-      lidSwitchDocked = "suspend";
-      lidSwitchExternalPower = "suspend";
-    };
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -176,7 +171,7 @@
       enable = true;
     };
     # desktopManager.plasma6.enable = true;
-    displayManager.defaultSession = "niri";
+    # displayManager.defaultSession = "niri";
     displayManager.sddm = {
       enable = true;
       autoNumlock = true;
