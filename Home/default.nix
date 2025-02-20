@@ -61,7 +61,7 @@
   fonts.fontconfig.enable = true;
 
   services = {
-    kanshi = "${import ./kanshi.nix {inherit pkgs;}}";
+    kanshi = import ./kanshi.nix { inherit pkgs; };
     mako = {
       enable = true;
       defaultTimeout = 8000;
