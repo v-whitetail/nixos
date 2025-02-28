@@ -3,7 +3,6 @@
 
   inputs = {
 
-    niri.url = "github:sodiboo/niri-flake";
     nixvim.url = "github:nix-community/nixvim";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
@@ -15,7 +14,6 @@
   };
 
   outputs = inputs@ {
-    niri,
     nixpkgs,
     nix-colors,
     home-manager,
@@ -31,7 +29,6 @@
             home-manager = {
               users.v = import ./Home;
               extraSpecialArgs = {
-                inherit niri;
                 inherit inputs;
                 inherit nix-colors;
               };
