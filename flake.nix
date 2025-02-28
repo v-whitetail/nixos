@@ -34,7 +34,7 @@
               };
               useGlobalPkgs = true;
               useUserPackages = true;
-              backupFileExtension = "nixbak3";
+              backupFileExtension = "nixbak4";
               # Sometimes when switching between desktop managers, like between
               # SDDM+Sway and Plasma6, the backupFileExtension needs to be changed.
               # I have no idea why
