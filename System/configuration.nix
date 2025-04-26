@@ -109,6 +109,7 @@
       pciutils
       bluetuith
       xwayland-satellite
+      lxqt.lxqt-policykit
     ];
   };
 
