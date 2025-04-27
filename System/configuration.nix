@@ -173,7 +173,7 @@
       enable = true;
     };
     # desktopManager.plasma6.enable = true;
-    # displayManager.defaultSession = "niri";
+    displayManager.defaultSession = "hyprland";
     displayManager.sddm = {
       enable = true;
       autoNumlock = true;
