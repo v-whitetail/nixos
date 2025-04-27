@@ -192,7 +192,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
-      maple-mono-NF
+      maple-mono.NF
     ];
   };
 

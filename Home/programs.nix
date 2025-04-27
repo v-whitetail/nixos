@@ -3,6 +3,12 @@
 }:
 
 {
+  services.wpaperd = {
+    enable = true;
+    settings.default.path = "/home/v/Pictures/Wallpapers";
+    settings.default.sorting = "random";
+    settings.default.duration = "30m";
+  };
   programs = {
     gh.enable = true;
     bat.enable = true;
@@ -20,12 +26,6 @@
     yazi = {
       enable = true;
       enableNushellIntegration = true;
-    };
-    wpaperd = {
-      enable = true;
-      settings.default.path = "/home/v/Pictures/Wallpapers";
-      settings.default.sorting = "random";
-      settings.default.duration = "30m";
     };
     nushell = { 
       enable = true;

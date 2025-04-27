@@ -34,6 +34,7 @@ in
       nix.enable = true;
       crates.enable = true;
       fidget.enable = true;
+      harpoon.enable = true;
       which-key.enable = true;
       bufferline.enable = true;
       cmp_luasnip.enable = true;
@@ -108,17 +109,6 @@ in
           "<leader>where" = "references";
         };
       };
-      harpoon = {
-        enable = true;
-        keymaps.addFile = "<leader>had";
-        keymaps.toggleQuickMenu = "<leader>har";
-        keymaps.navFile = {
-          "1" = "<leader>1";
-          "2" = "<leader>2";
-          "3" = "<leader>3";
-          "4" = "<leader>4";
-        };
-      };
     };
     # extraPlugins = with pkgs.vimPlugins; [ ];
     colorschemes.base16.enable = true;
@@ -172,6 +162,36 @@ in
       { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; }
       { mode = "n"; key = "<C-d>"; action = "<C-d>zz"; }
       { mode = "n"; key = "<C-u>"; action = "<C-u>zz"; }
+      {
+        mode = "n";
+        key = "<leader>had";
+        action.__raw = "function() require'harpoon':list():add() end";
+      }
+      {
+        mode = "n";
+        key = "<leader>har";
+        action.__raw = "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end";
+      }
+      {
+        mode = "n";
+        key = "<leader>1";
+        action.__raw = "function() require'harpoon':list():select(1) end";
+      }
+      {
+        mode = "n";
+        key = "<leader>1";
+        action.__raw = "function() require'harpoon':list():select(2) end";
+      }
+      {
+        mode = "n";
+        key = "<leader>1";
+        action.__raw = "function() require'harpoon':list():select(3) end";
+      }
+      {
+        mode = "n";
+        key = "<leader>1";
+        action.__raw = "function() require'harpoon':list():select(4) end";
+      }
       {
         mode = "n";
         key = "<leader>com";
