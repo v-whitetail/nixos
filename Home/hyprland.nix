@@ -40,8 +40,8 @@ in
         gaps_out = 8;
         border_size = 2;
         resize_on_border = true;
-        "col.active_border" = "rgb(${palette.base08}) rgb(${palette.base0F}) 45 deg";
-        "col.inactive_border" = "rgb(${palette.base0B}) rgb(${palette.base0C}) 45 deg";
+        "col.active_border" = "rgb(${palette.base08}) rgb(${palette.base0F}) 45deg";
+        "col.inactive_border" = "rgb(${palette.base0B}) rgb(${palette.base0C}) 45deg";
       };
       decoration = {
         rounding = 10;
