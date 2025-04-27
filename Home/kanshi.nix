@@ -3,7 +3,7 @@
 {
   services.kanshi = {
     enable = true;
-    systemdTarget = "sway-session.target";
+    # systemdTarget = "sway-session.target";
     settings = [
       {
         profile.name = "Pixio";

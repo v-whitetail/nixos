@@ -8,17 +8,17 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./foot.nix
-    ./sway.nix
-    ./sway.waybar.nix
     ./fuzzel.nix
     ./kanshi.nix
     ./nixvim.nix
     ./zellij.nix
     ./programs.nix
     ./swaylock.nix
+    ./hyprland.nix
+    ./hyprland.waybar.nix
     # ./niri.nix
-    # ./hyprland.nix
-    # ./hyprland.waybar.nix
+    # ./sway.nix
+    # ./sway.waybar.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.vice;
@@ -93,7 +93,6 @@
       dotacat
       grimblast
       libnotify
-      autotiling-rs
       pavucontrol
       tailwindcss
       brightnessctl

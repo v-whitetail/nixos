@@ -97,7 +97,7 @@
       git
       via
       dbus
-      sway
+      # sway
       wget
       gitui
       rustc
@@ -123,9 +123,10 @@
   programs = {
     mtr.enable = true;
     niri.enable = true;
-    sway.enable = true;
+    # sway.enable = true;
     nix-ld.enable = true;
     xwayland.enable = true;
+    hyprland.enable = true;
     dconf.enable = true;
     gamemode.enable = true;
     virt-manager = {
