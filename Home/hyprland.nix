@@ -108,6 +108,7 @@ in
         "SDL_VIDEODRIVER, x11"
         "MOZ_ENABLE_WAYLAND, 1"
         "EDITOR,nvim"
+        "AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1"
       ];
       bind = [
         "${m_key},Return,exec,${d_term}"

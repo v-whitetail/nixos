@@ -118,7 +118,7 @@
     rtkit.enable = true;
   };
 
-  xdg.portal.wlr.enable = lib.mkForce true; # NOTE REMOVE THIS IF ABLE
+  # xdg.portal.wlr.enable = lib.mkForce true; # NOTE REMOVE THIS IF ABLE
 
   programs = {
     mtr.enable = true;

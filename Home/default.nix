@@ -30,16 +30,11 @@
     };
     portal = {
       enable = true;
-      config.common.default = "wlr";
       extraPortals = with pkgs; [
-        xdg-desktop-portal
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-wlr
+        xdg-desktop-portal-hyprland
       ];
       configPackages = with pkgs; [
-        xdg-desktop-portal
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-wlr
+        hyprland
       ];
     };
   };
