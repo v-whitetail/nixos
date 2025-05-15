@@ -42,7 +42,7 @@
             criteria = "DP-1";
             adaptiveSync = true;
             mode = "3840x2160@160Hz";
-            scale = 1.5;
+            scale = 1.0;
             position = "2560,690";
           }
           {
