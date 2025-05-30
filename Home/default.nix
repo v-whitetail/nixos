@@ -9,9 +9,10 @@
     inputs.nix-colors.homeManagerModules.default
     ./foot.nix
     ./fuzzel.nix
-    ./kanshi.nix
+    # ./kanshi.nix
     ./nixvim.nix
     ./zellij.nix
+    ./shikane.nix
     ./programs.nix
     ./swaylock.nix
     ./hyprland.nix
