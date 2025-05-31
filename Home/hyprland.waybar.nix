@@ -22,6 +22,7 @@ in
       modules-right = [
         "tray" "cpu" "memory" "pulseaudio"
         "network" "clock" 
+        "custom/zoomin" "custom/zoomout"
         "custom/screenshot" "custom/logout" "custom/power"
       ];
       "hyprland/workspaces" = {
@@ -79,6 +80,16 @@ in
         };
         on-click = "pavucontrol";
       };
+      "custom/zoomin" = {
+        format = "";
+        on-click = "shikanectl switch Acer+Asus+Pixio_Zoom";
+        tooltip = "zoom in primary monitor";
+      };
+      "custom/zoomout" = {
+        format = "";
+        on-click = "shikanectl switch Acer+Asus+Pixio_Native";
+        tooltip = "zoom out primary monitor";
+      };
       "custom/screenshot" = {
         format = "󰄄";
         on-click = "grimblast copy area";
@@ -113,8 +124,8 @@ in
       }
       #workspaces button {
           padding: 2px 8px;
-          border-style: solid;
           border-bottom: 4px;
+          border-style: solid;
           border-radius: 4px 16px;
           color: #${palette.base05};
           background: #${palette.base01};
@@ -127,6 +138,7 @@ in
       }
       #clock, #cpu, #memory, #temperature,
       #network, #pulseaudio, #mode, #tray, #window,
+      #custom-zoomin, #custom-zoomout,
       #custom-logout, #custom-power, #custom-screenshot
       {
           padding: 2px 8px;
@@ -135,15 +147,20 @@ in
           border-radius: 4px 16px;
           background: #${palette.base01};
       }
-      #custom-power,
-      #custom-logout,
-      #custom-screenshot {
+      #custom-logout, #custom-zoomin,
+      #custom-power, #custom-zoomout, #custom-screenshot {
           padding: 2px 16px;
           font-size: 20px;
-          border-style: solid;
           border-bottom: 4px;
+          border-style: solid;
           color: #${palette.base0F};
+          background: #${palette.base01};
       }
+      #custom-zoomin {padding-left: 8px;}
+      #custom-zoomout {padding-left: 8px;}
+      #custom-screenshot {padding-left: 12px;}
+      #custom-logout {padding-left: 10px;}
+      #custom-power {padding-left: 14px;}
       #clock { color:#${palette.base0D}; }
       #cpu { color:#${palette.base08}; }
       #memory { color: #${palette.base09}; }

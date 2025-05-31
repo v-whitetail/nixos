@@ -1,9 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = [ pkgs.shikane ];
   services.shikane = {
     enable = true;
-    # systemdTarget = "sway-session.target";
     settings = {
       profile = [
         {
@@ -49,7 +49,7 @@
           ];
         }
         {
-          name = "Acer+Asus+Pixio1";
+          name = "Acer+Asus+Pixio_Native";
           output = [
             {
               match = "DP-1";
@@ -85,14 +85,14 @@
           ];
         }
         {
-          name = "Acer+Asus+Pixio2";
+          name = "Acer+Asus+Pixio_Zoom";
           output = [
             {
               match = "DP-1";
               enable = true;
               adaptiveSync = true;
               mode = "3840x2160@160Hz";
-              scale = 1.0;
+              scale = 1.5;
               position = {
                 x = 2560;
                 y = 690;
