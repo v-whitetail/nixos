@@ -22,7 +22,7 @@
     # ./sway.waybar.nix
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.vice;
+  colorScheme = inputs.nix-colors.colorSchemes.black-metal;
 
   xdg = {
     userDirs = {

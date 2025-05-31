@@ -116,9 +116,9 @@ in
       base00 = "#${palette.base00}";
       base01 = "#${palette.base01}";
       base02 = "#${palette.base02}";
-      base03 = "#${palette.base05}"; # comments
-      base04 = "#${palette.base05}"; # line numbers
-      base05 = "#${palette.base06}"; # fg text
+      base03 = "#${palette.base03}"; # comments (base05 on vice)
+      base04 = "#${palette.base04}"; # line numbers (base05 on vice)
+      base05 = "#${palette.base05}"; # fg text (base 06 on vice)
       base06 = "#${palette.base06}";
       base07 = "#${palette.base07}";
       base08 = "#${palette.base08}";
