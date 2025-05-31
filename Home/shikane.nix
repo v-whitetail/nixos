@@ -49,14 +49,14 @@
           ];
         }
         {
-          name = "Acer+Asus+Pixio_Native";
+          name = "Acer+Asus+Pixio_Zoom";
           output = [
             {
               match = "DP-1";
               enable = true;
               adaptiveSync = true;
               mode = "3840x2160@160Hz";
-              scale = 1.0;
+              scale = 1.5;
               position = {
                 x = 2560;
                 y = 690;
@@ -85,14 +85,14 @@
           ];
         }
         {
-          name = "Acer+Asus+Pixio_Zoom";
+          name = "Acer+Asus+Pixio_Native";
           output = [
             {
               match = "DP-1";
               enable = true;
               adaptiveSync = true;
               mode = "3840x2160@160Hz";
-              scale = 1.5;
+              scale = 1.0;
               position = {
                 x = 2560;
                 y = 690;
