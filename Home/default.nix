@@ -97,7 +97,7 @@
       rofimoji
       proton-pass
       protonvpn-gui
-      protonmail-bridge-gui
+      protonmail-desktop
     ];
     sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
