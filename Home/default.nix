@@ -95,9 +95,10 @@
       via
       protonup
       rofimoji
+      brave
       proton-pass
       protonvpn-gui
-      protonmail-desktop
+      protonmail-desktop #requires desktop session to be x11
     ];
     sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
