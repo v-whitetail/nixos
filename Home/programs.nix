@@ -19,9 +19,7 @@
     swayr.enable = true;
     bottom.enable = true;
     ripgrep.enable = true;
-    firefox.enable = true;
     swaylock.enable = true;
-    librewolf.enable = true;
     home-manager.enable = true;
     yazi = {
       enable = true;
