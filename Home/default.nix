@@ -22,7 +22,7 @@
     # ./sway.waybar.nix
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.black-metal;
+  colorScheme = inputs.nix-colors.colorSchemes.atelier-seaside;
 
   xdg = {
     userDirs = {
@@ -61,7 +61,7 @@
   services = {
     mako = {
       enable = true;
-      defaultTimeout = 8000;
+      settings.default-timeout = 8000;
     };
     swayidle = {
       enable = true;
