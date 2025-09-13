@@ -80,21 +80,14 @@
     packages = with pkgs; [
       wl-clipboard
       xdg-utils
-      nodejs
       discord
       dotacat
-      fermyon-spin
       grimblast
       libnotify
       wdisplays
       autotiling-rs
       pavucontrol
-      tailwindcss
       brightnessctl
-      rustup
-      openssl_3
-      pkg-config
-      cargo-watch
     ];
     pointerCursor = {
       gtk.enable = true;
