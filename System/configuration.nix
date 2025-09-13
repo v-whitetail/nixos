@@ -91,10 +91,10 @@
     openssh.enable = true;
     postgresql.enable = true;
     gnome.gnome-keyring.enable = true;
-    logind = {
-      lidSwitch = "suspend";
-      lidSwitchDocked = "suspend";
-      lidSwitchExternalPower = "suspend";
+    logind.settings.Login = {
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchDocked = "suspend";
+      HandleLidSwitchExternalPower = "suspend";
     };
     pipewire = {
       enable = true;
@@ -135,9 +135,8 @@
     fontconfig.enable = true;
     enableDefaultPackages = true;
     packages = with pkgs; [
-      nerdfonts
-      jetbrains-mono
-      maple-mono-NF
+      nerd-fonts.jetbrains-mono
+      maple-mono.NF
     ];
   };
 

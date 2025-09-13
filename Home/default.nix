@@ -7,7 +7,6 @@
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    inputs.nixvim.homeManagerModules.nixvim
     ./foot.nix
     ./sway.nix
     ./fuzzel.nix
@@ -53,7 +52,7 @@
   services = {
     mako = {
       enable = true;
-      defaultTimeout = 8000;
+      settings.default-timeout = 8000;
     };
     swayidle = {
       enable = true;
@@ -61,6 +60,12 @@
         { event = "lock"; command = "lock"; }
         { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
       ];
+    };
+    wpaperd = {
+      enable = true;
+      settings.default.path = "/home/v/Pictures/Wallpapers";
+      settings.default.sorting = "random";
+      settings.default.duration = "30m";
     };
   };
 

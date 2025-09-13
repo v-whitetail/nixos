@@ -22,12 +22,6 @@
       enable = true;
       enableNushellIntegration = true;
     };
-    wpaperd = {
-      enable = true;
-      settings.default.path = "/home/v/Pictures/Wallpapers";
-      settings.default.sorting = "random";
-      settings.default.duration = "30m";
-    };
     nushell = { 
       enable = true;
       envFile.source    = ./DotFiles/env.nu;

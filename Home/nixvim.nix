@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   ...
 }:
 
@@ -7,6 +8,7 @@ let
   palette = config.colorScheme.palette;
 in 
 {
+  imports = [ inputs.nixvim.homeModules.nixvim ];
   programs.nixvim = {
     enable = true;
     opts = {
@@ -30,13 +32,14 @@ in
     };
     plugins = {
       nix.enable = true;
+      crates.enable = true;
       fidget.enable = true;
       which-key.enable = true;
       bufferline.enable = true;
-      crates-nvim.enable = true;
       cmp_luasnip.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lua.enable = true;
+      web-devicons.enable = true;
       telescope = {
         enable = true;
         keymaps = {
@@ -88,14 +91,14 @@ in
           htmx.filetypes = [ "html" ".html" ];
           nixd.enable = true;
           bashls.enable = true;
-          lua-ls.enable = true;
+          lua_ls.enable = true;
           pyright.enable = true;
           nushell.enable = true;
           nushell.filetypes = [ "nu" ".nu" ];
           tailwindcss.enable = true;
-          rust-analyzer.enable = true;
-          rust-analyzer.installCargo = false;
-          rust-analyzer.installRustc = false;
+          rust_analyzer.enable = true;
+          rust_analyzer.installCargo = false;
+          rust_analyzer.installRustc = false;
         };
         keymaps.lspBuf = {
           "K" = "hover";
@@ -107,14 +110,6 @@ in
       };
       harpoon = {
         enable = true;
-        keymaps.addFile = "<leader>had";
-        keymaps.toggleQuickMenu = "<leader>har";
-        keymaps.navFile = {
-          "1" = "<leader>1";
-          "2" = "<leader>2";
-          "3" = "<leader>3";
-          "4" = "<leader>4";
-        };
       };
     };
     # extraPlugins = with pkgs.vimPlugins; [ ];
@@ -184,6 +179,38 @@ in
         key = "jf";
         action = "<C-\\><C-n>";
         options.noremap = true;
+      }
+      {
+        mode = "n";
+        key = "<leader>had";
+        action.__raw = "function() require'harpoon':list():add() end";
+      }
+      {
+        mode = "n";
+        key = "<leader>har";
+        action.__raw = ''function() require'harpoon'.ui:toggle_quick_menu(
+            require'harpoon':list()
+          ) end'';
+      }
+      {
+        mode = "n";
+        key = "<leader>1";
+        action.__raw = "function() require'harpoon':list():select(1) end";
+      }
+      {
+        mode = "n";
+        key = "<leader>2";
+        action.__raw = "function() require'harpoon':list():select(2) end";
+      }
+      {
+        mode = "n";
+        key = "<leader>3";
+        action.__raw = "function() require'harpoon':list():select(3) end";
+      }
+      {
+        mode = "n";
+        key = "<leader>4";
+        action.__raw = "function() require'harpoon':list():select(4) end";
       }
     ];
   };
