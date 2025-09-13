@@ -78,6 +78,7 @@
       ".config/devshells".source = ./DotFiles/devshells;
     };
     packages = with pkgs; [
+      devenv
       wl-clipboard
       xdg-utils
       discord
