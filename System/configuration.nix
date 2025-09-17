@@ -100,8 +100,8 @@
       # sway
       wget
       gitui
-      rustc
-      cargo
+      # rustc
+      # cargo
       neovim
       nushell
       openssl

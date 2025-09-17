@@ -81,10 +81,11 @@
       ".config/devshells".source = ./DotFiles/devshells;
     };
     packages = with pkgs; [
+      devenv
       wl-clipboard
       xdg-utils
       cargo-watch
-      rustup
+      # rustup
       discord
       dotacat
       grimblast
