@@ -12,6 +12,18 @@ alias manix = man configuration.nix
 alias ssh-on = sudo systemctl start sshd.service
 alias ssh-off = sudo systemctl start sshd.service
 
+def mount-to-temp [] {
+  lsblk -pnl
+    | from ssv --aligned-columns --minimum-spaces 1 --noheaders 
+    | select column0
+    | where column0 != ""
+    | input list --fuzzy
+    | values
+    | get 0
+    | into string
+    | sudo mount -o uid=(id -u),gid=(id -g) $in ./temp
+}
+
 def devshell [] {
   let flake = ls ~/.config/devshells | input list --fuzzy 'Devshell Name'
   let target = pwd
