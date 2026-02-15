@@ -78,13 +78,14 @@
         package = pkgs.qemu_kvm;
         runAsRoot = true;
         swtpm.enable = true;
-        ovmf = {
-          enable = true;
-          packages = [(pkgs.OVMF.override {
-            secureBoot = true;
-            tpmSupport = true;
-          }).fd];
-        };
+        # ovmf = {
+        #   enable = true;
+        #   packages = [(pkgs.OVMF.override {
+        #     secureBoot = true;
+        #     tpmSupport = true;
+        #   }).fd];
+        # };
+        # - The 'virtualisation.libvirtd.qemu.ovmf' submodule has been removed. All OVMF images distributed with QEMU are now available by default.
       };
     };
   };
@@ -179,9 +180,11 @@
       autoNumlock = true;
       wayland.enable = true;
       extraPackages = with pkgs; [
-        libsForQt5.qt5.qtsvg
-        libsForQt5.qt5.qtquickcontrols2
-        libsForQt5.qt5.qtgraphicaleffects
+        # qt6.qtsvg
+        # qt6.qtquickcontrols2
+        # libsForQt5.qt5.qtsvg
+        # libsForQt5.qt5.qtquickcontrols2
+        # libsForQt5.qt5.qtgraphicaleffects
       ];
       theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
     };

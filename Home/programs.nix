@@ -32,8 +32,12 @@
     };
     git = {
       enable = true;
-      userName  = "v-whitetail";
-      userEmail = "white.tail.millwork@gmail.com";
+      settings = {
+        user = {
+          userName  = "v-whitetail";
+          userEmail = "white.tail.millwork@gmail.com";
+        };
+      };
       ignores   = [ "*.swp" "*.swo" ];
     };
   };

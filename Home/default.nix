@@ -65,10 +65,14 @@
     };
     swayidle = {
       enable = true;
-      events = [
-        { event = "lock"; command = "lock"; }
-        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
-      ];
+      events = {
+        lock = "lock";
+        before-sleep = "${pkgs.swaylock}/bin/swaylock -fF";
+      };
+      # events = [
+      #   { event = "lock"; command = "lock"; }
+      #   { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
+      # ];
     };
   };
 
@@ -94,7 +98,7 @@
       tailwindcss
       brightnessctl
       via
-      protonup
+      protonup-ng
       rofimoji
       brave
       proton-pass
