@@ -104,6 +104,8 @@
       proton-pass
       protonvpn-gui
       protonmail-desktop #requires desktop session to be x11
+      vintagestory
+      path-of-building
     ];
     sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
