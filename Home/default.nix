@@ -85,6 +85,9 @@
       ".config/devshells".source = ./DotFiles/devshells;
     };
     packages = with pkgs; [
+      wivrn #temporary vr stuff
+      avahi
+      #avahi-compat
       devenv
       wl-clipboard
       xdg-utils
