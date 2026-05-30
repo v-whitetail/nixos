@@ -60,8 +60,8 @@
   networking = {
     hostName = "fogCanyon";
     firewall = {
-      allowedTCPPorts = [ 22 ];
-      allowedUDPPorts = [ ];
+      allowedTCPPorts = [ 22 9757 ];
+      allowedUDPPorts = [ 5353 9757 ]; #opened for wivrn
     };
     networkmanager.enable = true;
   };
@@ -150,6 +150,8 @@
   };
 
   services = {
+    avahi.enable = true; #temporary vr stuff
+    wivrn.enable = true;
     # ntp.enable = true;
     dbus.enable = true;
     openssh.enable = true;
