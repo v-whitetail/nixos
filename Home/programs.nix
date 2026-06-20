@@ -24,6 +24,7 @@
     yazi = {
       enable = true;
       enableNushellIntegration = true;
+      shellWrapperName = "lf";
     };
     nushell = { 
       enable = true;

@@ -28,6 +28,7 @@
     userDirs = {
       enable = true;
       createDirectories = true;
+      setSessionVariables = false;
     };
     portal = {
       enable = true;
@@ -45,6 +46,12 @@
     theme = {
       name = "rose-pine";
       package = pkgs.rose-pine-gtk-theme;
+    };
+    gtk4 = {
+      theme = {
+        name = "rose-pine";
+        package = pkgs.rose-pine-gtk-theme;
+      };
     };
   };
 

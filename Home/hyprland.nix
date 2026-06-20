@@ -60,7 +60,7 @@ in
         };
       };
       misc = {
-        vfr = true;
+        # vfr = true; # hyprland.conf removed
         vrr = 1;  #sets adaptive sync always on
         enable_swallow = false;
         disable_hyprland_logo = true;
@@ -70,7 +70,7 @@ in
         initial_workspace_tracking = 0;
       };
       dwindle = {
-        pseudotile = true;
+        # pseudotile = true; # hyprland.conf removed
         preserve_split = true;
       };
       master = {
@@ -116,7 +116,7 @@ in
         "${m_key},d,exec,${d_menu}"
         "${m_key},f,fullscreen,"
         "${m_key},q,killactive,"
-        "${m_key},s,togglesplit,"
+        # "${m_key},s,togglesplit," # hyprland.conf removed
         "${m_key},${u_key},movefocus,u"
         "${m_key},${d_key},movefocus,d"
         "${m_key},${l_key},movefocus,l"

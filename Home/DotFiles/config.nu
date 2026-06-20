@@ -2,7 +2,6 @@
 alias :q = exit
 alias cat = bat
 alias vim = nvim ./
-alias lf = yazi
 alias tw = tailwindcss
 
 alias cdnix = cd /home/v/crystalPeak/nixos
