@@ -102,7 +102,7 @@
       rofimoji
       brave
       proton-pass
-      protonvpn-gui
+      proton-vpn
       protonmail-desktop #requires desktop session to be x11
       #vintagestory
       rusty-path-of-building

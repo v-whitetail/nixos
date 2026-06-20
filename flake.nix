@@ -11,8 +11,8 @@
 
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    # nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    # home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
   };
 
