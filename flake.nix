@@ -9,8 +9,10 @@
     nix-colors.url = "github:misterio77/nix-colors";
     home-manager.url = "github:nix-community/home-manager";
 
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    silentSDDM.url = "github:uiriansan/SilentSDDM";
 
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    silentSDDM.inputs.nixpkgs.follows = "nixpkgs";
     # nixvim.inputs.nixpkgs.follows = "nixpkgs";
     # home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -25,6 +27,7 @@
     nixosConfigurations = {
       v-whitetail = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./System/configuration.nix
           home-manager.nixosModules.home-manager

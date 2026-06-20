@@ -1,7 +1,10 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, inputs, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    inputs.silentSDDM.nixosModules.default
+  ];
 
   time.timeZone = "US/Eastern";
   time.hardwareClockInLocalTime = true;
@@ -147,6 +150,15 @@
         "--expose-wayland"
       ];
     };
+    silentSDDM = {
+      enable = true;
+      theme = "rei";
+      settings = {
+        LoginScreen = {
+          background = ./animaged-bg.mp4;
+        };
+      };
+    };
   };
 
   services = {
@@ -174,20 +186,25 @@
       enable = true;
     };
     # desktopManager.plasma6.enable = true;
-    displayManager.defaultSession = "hyprland";
-    displayManager.sddm = {
-      enable = true;
-      autoNumlock = true;
-      wayland.enable = true;
-      extraPackages = with pkgs; [
-        # qt6.qtsvg
-        # qt6.qtquickcontrols2
-        # libsForQt5.qt5.qtsvg
-        # libsForQt5.qt5.qtquickcontrols2
-        # libsForQt5.qt5.qtgraphicaleffects
-      ];
-      theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
-    };
+    # displayManager.defaultSession = "hyprland";
+    # displayManager.sddm = {
+    #   enable = true;
+    #   autoNumlock = true;
+    #   wayland.enable = true;
+    #   extraPackages = with pkgs; [
+    #     kdePackages.qtbase
+    #     # qt6.qtsvg
+    #     # qt6.qt5compat
+    #     # qt6.qtquick3d
+    #     # qt6.qtquickeffectmaker
+    #     # qt6.qtvirtualkeyboard
+    #     # qt6.qtgraphs
+    #     # qt5.qtsvg
+    #     # qt5.qtquickcontrols2
+    #     # qt5.qtgraphicaleffects
+    #   ];
+    #   theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
+    # };
   };
 
   fonts = {
