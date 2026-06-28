@@ -95,14 +95,14 @@
       devenv
       wl-clipboard
       xdg-utils
-      cargo-watch
+      # cargo-watch
       # rustup
       discord
       dotacat
       grimblast
       libnotify
       pavucontrol
-      tailwindcss
+      # tailwindcss
       brightnessctl
       via
       protonup-ng
@@ -111,9 +111,10 @@
       proton-pass
       proton-vpn
       protonmail-desktop #requires desktop session to be x11
-      #vintagestory
-      rusty-path-of-building
-      prismlauncher
+      # vintagestory
+      # rusty-path-of-building
+      # prismlauncher
+      telegram-desktop
     ];
     sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
