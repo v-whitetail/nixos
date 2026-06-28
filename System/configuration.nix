@@ -167,7 +167,7 @@
       enable = true;
       theme = "rei";
       # backgrounds."andre" = ./andre.mp4;
-      backgrounds."andre" = "${padded-andre}";
+      backgrounds."andre" = "${padded-andre}/andre.mp4";
       settings = {
         "LoginScreen"."background" = "andre.mp4";
         "LockScreen"."background" = "andre.mp4";
