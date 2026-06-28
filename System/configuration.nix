@@ -150,15 +150,30 @@
         "--expose-wayland"
       ];
     };
-    silentSDDM = {
+    silentSDDM = let
+      padded-andre = pkgs.stdenv.mkDerivation {
+        name = "andre-padded";
+        src = builtins.fetchurl {
+          url = "https://static1.e621.net/data/92/12/9212888c5c4816ac0d7fc2be7baa8027.webm";
+          sha256 = "1nik4zjxrrr55fy3rmghlzd02qkdxjxrbfzdl68zjyga6g8xj0ms";
+        };
+        nativeBuildInputs = [ pkgs.ffmpeg ];
+        buildCommand = ''
+          mkdir -p $out
+          ffmpeg -i $src -vf "pad=2*iw:ih:iw:0:black" -an $out/andre.mp4
+        '';
+      };
+    in {
       enable = true;
       theme = "rei";
+      # backgrounds."andre" = ./andre.mp4;
+      backgrounds."andre" = "${padded-andre}";
       settings = {
-        LoginScreen = {
-          background = ./animaged-bg.mp4;
-        };
+        "LoginScreen"."background" = "andre.mp4";
+        "LockScreen"."background" = "andre.mp4";
       };
     };
+    # silentSDDM = "${import ./silent-sddm.nix { inherit pkgs; }}";
   };
 
   services = {
