@@ -151,8 +151,8 @@
       ];
     };
     silentSDDM = let
-      padded-andre = pkgs.stdenv.mkDerivation {
-        name = "andre-padded";
+      andre-padded-1 = pkgs.stdenv.mkDerivation {
+        name = "andre-padded-1";
         src = builtins.fetchurl {
           url = "https://static1.e621.net/data/92/12/9212888c5c4816ac0d7fc2be7baa8027.webm";
           sha256 = "1nik4zjxrrr55fy3rmghlzd02qkdxjxrbfzdl68zjyga6g8xj0ms";
@@ -163,11 +163,47 @@
           ffmpeg -i $src -vf "pad=2*iw:ih:iw:0:black" -an $out/andre.mp4
         '';
       };
+      andre-padded-2 = pkgs.stdenv.mkDerivation {
+        name = "andre-padded-2";
+        src = builtins.fetchurl {
+          url = "https://static1.e621.net/data/c8/03/c803d90b038ccf936186a366a7707aa7.webm";
+          sha256 = "1qpg3rqi471ff81hg5h6c85mdsh5maqslrxcnsjpd55pvwfa7cq9";
+        };
+        nativeBuildInputs = [ pkgs.ffmpeg ];
+        buildCommand = ''
+          mkdir -p $out
+          ffmpeg -i $src -vf "split[original][bg_raw]; [bg_raw]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,boxblur=20:5[bg_blurred]; [original]scale=-1:1080[fg_scaled]; [bg_blurred][fg_scaled]overlay=(W-w)/2:(H-h)/2" -an $out/andre.mp4
+        '';
+      };
+      andre-padded-3 = pkgs.stdenv.mkDerivation {
+        name = "andre-padded-3";
+        src = builtins.fetchurl {
+          url = "https://static1.e621.net/data/f5/ca/f5ca31a4dab2b6f0a3267a0554c700c5.webm";
+          sha256 = "0if6im27800151zy482rq2kgckjw6jng1pfg5kgb56x74jv18q3l";
+        };
+        nativeBuildInputs = [ pkgs.ffmpeg ];
+        buildCommand = ''
+          mkdir -p $out
+          ffmpeg -i $src -vf "split[original][bg_raw]; [bg_raw]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,boxblur=20:5[bg_blurred]; [original]scale=-1:1080[fg_scaled]; [bg_blurred][fg_scaled]overlay=(W-w)/2:(H-h)/2" -an $out/andre.mp4
+        '';
+      };
+      andre-padded-4 = pkgs.stdenv.mkDerivation {
+        name = "andre-padded-4";
+        src = builtins.fetchurl {
+          url = "https://static1.e621.net/data/1e/ae/1eaef4426e61edae3602a2def50deff4.webm";
+          sha256 = "03qj5g3id5iilzyhj2gc3bxp45jni4vbmgvl7bn8iz352i9djwn4";
+        };
+        nativeBuildInputs = [ pkgs.ffmpeg ];
+        buildCommand = ''
+          mkdir -p $out
+          ffmpeg -i $src -vf "split[original][bg_raw]; [bg_raw]scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,boxblur=20:5[bg_blurred]; [original]scale=-1:1080[fg_scaled]; [bg_blurred][fg_scaled]overlay=(W-w)/2:(H-h)/2" -an $out/andre.mp4
+        '';
+      };
     in {
       enable = true;
       theme = "rei";
       # backgrounds."andre" = ./andre.mp4;
-      backgrounds."andre" = "${padded-andre}/andre.mp4";
+      backgrounds."andre" = "${andre-padded-4}/andre.mp4";
       settings = {
         "LoginScreen"."background" = "andre.mp4";
         "LockScreen"."background" = "andre.mp4";
