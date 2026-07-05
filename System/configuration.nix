@@ -64,7 +64,7 @@
     hostName = "fogCanyon";
     firewall = {
       allowedTCPPorts = [ 22 ];
-      allowedUDPPorts = [ ]; #opened for wivrn
+      allowedUDPPorts = [ ];
     };
     networkmanager.enable = true;
   };
@@ -101,11 +101,8 @@
       git
       via
       dbus
-      # sway
       wget
       gitui
-      # rustc
-      # cargo
       neovim
       nushell
       openssl
@@ -202,21 +199,18 @@
     in {
       enable = true;
       theme = "rei";
-      # backgrounds."andre" = ./andre.mp4;
       backgrounds."andre" = "${andre-padded-4}/andre.mp4";
       settings = {
         "LoginScreen"."background" = "andre.mp4";
         "LockScreen"."background" = "andre.mp4";
       };
     };
-    # silentSDDM = "${import ./silent-sddm.nix { inherit pkgs; }}";
   };
 
   services = {
     # ntp.enable = true;
     dbus.enable = true;
     openssh.enable = true;
-    # postgresql.enable = true;
     gnome.gnome-keyring.enable = true;
     udev.packages = [ pkgs.via ];
     pipewire = {
@@ -236,26 +230,8 @@
     libinput = {
       enable = true;
     };
-    # desktopManager.plasma6.enable = true;
-    # displayManager.defaultSession = "hyprland";
-    # displayManager.sddm = {
-    #   enable = true;
-    #   autoNumlock = true;
-    #   wayland.enable = true;
-    #   extraPackages = with pkgs; [
-    #     kdePackages.qtbase
-    #     # qt6.qtsvg
-    #     # qt6.qt5compat
-    #     # qt6.qtquick3d
-    #     # qt6.qtquickeffectmaker
-    #     # qt6.qtvirtualkeyboard
-    #     # qt6.qtgraphs
-    #     # qt5.qtsvg
-    #     # qt5.qtquickcontrols2
-    #     # qt5.qtgraphicaleffects
-    #   ];
-    #   theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
-    # };
+    desktopManager.plasma6.enable = true;
+    displayManager.defaultSession = "hyprland";
   };
 
   fonts = {
